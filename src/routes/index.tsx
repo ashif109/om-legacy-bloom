@@ -23,8 +23,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Om — Sanskrit Scholar · Speaker · Leader" },
       { name: "description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
-      { property: "og:title", content: "Om — Sanatan Gurukulam" },
-      { property: "og:description", content: "Ancient Sanatan wisdom, modern premium presence." },
+      { property: "og:title", content: "Om — Sanskrit Scholar · Speaker · Leader" },
+      { property: "og:description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
       { property: "og:url", content: "/" },
     ],
   }),
