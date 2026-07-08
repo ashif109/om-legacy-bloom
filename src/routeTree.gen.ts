@@ -9,8 +9,152 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkshopsRouteImport } from './routes/workshops'
+import { Route as TrainingsRouteImport } from './routes/trainings'
+import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SocialWorkRouteImport } from './routes/social-work'
+import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as SeminarsRouteImport } from './routes/seminars'
+import { Route as ResponsibilitiesRouteImport } from './routes/responsibilities'
+import { Route as PublicationsRouteImport } from './routes/publications'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as MediaRouteImport } from './routes/media'
+import { Route as JourneyRouteImport } from './routes/journey'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as EducationRouteImport } from './routes/education'
+import { Route as DownloadsRouteImport } from './routes/downloads'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CertificatesRouteImport } from './routes/certificates'
+import { Route as CampsRouteImport } from './routes/camps'
+import { Route as AwardsRouteImport } from './routes/awards'
+import { Route as AchievementsRouteImport } from './routes/achievements'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkshopsRoute = WorkshopsRouteImport.update({
+  id: '/workshops',
+  path: '/workshops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingsRoute = TrainingsRouteImport.update({
+  id: '/trainings',
+  path: '/trainings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimelineRoute = TimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialWorkRoute = SocialWorkRouteImport.update({
+  id: '/social-work',
+  path: '/social-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkillsRoute = SkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeminarsRoute = SeminarsRouteImport.update({
+  id: '/seminars',
+  path: '/seminars',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResponsibilitiesRoute = ResponsibilitiesRouteImport.update({
+  id: '/responsibilities',
+  path: '/responsibilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicationsRoute = PublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaRoute = MediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JourneyRoute = JourneyRouteImport.update({
+  id: '/journey',
+  path: '/journey',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EducationRoute = EducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificatesRoute = CertificatesRouteImport.update({
+  id: '/certificates',
+  path: '/certificates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampsRoute = CampsRouteImport.update({
+  id: '/camps',
+  path: '/camps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AwardsRoute = AwardsRouteImport.update({
+  id: '/awards',
+  path: '/awards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AchievementsRoute = AchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +163,368 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
+  '/awards': typeof AwardsRoute
+  '/camps': typeof CampsRoute
+  '/certificates': typeof CertificatesRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/education': typeof EducationRoute
+  '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
+  '/journey': typeof JourneyRoute
+  '/media': typeof MediaRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRoute
+  '/publications': typeof PublicationsRoute
+  '/responsibilities': typeof ResponsibilitiesRoute
+  '/seminars': typeof SeminarsRoute
+  '/skills': typeof SkillsRoute
+  '/social-work': typeof SocialWorkRoute
+  '/terms': typeof TermsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/timeline': typeof TimelineRoute
+  '/trainings': typeof TrainingsRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
+  '/awards': typeof AwardsRoute
+  '/camps': typeof CampsRoute
+  '/certificates': typeof CertificatesRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/education': typeof EducationRoute
+  '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
+  '/journey': typeof JourneyRoute
+  '/media': typeof MediaRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRoute
+  '/publications': typeof PublicationsRoute
+  '/responsibilities': typeof ResponsibilitiesRoute
+  '/seminars': typeof SeminarsRoute
+  '/skills': typeof SkillsRoute
+  '/social-work': typeof SocialWorkRoute
+  '/terms': typeof TermsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/timeline': typeof TimelineRoute
+  '/trainings': typeof TrainingsRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
+  '/awards': typeof AwardsRoute
+  '/camps': typeof CampsRoute
+  '/certificates': typeof CertificatesRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/education': typeof EducationRoute
+  '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
+  '/journey': typeof JourneyRoute
+  '/media': typeof MediaRoute
+  '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRoute
+  '/publications': typeof PublicationsRoute
+  '/responsibilities': typeof ResponsibilitiesRoute
+  '/seminars': typeof SeminarsRoute
+  '/skills': typeof SkillsRoute
+  '/social-work': typeof SocialWorkRoute
+  '/terms': typeof TermsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/timeline': typeof TimelineRoute
+  '/trainings': typeof TrainingsRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/achievements'
+    | '/awards'
+    | '/camps'
+    | '/certificates'
+    | '/contact'
+    | '/downloads'
+    | '/education'
+    | '/events'
+    | '/gallery'
+    | '/journey'
+    | '/media'
+    | '/privacy'
+    | '/projects'
+    | '/publications'
+    | '/responsibilities'
+    | '/seminars'
+    | '/skills'
+    | '/social-work'
+    | '/terms'
+    | '/testimonials'
+    | '/timeline'
+    | '/trainings'
+    | '/workshops'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/achievements'
+    | '/awards'
+    | '/camps'
+    | '/certificates'
+    | '/contact'
+    | '/downloads'
+    | '/education'
+    | '/events'
+    | '/gallery'
+    | '/journey'
+    | '/media'
+    | '/privacy'
+    | '/projects'
+    | '/publications'
+    | '/responsibilities'
+    | '/seminars'
+    | '/skills'
+    | '/social-work'
+    | '/terms'
+    | '/testimonials'
+    | '/timeline'
+    | '/trainings'
+    | '/workshops'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/achievements'
+    | '/awards'
+    | '/camps'
+    | '/certificates'
+    | '/contact'
+    | '/downloads'
+    | '/education'
+    | '/events'
+    | '/gallery'
+    | '/journey'
+    | '/media'
+    | '/privacy'
+    | '/projects'
+    | '/publications'
+    | '/responsibilities'
+    | '/seminars'
+    | '/skills'
+    | '/social-work'
+    | '/terms'
+    | '/testimonials'
+    | '/timeline'
+    | '/trainings'
+    | '/workshops'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AchievementsRoute: typeof AchievementsRoute
+  AwardsRoute: typeof AwardsRoute
+  CampsRoute: typeof CampsRoute
+  CertificatesRoute: typeof CertificatesRoute
+  ContactRoute: typeof ContactRoute
+  DownloadsRoute: typeof DownloadsRoute
+  EducationRoute: typeof EducationRoute
+  EventsRoute: typeof EventsRoute
+  GalleryRoute: typeof GalleryRoute
+  JourneyRoute: typeof JourneyRoute
+  MediaRoute: typeof MediaRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProjectsRoute: typeof ProjectsRoute
+  PublicationsRoute: typeof PublicationsRoute
+  ResponsibilitiesRoute: typeof ResponsibilitiesRoute
+  SeminarsRoute: typeof SeminarsRoute
+  SkillsRoute: typeof SkillsRoute
+  SocialWorkRoute: typeof SocialWorkRoute
+  TermsRoute: typeof TermsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
+  TimelineRoute: typeof TimelineRoute
+  TrainingsRoute: typeof TrainingsRoute
+  WorkshopsRoute: typeof WorkshopsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workshops': {
+      id: '/workshops'
+      path: '/workshops'
+      fullPath: '/workshops'
+      preLoaderRoute: typeof WorkshopsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trainings': {
+      id: '/trainings'
+      path: '/trainings'
+      fullPath: '/trainings'
+      preLoaderRoute: typeof TrainingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-work': {
+      id: '/social-work'
+      path: '/social-work'
+      fullPath: '/social-work'
+      preLoaderRoute: typeof SocialWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skills': {
+      id: '/skills'
+      path: '/skills'
+      fullPath: '/skills'
+      preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seminars': {
+      id: '/seminars'
+      path: '/seminars'
+      fullPath: '/seminars'
+      preLoaderRoute: typeof SeminarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/responsibilities': {
+      id: '/responsibilities'
+      path: '/responsibilities'
+      fullPath: '/responsibilities'
+      preLoaderRoute: typeof ResponsibilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publications': {
+      id: '/publications'
+      path: '/publications'
+      fullPath: '/publications'
+      preLoaderRoute: typeof PublicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media': {
+      id: '/media'
+      path: '/media'
+      fullPath: '/media'
+      preLoaderRoute: typeof MediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journey': {
+      id: '/journey'
+      path: '/journey'
+      fullPath: '/journey'
+      preLoaderRoute: typeof JourneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/education': {
+      id: '/education'
+      path: '/education'
+      fullPath: '/education'
+      preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificates': {
+      id: '/certificates'
+      path: '/certificates'
+      fullPath: '/certificates'
+      preLoaderRoute: typeof CertificatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/camps': {
+      id: '/camps'
+      path: '/camps'
+      fullPath: '/camps'
+      preLoaderRoute: typeof CampsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/awards': {
+      id: '/awards'
+      path: '/awards'
+      fullPath: '/awards'
+      preLoaderRoute: typeof AwardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/achievements': {
+      id: '/achievements'
+      path: '/achievements'
+      fullPath: '/achievements'
+      preLoaderRoute: typeof AchievementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +537,31 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AchievementsRoute: AchievementsRoute,
+  AwardsRoute: AwardsRoute,
+  CampsRoute: CampsRoute,
+  CertificatesRoute: CertificatesRoute,
+  ContactRoute: ContactRoute,
+  DownloadsRoute: DownloadsRoute,
+  EducationRoute: EducationRoute,
+  EventsRoute: EventsRoute,
+  GalleryRoute: GalleryRoute,
+  JourneyRoute: JourneyRoute,
+  MediaRoute: MediaRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProjectsRoute: ProjectsRoute,
+  PublicationsRoute: PublicationsRoute,
+  ResponsibilitiesRoute: ResponsibilitiesRoute,
+  SeminarsRoute: SeminarsRoute,
+  SkillsRoute: SkillsRoute,
+  SocialWorkRoute: SocialWorkRoute,
+  TermsRoute: TermsRoute,
+  TestimonialsRoute: TestimonialsRoute,
+  TimelineRoute: TimelineRoute,
+  TrainingsRoute: TrainingsRoute,
+  WorkshopsRoute: WorkshopsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
