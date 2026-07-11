@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import mandala from "@/assets/mandala.png";
+=======
+import mandala from "@/assets/mandala.jpg";
+>>>>>>> origin/main
 
 export function Mandala({ className = "", size = 720 }: { className?: string; size?: number }) {
   return (

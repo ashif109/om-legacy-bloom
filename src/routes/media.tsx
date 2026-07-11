@@ -1,12 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { media } from "@/lib/site-data";
+<<<<<<< HEAD
 import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
 import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
 import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
 import { Play } from "lucide-react";
 
 
+=======
+import speechImg from "@/assets/speech.jpg";
+import awardImg from "@/assets/award.jpg";
+import gatheringImg from "@/assets/gathering.jpg";
+import { Play } from "lucide-react";
+
+>>>>>>> origin/main
 const imgFor = (t: string) => (t === "News" || t === "Press" ? speechImg : t === "Interview" || t === "Podcast" ? awardImg : gatheringImg);
 
 export const Route = createFileRoute("/media")({

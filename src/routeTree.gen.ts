@@ -31,6 +31,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CertificatesRouteImport } from './routes/certificates'
 import { Route as CampsRouteImport } from './routes/camps'
 import { Route as AwardsRouteImport } from './routes/awards'
+<<<<<<< HEAD
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as AboutRouteImport } from './routes/about'
@@ -40,6 +41,11 @@ import { Route as AdminMediaRouteImport } from './routes/admin/media'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AdminContentRouteImport } from './routes/admin/content'
 import { Route as AdminCertificatesRouteImport } from './routes/admin/certificates'
+=======
+import { Route as AchievementsRouteImport } from './routes/achievements'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
+>>>>>>> origin/main
 
 const WorkshopsRoute = WorkshopsRouteImport.update({
   id: '/workshops',
@@ -151,11 +157,14 @@ const AwardsRoute = AwardsRouteImport.update({
   path: '/awards',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< HEAD
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+=======
+>>>>>>> origin/main
 const AchievementsRoute = AchievementsRouteImport.update({
   id: '/achievements',
   path: '/achievements',
@@ -171,6 +180,7 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< HEAD
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -196,12 +206,17 @@ const AdminCertificatesRoute = AdminCertificatesRouteImport.update({
   path: '/certificates',
   getParentRoute: () => AdminRoute,
 } as any)
+=======
+>>>>>>> origin/main
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/achievements': typeof AchievementsRoute
+<<<<<<< HEAD
   '/admin': typeof AdminRouteWithChildren
+=======
+>>>>>>> origin/main
   '/awards': typeof AwardsRoute
   '/camps': typeof CampsRoute
   '/certificates': typeof CertificatesRoute
@@ -224,11 +239,14 @@ export interface FileRoutesByFullPath {
   '/timeline': typeof TimelineRoute
   '/trainings': typeof TrainingsRoute
   '/workshops': typeof WorkshopsRoute
+<<<<<<< HEAD
   '/admin/certificates': typeof AdminCertificatesRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/': typeof AdminIndexRoute
+=======
+>>>>>>> origin/main
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -256,18 +274,24 @@ export interface FileRoutesByTo {
   '/timeline': typeof TimelineRoute
   '/trainings': typeof TrainingsRoute
   '/workshops': typeof WorkshopsRoute
+<<<<<<< HEAD
   '/admin/certificates': typeof AdminCertificatesRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin': typeof AdminIndexRoute
+=======
+>>>>>>> origin/main
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/achievements': typeof AchievementsRoute
+<<<<<<< HEAD
   '/admin': typeof AdminRouteWithChildren
+=======
+>>>>>>> origin/main
   '/awards': typeof AwardsRoute
   '/camps': typeof CampsRoute
   '/certificates': typeof CertificatesRoute
@@ -290,11 +314,14 @@ export interface FileRoutesById {
   '/timeline': typeof TimelineRoute
   '/trainings': typeof TrainingsRoute
   '/workshops': typeof WorkshopsRoute
+<<<<<<< HEAD
   '/admin/certificates': typeof AdminCertificatesRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/': typeof AdminIndexRoute
+=======
+>>>>>>> origin/main
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -302,7 +329,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/achievements'
+<<<<<<< HEAD
     | '/admin'
+=======
+>>>>>>> origin/main
     | '/awards'
     | '/camps'
     | '/certificates'
@@ -325,11 +355,14 @@ export interface FileRouteTypes {
     | '/timeline'
     | '/trainings'
     | '/workshops'
+<<<<<<< HEAD
     | '/admin/certificates'
     | '/admin/content'
     | '/admin/login'
     | '/admin/media'
     | '/admin/'
+=======
+>>>>>>> origin/main
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -357,17 +390,23 @@ export interface FileRouteTypes {
     | '/timeline'
     | '/trainings'
     | '/workshops'
+<<<<<<< HEAD
     | '/admin/certificates'
     | '/admin/content'
     | '/admin/login'
     | '/admin/media'
     | '/admin'
+=======
+>>>>>>> origin/main
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/achievements'
+<<<<<<< HEAD
     | '/admin'
+=======
+>>>>>>> origin/main
     | '/awards'
     | '/camps'
     | '/certificates'
@@ -390,18 +429,24 @@ export interface FileRouteTypes {
     | '/timeline'
     | '/trainings'
     | '/workshops'
+<<<<<<< HEAD
     | '/admin/certificates'
     | '/admin/content'
     | '/admin/login'
     | '/admin/media'
     | '/admin/'
+=======
+>>>>>>> origin/main
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AchievementsRoute: typeof AchievementsRoute
+<<<<<<< HEAD
   AdminRoute: typeof AdminRouteWithChildren
+=======
+>>>>>>> origin/main
   AwardsRoute: typeof AwardsRoute
   CampsRoute: typeof CampsRoute
   CertificatesRoute: typeof CertificatesRoute
@@ -582,6 +627,7 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AwardsRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< HEAD
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -589,6 +635,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+=======
+>>>>>>> origin/main
     '/achievements': {
       id: '/achievements'
       path: '/achievements'
@@ -610,6 +658,7 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< HEAD
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -666,11 +715,19 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
+=======
+  }
+}
+
+>>>>>>> origin/main
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AchievementsRoute: AchievementsRoute,
+<<<<<<< HEAD
   AdminRoute: AdminRouteWithChildren,
+=======
+>>>>>>> origin/main
   AwardsRoute: AwardsRoute,
   CampsRoute: CampsRoute,
   CertificatesRoute: CertificatesRoute,
@@ -697,6 +754,7 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+<<<<<<< HEAD
 
 import type { getRouter } from './router.tsx'
 import type { startInstance } from './start.ts'
@@ -707,3 +765,5 @@ declare module '@tanstack/react-start' {
     config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }
+=======
+>>>>>>> origin/main

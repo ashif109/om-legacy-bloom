@@ -2,9 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { projects } from "@/lib/site-data";
 import manuscript from "@/assets/manuscript.jpg";
+<<<<<<< HEAD
 import speech from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
 import meditation from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
 import gathering from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
+=======
+import speech from "@/assets/speech.jpg";
+import meditation from "@/assets/meditation.jpg";
+import gathering from "@/assets/gathering.jpg";
+>>>>>>> origin/main
 const imgs = [manuscript, speech, meditation, gathering];
 
 export const Route = createFileRoute("/projects")({

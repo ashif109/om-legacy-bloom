@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+<<<<<<< HEAD
       { title: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer" },
       { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
       { name: "author", content: "Triyambkeshwar Nath Tyagi" },
@@ -89,6 +90,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer" },
       { name: "twitter:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
+=======
+      { title: "Om — Sanskrit Scholar · Speaker · Leader" },
+      { name: "description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
+      { name: "author", content: "Om" },
+      { name: "theme-color", content: "#140B07" },
+      { property: "og:title", content: "Om — Sanskrit Scholar · Speaker · Leader" },
+      { property: "og:description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Om — Sanatan Gurukulam" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Om — Sanskrit Scholar · Speaker · Leader" },
+      { name: "twitter:description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
+>>>>>>> origin/main
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/efd8017d-89ef-4fcd-9630-fb6e35ca03f1/id-preview-c90ac240--001d4557-d799-416a-9291-4b079caada6d.lovable.app-1783526137639.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/efd8017d-89ef-4fcd-9630-fb6e35ca03f1/id-preview-c90ac240--001d4557-d799-416a-9291-4b079caada6d.lovable.app-1783526137639.png" },
     ],

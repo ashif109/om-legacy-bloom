@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Eye, Flag, Flower, Sun, Mic, GraduationCap, Users, Award } from "lucide-react";
 
+<<<<<<< HEAD
 import heroOm from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM.jpeg";
 import templeBg from "@/assets/temple-bg.jpg";
 import meditationImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
@@ -9,12 +10,22 @@ import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).
 import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
 import manuscriptImg from "@/assets/manuscript.jpg";
 import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
+=======
+import heroOm from "@/assets/hero-om.jpg";
+import templeBg from "@/assets/temple-bg.jpg";
+import meditationImg from "@/assets/meditation.jpg";
+import speechImg from "@/assets/speech.jpg";
+import gatheringImg from "@/assets/gathering.jpg";
+import manuscriptImg from "@/assets/manuscript.jpg";
+import awardImg from "@/assets/award.jpg";
+>>>>>>> origin/main
 
 import { Navbar } from "@/components/luxury/Navbar";
 import { Footer } from "@/components/luxury/Footer";
 import { Mandala } from "@/components/luxury/Mandala";
 import { GoldParticles } from "@/components/luxury/GoldParticles";
 import { Ornament, SectionLabel } from "@/components/luxury/Ornament";
+<<<<<<< HEAD
 import * as fallbackData from "@/lib/site-data";
 import { getSiteData, getMedia } from "@/lib/api";
 import { useLang } from "@/lib/i18n";
@@ -36,6 +47,18 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
       { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer" },
       { property: "og:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
+=======
+import { stats, missionCards, journey, achievements, media, testimonials } from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Om — Sanskrit Scholar · Speaker · Leader" },
+      { name: "description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
+      { property: "og:title", content: "Om — Sanskrit Scholar · Speaker · Leader" },
+      { property: "og:description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
+>>>>>>> origin/main
       { property: "og:url", content: "/" },
     ],
   }),
@@ -46,6 +69,7 @@ const missionIcons = [Eye, Flag, Flower, Sun];
 
 function HomePage() {
   const { t } = useLang();
+<<<<<<< HEAD
   const { siteData, mediaData } = Route.useLoaderData();
   const stats = siteData?.stats?.length > 0 ? siteData.stats : fallbackData.stats;
   const missionCards = siteData?.missionCards?.length > 0 ? siteData.missionCards : fallbackData.missionCards;
@@ -54,6 +78,8 @@ function HomePage() {
   const testimonials = siteData?.testimonials?.length > 0 ? siteData.testimonials : fallbackData.testimonials;
   const media = mediaData;
 
+=======
+>>>>>>> origin/main
   return (
     <div className="relative min-h-screen">
       <div className="pointer-events-none fixed inset-0 -z-10">
@@ -100,9 +126,15 @@ function HomePage() {
 
           {/* Copy */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
+<<<<<<< HEAD
             <SectionLabel>Student · Youtuber · Astrologer</SectionLabel>
             <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
               <span className="font-[cursive] font-extrabold text-gold-gradient">Triyambkeshwar Nath Tyagi</span>
+=======
+            <SectionLabel>Sanatan Gurukulam · Kashi</SectionLabel>
+            <h1 className="mt-6 font-display text-6xl leading-[0.95] tracking-tight md:text-8xl">
+              <span className="text-gold-gradient">Om</span>
+>>>>>>> origin/main
             </h1>
             <div className="mt-4 font-serif-lux text-xl italic text-[color:var(--muted-foreground)]">{t("hero.role")}</div>
             <div className="mt-2 text-[color:var(--cream)]">{t("hero.tag")}</div>

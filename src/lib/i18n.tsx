@@ -32,8 +32,13 @@ export const dict: Dict = {
   "cta.explore": { en: "Explore My Journey", hi: "मेरी यात्रा देखें", sa: "यात्रा दृश्यताम्" },
   "cta.contact": { en: "Contact Me", hi: "संपर्क करें", sa: "सम्पर्कं कुरुत" },
   "cta.achievements": { en: "View Achievements", hi: "उपलब्धियाँ देखें", sa: "सिद्धयः पश्यत" },
+<<<<<<< HEAD
   "hero.role": { en: "Student · Youtuber · Astrologer", hi: "छात्र · यूट्यूबर · ज्योतिषी", sa: "छात्रः · यूट्यूबर · ज्योतिषी" },
   "hero.tag": { en: "Working for Dharma & Vedic Astrology", hi: "सनातन धर्म और वैदिक ज्योतिष के लिए समर्पित", sa: "सनातनधर्मस्य वैदिकज्योतिषस्य च प्रसारे समर्पितः" },
+=======
+  "hero.role": { en: "Sanskrit Scholar · Speaker · Leader", hi: "संस्कृत विद्वान · वक्ता · नेता", sa: "संस्कृतविद्वान् · वक्ता · नायकः" },
+  "hero.tag": { en: "Working for Dharma, Education & Society", hi: "धर्म, शिक्षा एवं समाज हेतु समर्पित", sa: "धर्मशिक्षासमाजार्थं समर्पितः" },
+>>>>>>> origin/main
 };
 
 const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: keyof typeof dict) => string }>({

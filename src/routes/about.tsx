@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
+<<<<<<< HEAD
 import heroOm from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM.jpeg";
 import meditation from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
 import { getSiteData } from "@/lib/api";
@@ -16,10 +17,19 @@ export const Route = createFileRoute("/about")({
     }
   },
   head: () => ({ meta: [{ title: "About — Triyambkeshwar Nath Tyagi" }, { name: "description", content: "The story, values and vision of Triyambkeshwar Nath Tyagi." }, { property: "og:url", content: "/about" }], links: [{ rel: "canonical", href: "/about" }] }),
+=======
+import heroOm from "@/assets/hero-om.jpg";
+import meditation from "@/assets/meditation.jpg";
+import { skills, education } from "@/lib/site-data";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({ meta: [{ title: "About — Om" }, { name: "description", content: "The story, values and vision of Om." }, { property: "og:url", content: "/about" }], links: [{ rel: "canonical", href: "/about" }] }),
+>>>>>>> origin/main
   component: About,
 });
 
 const details = [
+<<<<<<< HEAD
   ["Full Name", "Triyambkeshwar Nath Tyagi"],
   ["Date of Birth", "08/08/2012"],
   ["City", "Agra, Uttar Pradesh"],
@@ -33,18 +43,37 @@ function About() {
   const skills = siteData?.skills?.length > 0 ? siteData.skills : fallbackData.skills;
   const education = siteData?.education?.length > 0 ? siteData.education : fallbackData.education;
 
+=======
+  ["Full Name", "Om"],
+  ["Date of Birth", "15 August 2001"],
+  ["Birthplace", "Varanasi, Uttar Pradesh"],
+  ["Residence", "Kashi, India"],
+  ["Languages", "Sanskrit, Hindi, English"],
+  ["Guru", "Ācārya Śrī Rāmānand Jī"],
+];
+
+function About() {
+>>>>>>> origin/main
   return (
     <PageShell>
       <PageHero
         eyebrow="About Me"
         title="A Life Rooted in Dharma"
         sanskrit="विद्या ददाति विनयं विनयाद् याति पात्रताम्"
+<<<<<<< HEAD
         subtitle="Student, Youtuber, and young astrologer devoted to the revival of Sanatan values through education, culture and selfless service."
+=======
+        subtitle="Sanskrit scholar, orator, and youth leader devoted to the revival of Sanatan values through education, culture and selfless service."
+>>>>>>> origin/main
       />
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr]">
           <div className="relative overflow-hidden rounded-3xl gold-border">
+<<<<<<< HEAD
             <img src={heroOm} alt="Triyambkeshwar Nath Tyagi" className="h-full w-full object-cover" />
+=======
+            <img src={heroOm} alt="Om" className="h-full w-full object-cover" />
+>>>>>>> origin/main
           </div>
           <div className="space-y-6">
             <h2 className="font-display text-4xl text-gold-gradient">Introduction</h2>
