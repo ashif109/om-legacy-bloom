@@ -2,15 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { projects } from "@/lib/site-data";
 import manuscript from "@/assets/manuscript.jpg";
-<<<<<<< HEAD
 import speech from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
 import meditation from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
 import gathering from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
-=======
-import speech from "@/assets/speech.jpg";
-import meditation from "@/assets/meditation.jpg";
-import gathering from "@/assets/gathering.jpg";
->>>>>>> origin/main
 const imgs = [manuscript, speech, meditation, gathering];
 
 export const Route = createFileRoute("/projects")({
@@ -26,7 +20,7 @@ function Projects() {
         {projects.map((p, i) => (
           <div key={p.title} className="group overflow-hidden rounded-3xl gold-border">
             <div className="relative aspect-[16/10] overflow-hidden">
-              <img src={imgs[i % imgs.length]} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={imgs[i % imgs.length]} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--background)]/90 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6">
                 <div className="font-display text-2xl text-gold-gradient">{p.title}</div>

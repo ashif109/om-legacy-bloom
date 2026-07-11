@@ -2,10 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Search, Heart, Globe } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
-<<<<<<< HEAD
 import { DonationModal } from "@/components/DonationModal";
-=======
->>>>>>> origin/main
 
 const links = [
   { to: "/", key: "nav.home" as const },
@@ -42,10 +39,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [showLang, setShowLang] = useState(false);
-<<<<<<< HEAD
   const [showDonation, setShowDonation] = useState(false);
-=======
->>>>>>> origin/main
   const path = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
@@ -159,7 +153,6 @@ export function Navbar() {
                 </div>
               )}
             </div>
-<<<<<<< HEAD
             <Link to="/admin" className="hidden md:inline-flex h-10 items-center justify-center gap-2 rounded-full border border-[color:var(--gold)]/25 px-4 text-xs font-semibold tracking-widest uppercase text-[color:var(--cream)] hover:border-[color:var(--gold)] hover:text-[color:var(--gold)] transition-colors">
               Admin
             </Link>
@@ -167,9 +160,6 @@ export function Navbar() {
               onClick={() => setShowDonation(true)}
               className="hidden md:inline-flex h-10 items-center gap-2 rounded-full btn-gold px-4 text-xs font-semibold tracking-widest uppercase"
             >
-=======
-            <button className="hidden md:inline-flex h-10 items-center gap-2 rounded-full btn-gold px-4 text-xs font-semibold tracking-widest uppercase">
->>>>>>> origin/main
               <Heart size={14} /> {t("cta.donate")}
             </button>
             <button className="lg:hidden grid h-10 w-10 place-items-center rounded-full border border-[color:var(--gold)]/30 text-[color:var(--cream)]" onClick={() => setOpen((v) => !v)} aria-label="Menu">
@@ -191,11 +181,7 @@ export function Navbar() {
           </div>
         )}
       </header>
-<<<<<<< HEAD
-
       <DonationModal isOpen={showDonation} onClose={() => setShowDonation(false)} />
-=======
->>>>>>> origin/main
     </>
   );
 }

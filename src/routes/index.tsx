@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Eye, Flag, Flower, Sun, Mic, GraduationCap, Users, Award } from "lucide-react";
 
-<<<<<<< HEAD
 import heroOm from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM.jpeg";
 import templeBg from "@/assets/temple-bg.jpg";
 import meditationImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
@@ -10,22 +9,12 @@ import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).
 import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
 import manuscriptImg from "@/assets/manuscript.jpg";
 import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
-=======
-import heroOm from "@/assets/hero-om.jpg";
-import templeBg from "@/assets/temple-bg.jpg";
-import meditationImg from "@/assets/meditation.jpg";
-import speechImg from "@/assets/speech.jpg";
-import gatheringImg from "@/assets/gathering.jpg";
-import manuscriptImg from "@/assets/manuscript.jpg";
-import awardImg from "@/assets/award.jpg";
->>>>>>> origin/main
 
 import { Navbar } from "@/components/luxury/Navbar";
 import { Footer } from "@/components/luxury/Footer";
 import { Mandala } from "@/components/luxury/Mandala";
 import { GoldParticles } from "@/components/luxury/GoldParticles";
 import { Ornament, SectionLabel } from "@/components/luxury/Ornament";
-<<<<<<< HEAD
 import * as fallbackData from "@/lib/site-data";
 import { getSiteData, getMedia } from "@/lib/api";
 import { useLang } from "@/lib/i18n";
@@ -47,18 +36,6 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
       { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer" },
       { property: "og:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
-=======
-import { stats, missionCards, journey, achievements, media, testimonials } from "@/lib/site-data";
-import { useLang } from "@/lib/i18n";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Om — Sanskrit Scholar · Speaker · Leader" },
-      { name: "description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
-      { property: "og:title", content: "Om — Sanskrit Scholar · Speaker · Leader" },
-      { property: "og:description", content: "Premium portfolio of Om — working for Dharma, Education and Society." },
->>>>>>> origin/main
       { property: "og:url", content: "/" },
     ],
   }),
@@ -69,7 +46,6 @@ const missionIcons = [Eye, Flag, Flower, Sun];
 
 function HomePage() {
   const { t } = useLang();
-<<<<<<< HEAD
   const { siteData, mediaData } = Route.useLoaderData();
   const stats = siteData?.stats?.length > 0 ? siteData.stats : fallbackData.stats;
   const missionCards = siteData?.missionCards?.length > 0 ? siteData.missionCards : fallbackData.missionCards;
@@ -78,8 +54,6 @@ function HomePage() {
   const testimonials = siteData?.testimonials?.length > 0 ? siteData.testimonials : fallbackData.testimonials;
   const media = mediaData;
 
-=======
->>>>>>> origin/main
   return (
     <div className="relative min-h-screen">
       <div className="pointer-events-none fixed inset-0 -z-10">
@@ -90,7 +64,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={templeBg} alt="" className="h-full w-full object-cover opacity-40" />
+          <img src={templeBg} alt="" className="h-full w-full object-cover object-[center_30%] opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--background)]/70 via-[color:var(--background)]/60 to-[color:var(--background)]" />
         </div>
         <Mandala className="right-[-160px] top-[-140px] opacity-70" size={720} />
@@ -106,7 +80,7 @@ function HomePage() {
           >
             <div className="pointer-events-none absolute inset-0 -m-6 rounded-[2rem] bg-[color:var(--gold)]/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] gold-border">
-              <img src={heroOm} alt="Portrait of Om" className="h-[560px] w-full object-cover" />
+              <img src={heroOm} alt="Portrait of Om" className="h-[560px] w-full object-cover object-[center_30%]" />
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[color:var(--background)] to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-[color:var(--gold)]">
                 <span>Est. 2017</span>
@@ -126,15 +100,9 @@ function HomePage() {
 
           {/* Copy */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
-<<<<<<< HEAD
             <SectionLabel>Student · Youtuber · Astrologer</SectionLabel>
             <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
               <span className="font-[cursive] font-extrabold text-gold-gradient">Triyambkeshwar Nath Tyagi</span>
-=======
-            <SectionLabel>Sanatan Gurukulam · Kashi</SectionLabel>
-            <h1 className="mt-6 font-display text-6xl leading-[0.95] tracking-tight md:text-8xl">
-              <span className="text-gold-gradient">Om</span>
->>>>>>> origin/main
             </h1>
             <div className="mt-4 font-serif-lux text-xl italic text-[color:var(--muted-foreground)]">{t("hero.role")}</div>
             <div className="mt-2 text-[color:var(--cream)]">{t("hero.tag")}</div>
@@ -311,7 +279,7 @@ function HomePage() {
             { src: heroOm, cls: "md:col-span-1 md:row-span-1" },
           ].map((g, i) => (
             <div key={i} className={`group relative overflow-hidden rounded-2xl gold-border ${g.cls}`}>
-              <img src={g.src} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={g.src} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--background)]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
@@ -336,7 +304,7 @@ function HomePage() {
           {media.slice(0,3).map((m) => (
             <div key={m.title} className="group overflow-hidden rounded-2xl luxury-card hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img src={m.type === "News" ? speechImg : m.type === "Interview" ? awardImg : gatheringImg} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={m.type === "News" ? speechImg : m.type === "Interview" ? awardImg : gatheringImg} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
                 <span className="absolute left-4 top-4 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)]/60 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{m.type}</span>
               </div>
               <div className="p-6">
@@ -371,7 +339,7 @@ function HomePage() {
 
       {/* CTA */}
       <section className="relative mx-6 my-24 overflow-hidden rounded-3xl">
-        <img src={templeBg} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={templeBg} alt="" className="absolute inset-0 h-full w-full object-cover object-[center_30%]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--background)]/95 via-[color:var(--background)]/70 to-transparent" />
         <div className="relative grid gap-6 p-10 md:grid-cols-[1fr_auto] md:items-center md:p-16">
           <div>

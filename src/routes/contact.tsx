@@ -29,7 +29,7 @@ function Contact() {
             </div>
           ))}
           <div className="relative overflow-hidden rounded-3xl gold-border aspect-[16/10]">
-            <img src={temple} alt="" className="h-full w-full object-cover" />
+            <img src={temple} alt="" className="h-full w-full object-cover object-[center_30%]" />
             <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--background)]/70 to-transparent" />
             <div className="absolute bottom-4 left-4 text-xs uppercase tracking-widest text-[color:var(--gold)]">Kashi · Uttar Pradesh</div>
           </div>

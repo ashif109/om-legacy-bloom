@@ -16,7 +16,7 @@ function Awards() {
         {achievements.map((a, i) => (
           <div key={a.title} className={`grid gap-6 rounded-3xl gold-border overflow-hidden md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
             <div className="aspect-[4/3] md:aspect-auto">
-              <img src={awardImg} alt="" className="h-full w-full object-cover" />
+              <img src={awardImg} alt="" className="h-full w-full object-cover object-[center_30%]" />
             </div>
             <div className="p-8 md:p-10">
               <div className="text-xs uppercase tracking-widest text-[color:var(--gold)]">{a.year} · {a.org}</div>

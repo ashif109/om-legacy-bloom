@@ -1,20 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { media } from "@/lib/site-data";
-<<<<<<< HEAD
 import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
 import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
 import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
 import { Play } from "lucide-react";
 
 
-=======
-import speechImg from "@/assets/speech.jpg";
-import awardImg from "@/assets/award.jpg";
-import gatheringImg from "@/assets/gathering.jpg";
-import { Play } from "lucide-react";
-
->>>>>>> origin/main
 const imgFor = (t: string) => (t === "News" || t === "Press" ? speechImg : t === "Interview" || t === "Podcast" ? awardImg : gatheringImg);
 
 export const Route = createFileRoute("/media")({
@@ -31,7 +23,7 @@ function Media() {
           {media.map((m) => (
             <div key={m.title} className="group overflow-hidden rounded-2xl luxury-card hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
               <div className="relative aspect-video overflow-hidden">
-                <img src={imgFor(m.type)} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={imgFor(m.type)} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 grid place-items-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)] bg-[color:var(--background)]/60 text-[color:var(--gold)]"><Play size={20} /></div>
                 </div>

@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
-<<<<<<< HEAD
 import heroOm from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
 import temple from "@/assets/temple-bg.jpg";
 import meditation from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
@@ -9,16 +8,6 @@ import gathering from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).
 import manuscript from "@/assets/manuscript.jpg";
 import award from "@/assets/award.jpg";
 import mandala from "@/assets/mandala.png";
-=======
-import heroOm from "@/assets/hero-om.jpg";
-import temple from "@/assets/temple-bg.jpg";
-import meditation from "@/assets/meditation.jpg";
-import speech from "@/assets/speech.jpg";
-import gathering from "@/assets/gathering.jpg";
-import manuscript from "@/assets/manuscript.jpg";
-import award from "@/assets/award.jpg";
-import mandala from "@/assets/mandala.jpg";
->>>>>>> origin/main
 
 const images = [heroOm, speech, gathering, meditation, manuscript, award, temple, mandala, heroOm, speech, gathering, meditation];
 
