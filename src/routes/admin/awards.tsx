@@ -1,47 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { getCertificates, addCertificate, updateCertificate, deleteCertificate, uploadImage } from "@/lib/api";
+import { getAwards, addAward, deleteAward, updateAward, uploadImage } from "@/lib/api"; // You will need to create these endpoints
 import Cookies from "js-cookie";
-import { Plus, Trash2, Upload, Loader2, X } from "lucide-react";
+import { Plus, Loader2, X, Upload, Edit } from "lucide-react";
 import { DataTable, ColumnDef } from "@/components/admin/DataTable";
 
-export const Route = createFileRoute("/admin/certificates")({
-  component: AdminCertificates,
+export const Route = createFileRoute("/admin/awards")({
+  component: AdminAwards,
 });
 
-function AdminCertificates() {
-  const [certificates, setCertificates] = useState<any[]>([]);
+function AdminAwards() {
+  const [awards, setAwards] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("camp");
+  const [year, setYear] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
 
   const token = Cookies.get("admin_token") || "";
 
   useEffect(() => {
-    fetchCertificates();
+    fetchAwards();
   }, []);
 
-  const fetchCertificates = async () => {
+  const fetchAwards = async () => {
     setLoading(true);
     try {
-      const data = await getCertificates();
-      setCertificates(data);
+      const data = await getAwards();
+      setAwards(data);
     } catch (e) {
-      console.error(e);
+      console.error("Endpoint might not exist yet", e);
+      setAwards([]);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleEdit = (cert: any) => {
-    setEditingId(cert._id);
-    setTitle(cert.title);
-    setCategory(cert.category);
+  const handleEdit = (award: any) => {
+    setEditingId(award._id);
+    setTitle(award.title);
+    setYear(award.year || "");
+    setDescription(award.description || "");
     setFile(null);
     setIsModalOpen(true);
   };
@@ -49,13 +52,11 @@ function AdminCertificates() {
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title) return;
-    if (!editingId && !file) return;
 
     setUploading(true);
     try {
-      let imageUrl = "";
+      let imageUrl = awards.find(a => a._id === editingId)?.image || "";
 
-      // 1. Convert file to base64 if a new file is selected
       if (file) {
         const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -63,7 +64,7 @@ function AdminCertificates() {
           reader.onload = async () => {
             const base64Image = reader.result as string;
             try {
-              const uploadRes = await uploadImage({ data: { token, base64Image, folder: "certificates" } });
+              const uploadRes = await uploadImage({ data: { token, base64Image, folder: "awards" } });
               imageUrl = uploadRes.url;
               resolve();
             } catch (err) {
@@ -72,47 +73,38 @@ function AdminCertificates() {
           };
         });
       }
-        
-      // 3. Save to MongoDB
+
       if (editingId) {
-        await updateCertificate({
+        await updateAward({
           data: {
             token,
             id: editingId,
-            certificate: { 
-              title, 
-              category, 
-              imageUrl: imageUrl || certificates.find(c => c._id === editingId)?.imageUrl 
-            },
+            award: { title, year, description, image: imageUrl },
           }
         });
       } else {
-        await addCertificate({
+        await addAward({
           data: {
             token,
-            certificate: { 
-              title, 
-              category, 
-              imageUrl: imageUrl
-            },
+            award: { title, year, description, image: imageUrl },
           }
         });
       }
       
       closeModal();
-      fetchCertificates();
+      fetchAwards();
     } catch (e: any) {
-      alert(e.message || "Error saving certificate.");
+      alert(e.message || "Error saving award.");
     } finally {
       setUploading(false);
     }
   };
 
   const handleDelete = async (item: any) => {
-    if (!confirm("Are you sure you want to delete this certificate?")) return;
+    if (!confirm("Are you sure you want to delete this award?")) return;
     try {
-      await deleteCertificate({ data: { token, id: item._id } });
-      fetchCertificates();
+      await deleteAward({ data: { token, id: item._id } });
+      fetchAwards();
     } catch (e) {
       alert("Failed to delete.");
     }
@@ -122,22 +114,20 @@ function AdminCertificates() {
     setIsModalOpen(false);
     setEditingId(null);
     setTitle("");
-    setCategory("camp");
+    setYear("");
+    setDescription("");
     setFile(null);
   };
 
   const columns: ColumnDef<any>[] = [
     {
       header: "Image",
-      cell: (item) => (
-        <img src={item.imageUrl} alt={item.title} className="w-16 h-12 object-cover rounded-md bg-black" />
-      )
+      cell: (item) => item.image ? (
+        <img src={item.image} alt={item.title} className="w-16 h-12 object-cover rounded-md bg-black" />
+      ) : <span className="text-gray-600 text-xs italic">No Image</span>
     },
     { header: "Title", accessorKey: "title" },
-    { 
-      header: "Category", 
-      cell: (item) => <span className="uppercase text-xs font-semibold px-2 py-1 bg-[color:var(--gold)]/20 text-[color:var(--gold)] rounded">{item.category}</span>
-    },
+    { header: "Year", accessorKey: "year" },
     { 
       header: "Date Added", 
       cell: (item) => new Date(item.createdAt || Date.now()).toLocaleDateString()
@@ -148,14 +138,14 @@ function AdminCertificates() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-display text-gold-gradient">Certificates</h1>
-          <p className="text-gray-400">Manage your certificates and awards.</p>
+          <h1 className="text-3xl font-display text-gold-gradient">Awards</h1>
+          <p className="text-gray-400">Manage your honors and awards.</p>
         </div>
         <button 
           onClick={() => setIsModalOpen(true)}
           className="btn-gold px-4 py-2 rounded-lg flex items-center gap-2 font-medium"
         >
-          <Plus size={18} /> Add Certificate
+          <Plus size={18} /> Add Award
         </button>
       </div>
 
@@ -163,7 +153,7 @@ function AdminCertificates() {
         <div className="flex justify-center p-12"><Loader2 size={32} className="animate-spin text-[color:var(--gold)]" /></div>
       ) : (
         <DataTable 
-          data={certificates}
+          data={awards}
           columns={columns}
           searchKey="title"
           onEdit={handleEdit}
@@ -176,13 +166,13 @@ function AdminCertificates() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
           <div className="bg-[color:var(--card)] w-full max-w-md rounded-2xl gold-border p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-display text-cream">{editingId ? "Edit Certificate" : "Add Certificate"}</h2>
+              <h2 className="text-xl font-display text-cream">{editingId ? "Edit Award" : "Add Award"}</h2>
               <button onClick={closeModal} className="text-gray-400 hover:text-white"><X size={20} /></button>
             </div>
             
             <form onSubmit={handleAdd} className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Title</label>
+                <label className="block text-sm text-gray-400 mb-1">Award Title</label>
                 <input 
                   type="text" 
                   value={title} 
@@ -192,18 +182,23 @@ function AdminCertificates() {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Category</label>
-                <select 
-                  value={category} 
-                  onChange={e => setCategory(e.target.value)}
+                <label className="block text-sm text-gray-400 mb-1">Year</label>
+                <input 
+                  type="text" 
+                  value={year} 
+                  onChange={e => setYear(e.target.value)}
+                  placeholder="e.g. 2023"
                   className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
-                >
-                  <option value="camp">Camp</option>
-                  <option value="competition">Competition</option>
-                  <option value="conference">Conference</option>
-                  <option value="award">Award</option>
-                  <option value="olympiad">Olympiad</option>
-                </select>
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-400 mb-1">Description</label>
+                <textarea 
+                  value={description} 
+                  onChange={e => setDescription(e.target.value)}
+                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none custom-scrollbar"
+                  rows={3}
+                />
               </div>
               <div>
                 <label className="block text-sm text-gray-400 mb-1">Upload Image {editingId && "(Leave blank to keep existing)"}</label>
@@ -212,7 +207,6 @@ function AdminCertificates() {
                   accept="image/*"
                   onChange={e => setFile(e.target.files?.[0] || null)}
                   className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[color:var(--gold)] file:text-black hover:file:bg-[color:var(--gold)]/80"
-                  required={!editingId}
                 />
               </div>
               <button 
@@ -221,7 +215,7 @@ function AdminCertificates() {
                 className="w-full btn-gold rounded-lg px-4 py-2.5 mt-6 flex justify-center items-center gap-2 disabled:opacity-50 font-medium"
               >
                 {uploading ? <Loader2 size={18} className="animate-spin" /> : (editingId ? <Edit size={18} /> : <Upload size={18} />)}
-                {uploading ? "Saving..." : (editingId ? "Update Certificate" : "Add Certificate")}
+                {uploading ? "Saving..." : (editingId ? "Update Award" : "Add Award")}
               </button>
             </form>
           </div>

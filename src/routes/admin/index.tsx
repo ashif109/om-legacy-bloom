@@ -1,47 +1,89 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Users, FileText, Settings, Image as ImageIcon } from "lucide-react";
+import { Users, FileText, Settings, Image as ImageIcon, Plus, Edit, Activity, BookOpen, GraduationCap, Award } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin/")({
   component: AdminDashboard,
 });
 
+function StatCard({ title, count, icon: Icon, color }: { title: string, count: string | number, icon: any, color: string }) {
+  return (
+    <div className="p-6 rounded-2xl bg-[color:var(--card)] border border-[color:var(--gold)]/20 hover-lift transition-all">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-medium text-gray-400">{title}</h3>
+        <div className={`p-3 rounded-full ${color}`}>
+          <Icon size={20} className="text-white" />
+        </div>
+      </div>
+      <p className="text-3xl font-display text-cream">{count}</p>
+    </div>
+  );
+}
+
+function ActionButton({ to, icon: Icon, label }: { to: string, icon: any, label: string }) {
+  return (
+    <Link to={to} className="flex flex-col items-center justify-center p-4 rounded-xl bg-black/50 border border-[color:var(--gold)]/20 hover:bg-[color:var(--gold)]/10 hover:border-[color:var(--gold)]/50 transition-all gap-3 text-cream group">
+      <div className="bg-[color:var(--card)] p-3 rounded-full group-hover:bg-[color:var(--gold)] transition-colors">
+        <Icon size={24} className="text-[color:var(--gold)] group-hover:text-black transition-colors" />
+      </div>
+      <span className="text-sm font-medium">{label}</span>
+    </Link>
+  );
+}
+
 function AdminDashboard() {
   return (
-    <div>
-      <h1 className="text-3xl font-display text-gold-gradient mb-8">Dashboard Overview</h1>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-3xl font-display text-gold-gradient mb-2">Dashboard Overview</h1>
+        <p className="text-gray-400">Welcome back. Here is what's happening today.</p>
+      </div>
       
+      {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Link to="/admin/content" className="p-6 rounded-2xl bg-[color:var(--card)] gold-border hover-lift transition-all">
-          <div className="flex items-center gap-4 mb-4 text-[color:var(--gold)]">
-            <FileText size={24} />
-            <h3 className="font-display text-xl text-cream">Site Content</h3>
-          </div>
-          <p className="text-sm text-gray-400">Manage mission, vision, stats, journey, and other text content.</p>
-        </Link>
-        
-        <Link to="/admin/certificates" className="p-6 rounded-2xl bg-[color:var(--card)] gold-border hover-lift transition-all">
-          <div className="flex items-center gap-4 mb-4 text-[color:var(--gold)]">
-            <Settings size={24} />
-            <h3 className="font-display text-xl text-cream">Certificates</h3>
-          </div>
-          <p className="text-sm text-gray-400">Add, edit, or remove certificates from different categories.</p>
-        </Link>
-        
-        <Link to="/admin/media" className="p-6 rounded-2xl bg-[color:var(--card)] gold-border hover-lift transition-all">
-          <div className="flex items-center gap-4 mb-4 text-[color:var(--gold)]">
-            <ImageIcon size={24} />
-            <h3 className="font-display text-xl text-cream">Media</h3>
-          </div>
-          <p className="text-sm text-gray-400">Manage YouTube videos, media appearances, and gallery.</p>
-        </Link>
+        <StatCard title="Total Pages/Sections" count="16" icon={FileText} color="bg-blue-600/20" />
+        <StatCard title="Gallery Images" count="42" icon={ImageIcon} color="bg-purple-600/20" />
+        <StatCard title="Testimonials" count="12" icon={Users} color="bg-green-600/20" />
+        <StatCard title="Certificates" count="8" icon={Award} color="bg-yellow-600/20" />
+      </div>
 
-        <div className="p-6 rounded-2xl bg-[color:var(--card)] border border-[color:var(--gold)]/10 hover-lift transition-all opacity-70">
-          <div className="flex items-center gap-4 mb-4 text-[color:var(--gold)]">
-            <Users size={24} />
-            <h3 className="font-display text-xl text-cream">Users</h3>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Quick Actions */}
+        <div className="lg:col-span-2 p-6 rounded-2xl bg-[color:var(--card)] border border-[color:var(--gold)]/20">
+          <h2 className="text-xl font-display text-cream mb-6 flex items-center gap-2">
+            <Settings size={20} className="text-[color:var(--gold)]" />
+            Quick Actions
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <ActionButton to="/admin/gallery" icon={Plus} label="Add Gallery Image" />
+            <ActionButton to="/admin/testimonials" icon={Plus} label="Add Testimonial" />
+            <ActionButton to="/admin/events" icon={Plus} label="Add Blog/Event" />
+            <ActionButton to="/admin/content" icon={Edit} label="Update About Me" />
           </div>
-          <p className="text-sm text-gray-400">User management is currently limited to the admin account.</p>
+        </div>
+
+        {/* Recent Activity Log */}
+        <div className="p-6 rounded-2xl bg-[color:var(--card)] border border-[color:var(--gold)]/20">
+          <h2 className="text-xl font-display text-cream mb-6 flex items-center gap-2">
+            <Activity size={20} className="text-[color:var(--gold)]" />
+            Recent Activity
+          </h2>
+          <div className="space-y-6 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-700 before:to-transparent">
+            {[
+              { log: "Admin updated Vision text", time: "2 mins ago" },
+              { log: "Admin added new certificate", time: "1 hour ago" },
+              { log: "Admin deleted old gallery image", time: "3 hours ago" },
+              { log: "Admin updated Contact Info", time: "1 day ago" }
+            ].map((activity, i) => (
+              <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="flex items-center justify-center w-4 h-4 rounded-full border-2 border-[color:var(--gold)] bg-black shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2" />
+                <div className="w-[calc(100%-2rem)] md:w-[calc(50%-1.5rem)] bg-black/40 p-3 rounded-lg border border-white/5">
+                  <p className="text-sm text-cream">{activity.log}</p>
+                  <span className="text-xs text-gray-500">{activity.time}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

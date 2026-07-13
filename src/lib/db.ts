@@ -28,6 +28,14 @@ export const connectDB = async () => {
       serverSelectionTimeoutMS: 5000,
       family: 4, // Force IPv4 to prevent IPv6 DNS resolution issues which cause querySrv ECONNREFUSED
     });
+    
+    // Register all models here so they don't need to be imported at the top of shared files
+    await import("./models/SiteData");
+    await import("./models/Certificate");
+    await import("./models/Media");
+    await import("./models/AdminUser");
+    await import("./models/ContentModels"); // Registers all the other 13 models!
+    
     isConnected = db.connections[0].readyState === 1;
     console.log("=> database connected successfully");
   } catch (error) {

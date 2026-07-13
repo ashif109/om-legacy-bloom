@@ -1,6 +1,6 @@
-import { createFileRoute, Outlet, redirect, useRouter } from "@tanstack/react-router";
+import { createFileRoute, Outlet, redirect, useRouter, useLocation } from "@tanstack/react-router";
 import Cookies from "js-cookie";
-import { LogOut, LayoutDashboard, FileText, Image as ImageIcon, Settings } from "lucide-react";
+import { ChevronDown, ChevronRight, GraduationCap, LayoutDashboard, FileText, Image as ImageIcon, Settings, LogOut, Award, Users, Calendar, Briefcase, BookOpen, MessageSquare, Phone, User, Database, Link as LinkIcon, ShieldAlert, HeartHandshake } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin")({
@@ -21,11 +21,33 @@ export const Route = createFileRoute("/admin")({
   component: AdminLayout,
 });
 
+function NavGroup({ title, children }: { title: string, children: React.ReactNode }) {
+  return (
+    <div className="mb-6">
+      <h3 className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">{title}</h3>
+      <div className="space-y-1">{children}</div>
+    </div>
+  );
+}
+
+function NavItem({ to, icon: Icon, label, exact = false }: { to: string, icon: any, label: string, exact?: boolean }) {
+  return (
+    <Link 
+      to={to} 
+      activeOptions={{ exact }}
+      className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-400 hover:text-cream hover:bg-[color:var(--gold)]/10 transition-colors [&.active]:bg-[color:var(--gold)]/20 [&.active]:text-[color:var(--gold)]"
+    >
+      <Icon size={18} />
+      {label}
+    </Link>
+  );
+}
+
 function AdminLayout() {
   const router = useRouter();
+  const location = useLocation();
   
-  // If we're exactly on /admin/login, don't show the sidebar
-  if (router.state.location.pathname === "/admin/login") {
+  if (location.pathname === "/admin/login") {
     return <Outlet />;
   }
 
@@ -35,42 +57,83 @@ function AdminLayout() {
   };
 
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className="flex h-screen bg-black text-white overflow-hidden">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-[color:var(--gold)]/20 bg-black/90 p-6 flex flex-col h-full">
-        <h2 className="text-2xl font-display text-gold-gradient mb-8">Admin Panel</h2>
+      <aside className="w-72 border-r border-[color:var(--gold)]/20 bg-black/90 flex flex-col h-full flex-shrink-0 z-10">
+        <div className="p-6 pb-2 border-b border-[color:var(--gold)]/10">
+          <h2 className="text-2xl font-display text-gold-gradient tracking-wide">Admin Panel</h2>
+        </div>
         
-        <nav className="flex-1 space-y-2">
-          <Link to="/admin" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[color:var(--gold)]/10 text-cream transition-colors [&.active]:bg-[color:var(--gold)]/20 [&.active]:text-[color:var(--gold)]" activeOptions={{ exact: true }}>
-            <LayoutDashboard size={20} />
-            Dashboard
-          </Link>
-          <Link to="/admin/content" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[color:var(--gold)]/10 text-cream transition-colors [&.active]:bg-[color:var(--gold)]/20 [&.active]:text-[color:var(--gold)]">
-            <FileText size={20} />
-            Site Content
-          </Link>
-          <Link to="/admin/certificates" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[color:var(--gold)]/10 text-cream transition-colors [&.active]:bg-[color:var(--gold)]/20 [&.active]:text-[color:var(--gold)]">
-            <Settings size={20} />
-            Certificates
-          </Link>
-          <Link to="/admin/media" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[color:var(--gold)]/10 text-cream transition-colors [&.active]:bg-[color:var(--gold)]/20 [&.active]:text-[color:var(--gold)]">
-            <ImageIcon size={20} />
-            Media & Gallery
-          </Link>
-        </nav>
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-4">
+          <NavGroup title="Dashboard">
+            <NavItem to="/admin" icon={LayoutDashboard} label="Overview" exact />
+          </NavGroup>
+          
+          <NavGroup title="Site Content">
+            <NavItem to="/admin/content" icon={FileText} label="Main Pages" />
+          </NavGroup>
 
-        <button 
-          onClick={handleLogout}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-950/30 transition-colors mt-auto"
-        >
-          <LogOut size={20} />
-          Logout
-        </button>
+          <NavGroup title="Achievements">
+            <NavItem to="/admin/awards" icon={Award} label="Awards" />
+            <NavItem to="/admin/certificates" icon={ShieldAlert} label="Certificates" />
+          </NavGroup>
+
+          <NavGroup title="Education & Skills">
+            <NavItem to="/admin/education" icon={GraduationCap} label="Education" />
+            <NavItem to="/admin/skills" icon={GraduationCap} label="Skills" />
+          </NavGroup>
+
+          <NavGroup title="Social & Community">
+            <NavItem to="/admin/community" icon={HeartHandshake} label="Community Work" />
+          </NavGroup>
+
+          <NavGroup title="Events & Programs">
+            <NavItem to="/admin/events" icon={Calendar} label="Events" />
+            <NavItem to="/admin/camps" icon={Calendar} label="Camps" />
+            <NavItem to="/admin/seminars" icon={Calendar} label="Seminars" />
+            <NavItem to="/admin/workshops" icon={Calendar} label="Workshops" />
+            <NavItem to="/admin/trainings" icon={Calendar} label="Trainings" />
+          </NavGroup>
+
+          <NavGroup title="Work & Projects">
+            <NavItem to="/admin/projects" icon={Briefcase} label="Responsibilities" />
+          </NavGroup>
+
+          <NavGroup title="Resources">
+            <NavItem to="/admin/publications" icon={BookOpen} label="Publications" />
+            <NavItem to="/admin/downloads" icon={BookOpen} label="Downloads" />
+          </NavGroup>
+
+          <NavGroup title="Media & Feedback">
+            <NavItem to="/admin/testimonials" icon={MessageSquare} label="Testimonials" />
+            <NavItem to="/admin/gallery" icon={ImageIcon} label="Gallery" />
+            <NavItem to="/admin/media" icon={LinkIcon} label="Media & Press" />
+          </NavGroup>
+
+          <NavGroup title="Configuration">
+            <NavItem to="/admin/settings" icon={Settings} label="General Settings" />
+            <NavItem to="/admin/contact" icon={Phone} label="Contact Info" />
+            <NavItem to="/admin/profile" icon={User} label="Admin Profile" />
+            <NavItem to="/admin/backup" icon={Database} label="Backup & Export" />
+          </NavGroup>
+        </div>
+
+        <div className="p-4 border-t border-[color:var(--gold)]/20 bg-black">
+          <button 
+            onClick={handleLogout}
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-red-400 hover:bg-red-950/40 hover:text-red-300 transition-all font-medium"
+          >
+            <LogOut size={18} />
+            Secure Logout
+          </button>
+        </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-auto bg-[color:var(--background)] p-8">
-        <Outlet />
+      <main className="flex-1 overflow-auto bg-[color:var(--background)] relative">
+        <div className="max-w-7xl mx-auto p-8">
+          <Outlet />
+        </div>
       </main>
     </div>
   );

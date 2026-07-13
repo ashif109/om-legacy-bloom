@@ -8,6 +8,7 @@ export const Route = createFileRoute("/admin/login")({
 });
 
 function AdminLogin() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,13 +20,13 @@ function AdminLogin() {
     setLoading(true);
 
     try {
-      const res = await loginAdmin({ data: { password } });
+      const res = await loginAdmin({ data: { email, password } });
       if (res.success && res.token) {
-        Cookies.set("admin_token", res.token, { expires: 1 }); // 1 day
+        Cookies.set("admin_token", res.token, { expires: 1/24 }); // 1 hour
         router.navigate({ to: "/admin" });
       }
     } catch (err: any) {
-      setError(err.message || "Invalid password");
+      setError(err.message || "Invalid credentials");
     } finally {
       setLoading(false);
     }
@@ -33,7 +34,7 @@ function AdminLogin() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black">
-      <div className="w-full max-w-md p-8 rounded-2xl gold-border bg-[color:var(--card)]">
+      <div className="w-full max-w-md p-8 rounded-2xl gold-border bg-[color:var(--card)] shadow-2xl shadow-[color:var(--gold)]/5">
         <h1 className="text-3xl font-display text-gold-gradient text-center mb-8">Admin Login</h1>
         
         {error && (
@@ -44,13 +45,24 @@ function AdminLogin() {
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
+            <label className="block text-sm font-medium text-cream mb-2">Email Address</label>
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-[color:var(--gold)] focus:ring-1 focus:ring-[color:var(--gold)] transition-colors"
+              placeholder="admin@omlegacybloom.com"
+              required
+            />
+          </div>
+          <div>
             <label className="block text-sm font-medium text-cream mb-2">Password</label>
             <input 
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-[color:var(--gold)] focus:ring-1 focus:ring-[color:var(--gold)]"
-              placeholder="Enter admin password"
+              className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-[color:var(--gold)] focus:ring-1 focus:ring-[color:var(--gold)] transition-colors"
+              placeholder="••••••••"
               required
             />
           </div>
@@ -58,9 +70,9 @@ function AdminLogin() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full btn-gold rounded-lg px-4 py-3 font-semibold uppercase tracking-widest disabled:opacity-50"
+            className="w-full btn-gold rounded-lg px-4 py-3 font-semibold uppercase tracking-widest disabled:opacity-50 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Authenticating..." : "Login to Dashboard"}
           </button>
         </form>
       </div>

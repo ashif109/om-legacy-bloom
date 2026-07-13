@@ -36,10 +36,25 @@ import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminWorkshopsRouteImport } from './routes/admin/workshops'
+import { Route as AdminTrainingsRouteImport } from './routes/admin/trainings'
+import { Route as AdminTestimonialsRouteImport } from './routes/admin/testimonials'
+import { Route as AdminSkillsRouteImport } from './routes/admin/skills'
+import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
+import { Route as AdminSeminarsRouteImport } from './routes/admin/seminars'
+import { Route as AdminPublicationsRouteImport } from './routes/admin/publications'
+import { Route as AdminProjectsRouteImport } from './routes/admin/projects'
 import { Route as AdminMediaRouteImport } from './routes/admin/media'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminGalleryRouteImport } from './routes/admin/gallery'
+import { Route as AdminEventsRouteImport } from './routes/admin/events'
+import { Route as AdminEducationRouteImport } from './routes/admin/education'
+import { Route as AdminDownloadsRouteImport } from './routes/admin/downloads'
 import { Route as AdminContentRouteImport } from './routes/admin/content'
+import { Route as AdminCommunityRouteImport } from './routes/admin/community'
 import { Route as AdminCertificatesRouteImport } from './routes/admin/certificates'
+import { Route as AdminCampsRouteImport } from './routes/admin/camps'
+import { Route as AdminAwardsRouteImport } from './routes/admin/awards'
 
 const WorkshopsRoute = WorkshopsRouteImport.update({
   id: '/workshops',
@@ -176,6 +191,46 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminWorkshopsRoute = AdminWorkshopsRouteImport.update({
+  id: '/workshops',
+  path: '/workshops',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTrainingsRoute = AdminTrainingsRouteImport.update({
+  id: '/trainings',
+  path: '/trainings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSkillsRoute = AdminSkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSeminarsRoute = AdminSeminarsRouteImport.update({
+  id: '/seminars',
+  path: '/seminars',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPublicationsRoute = AdminPublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProjectsRoute = AdminProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminMediaRoute = AdminMediaRouteImport.update({
   id: '/media',
   path: '/media',
@@ -186,14 +241,49 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminGalleryRoute = AdminGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEventsRoute = AdminEventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEducationRoute = AdminEducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDownloadsRoute = AdminDownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminContentRoute = AdminContentRouteImport.update({
   id: '/content',
   path: '/content',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminCommunityRoute = AdminCommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminCertificatesRoute = AdminCertificatesRouteImport.update({
   id: '/certificates',
   path: '/certificates',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCampsRoute = AdminCampsRouteImport.update({
+  id: '/camps',
+  path: '/camps',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAwardsRoute = AdminAwardsRouteImport.update({
+  id: '/awards',
+  path: '/awards',
   getParentRoute: () => AdminRoute,
 } as any)
 
@@ -224,10 +314,25 @@ export interface FileRoutesByFullPath {
   '/timeline': typeof TimelineRoute
   '/trainings': typeof TrainingsRoute
   '/workshops': typeof WorkshopsRoute
+  '/admin/awards': typeof AdminAwardsRoute
+  '/admin/camps': typeof AdminCampsRoute
   '/admin/certificates': typeof AdminCertificatesRoute
+  '/admin/community': typeof AdminCommunityRoute
   '/admin/content': typeof AdminContentRoute
+  '/admin/downloads': typeof AdminDownloadsRoute
+  '/admin/education': typeof AdminEducationRoute
+  '/admin/events': typeof AdminEventsRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/publications': typeof AdminPublicationsRoute
+  '/admin/seminars': typeof AdminSeminarsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/skills': typeof AdminSkillsRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+  '/admin/trainings': typeof AdminTrainingsRoute
+  '/admin/workshops': typeof AdminWorkshopsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -256,10 +361,25 @@ export interface FileRoutesByTo {
   '/timeline': typeof TimelineRoute
   '/trainings': typeof TrainingsRoute
   '/workshops': typeof WorkshopsRoute
+  '/admin/awards': typeof AdminAwardsRoute
+  '/admin/camps': typeof AdminCampsRoute
   '/admin/certificates': typeof AdminCertificatesRoute
+  '/admin/community': typeof AdminCommunityRoute
   '/admin/content': typeof AdminContentRoute
+  '/admin/downloads': typeof AdminDownloadsRoute
+  '/admin/education': typeof AdminEducationRoute
+  '/admin/events': typeof AdminEventsRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/publications': typeof AdminPublicationsRoute
+  '/admin/seminars': typeof AdminSeminarsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/skills': typeof AdminSkillsRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+  '/admin/trainings': typeof AdminTrainingsRoute
+  '/admin/workshops': typeof AdminWorkshopsRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -290,10 +410,25 @@ export interface FileRoutesById {
   '/timeline': typeof TimelineRoute
   '/trainings': typeof TrainingsRoute
   '/workshops': typeof WorkshopsRoute
+  '/admin/awards': typeof AdminAwardsRoute
+  '/admin/camps': typeof AdminCampsRoute
   '/admin/certificates': typeof AdminCertificatesRoute
+  '/admin/community': typeof AdminCommunityRoute
   '/admin/content': typeof AdminContentRoute
+  '/admin/downloads': typeof AdminDownloadsRoute
+  '/admin/education': typeof AdminEducationRoute
+  '/admin/events': typeof AdminEventsRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/publications': typeof AdminPublicationsRoute
+  '/admin/seminars': typeof AdminSeminarsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/skills': typeof AdminSkillsRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+  '/admin/trainings': typeof AdminTrainingsRoute
+  '/admin/workshops': typeof AdminWorkshopsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -325,10 +460,25 @@ export interface FileRouteTypes {
     | '/timeline'
     | '/trainings'
     | '/workshops'
+    | '/admin/awards'
+    | '/admin/camps'
     | '/admin/certificates'
+    | '/admin/community'
     | '/admin/content'
+    | '/admin/downloads'
+    | '/admin/education'
+    | '/admin/events'
+    | '/admin/gallery'
     | '/admin/login'
     | '/admin/media'
+    | '/admin/projects'
+    | '/admin/publications'
+    | '/admin/seminars'
+    | '/admin/settings'
+    | '/admin/skills'
+    | '/admin/testimonials'
+    | '/admin/trainings'
+    | '/admin/workshops'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -357,10 +507,25 @@ export interface FileRouteTypes {
     | '/timeline'
     | '/trainings'
     | '/workshops'
+    | '/admin/awards'
+    | '/admin/camps'
     | '/admin/certificates'
+    | '/admin/community'
     | '/admin/content'
+    | '/admin/downloads'
+    | '/admin/education'
+    | '/admin/events'
+    | '/admin/gallery'
     | '/admin/login'
     | '/admin/media'
+    | '/admin/projects'
+    | '/admin/publications'
+    | '/admin/seminars'
+    | '/admin/settings'
+    | '/admin/skills'
+    | '/admin/testimonials'
+    | '/admin/trainings'
+    | '/admin/workshops'
     | '/admin'
   id:
     | '__root__'
@@ -390,10 +555,25 @@ export interface FileRouteTypes {
     | '/timeline'
     | '/trainings'
     | '/workshops'
+    | '/admin/awards'
+    | '/admin/camps'
     | '/admin/certificates'
+    | '/admin/community'
     | '/admin/content'
+    | '/admin/downloads'
+    | '/admin/education'
+    | '/admin/events'
+    | '/admin/gallery'
     | '/admin/login'
     | '/admin/media'
+    | '/admin/projects'
+    | '/admin/publications'
+    | '/admin/seminars'
+    | '/admin/settings'
+    | '/admin/skills'
+    | '/admin/testimonials'
+    | '/admin/trainings'
+    | '/admin/workshops'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -617,6 +797,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/workshops': {
+      id: '/admin/workshops'
+      path: '/workshops'
+      fullPath: '/admin/workshops'
+      preLoaderRoute: typeof AdminWorkshopsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/trainings': {
+      id: '/admin/trainings'
+      path: '/trainings'
+      fullPath: '/admin/trainings'
+      preLoaderRoute: typeof AdminTrainingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/testimonials': {
+      id: '/admin/testimonials'
+      path: '/testimonials'
+      fullPath: '/admin/testimonials'
+      preLoaderRoute: typeof AdminTestimonialsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/skills': {
+      id: '/admin/skills'
+      path: '/skills'
+      fullPath: '/admin/skills'
+      preLoaderRoute: typeof AdminSkillsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/seminars': {
+      id: '/admin/seminars'
+      path: '/seminars'
+      fullPath: '/admin/seminars'
+      preLoaderRoute: typeof AdminSeminarsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/publications': {
+      id: '/admin/publications'
+      path: '/publications'
+      fullPath: '/admin/publications'
+      preLoaderRoute: typeof AdminPublicationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/projects': {
+      id: '/admin/projects'
+      path: '/projects'
+      fullPath: '/admin/projects'
+      preLoaderRoute: typeof AdminProjectsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/media': {
       id: '/admin/media'
       path: '/media'
@@ -631,11 +867,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/gallery': {
+      id: '/admin/gallery'
+      path: '/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminGalleryRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/events': {
+      id: '/admin/events'
+      path: '/events'
+      fullPath: '/admin/events'
+      preLoaderRoute: typeof AdminEventsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/education': {
+      id: '/admin/education'
+      path: '/education'
+      fullPath: '/admin/education'
+      preLoaderRoute: typeof AdminEducationRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/downloads': {
+      id: '/admin/downloads'
+      path: '/downloads'
+      fullPath: '/admin/downloads'
+      preLoaderRoute: typeof AdminDownloadsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/content': {
       id: '/admin/content'
       path: '/content'
       fullPath: '/admin/content'
       preLoaderRoute: typeof AdminContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/community': {
+      id: '/admin/community'
+      path: '/community'
+      fullPath: '/admin/community'
+      preLoaderRoute: typeof AdminCommunityRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/certificates': {
@@ -645,22 +916,66 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCertificatesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/camps': {
+      id: '/admin/camps'
+      path: '/camps'
+      fullPath: '/admin/camps'
+      preLoaderRoute: typeof AdminCampsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/awards': {
+      id: '/admin/awards'
+      path: '/awards'
+      fullPath: '/admin/awards'
+      preLoaderRoute: typeof AdminAwardsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminAwardsRoute: typeof AdminAwardsRoute
+  AdminCampsRoute: typeof AdminCampsRoute
   AdminCertificatesRoute: typeof AdminCertificatesRoute
+  AdminCommunityRoute: typeof AdminCommunityRoute
   AdminContentRoute: typeof AdminContentRoute
+  AdminDownloadsRoute: typeof AdminDownloadsRoute
+  AdminEducationRoute: typeof AdminEducationRoute
+  AdminEventsRoute: typeof AdminEventsRoute
+  AdminGalleryRoute: typeof AdminGalleryRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminMediaRoute: typeof AdminMediaRoute
+  AdminProjectsRoute: typeof AdminProjectsRoute
+  AdminPublicationsRoute: typeof AdminPublicationsRoute
+  AdminSeminarsRoute: typeof AdminSeminarsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminSkillsRoute: typeof AdminSkillsRoute
+  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
+  AdminTrainingsRoute: typeof AdminTrainingsRoute
+  AdminWorkshopsRoute: typeof AdminWorkshopsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAwardsRoute: AdminAwardsRoute,
+  AdminCampsRoute: AdminCampsRoute,
   AdminCertificatesRoute: AdminCertificatesRoute,
+  AdminCommunityRoute: AdminCommunityRoute,
   AdminContentRoute: AdminContentRoute,
+  AdminDownloadsRoute: AdminDownloadsRoute,
+  AdminEducationRoute: AdminEducationRoute,
+  AdminEventsRoute: AdminEventsRoute,
+  AdminGalleryRoute: AdminGalleryRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminMediaRoute: AdminMediaRoute,
+  AdminProjectsRoute: AdminProjectsRoute,
+  AdminPublicationsRoute: AdminPublicationsRoute,
+  AdminSeminarsRoute: AdminSeminarsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminSkillsRoute: AdminSkillsRoute,
+  AdminTestimonialsRoute: AdminTestimonialsRoute,
+  AdminTrainingsRoute: AdminTrainingsRoute,
+  AdminWorkshopsRoute: AdminWorkshopsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
