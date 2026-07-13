@@ -68,12 +68,12 @@ function Certificates() {
           </div>
         )}
 
-        {/* Database Dynamically Uploaded Certificates */}
-        {dbCertificates.length > 0 && (
+        {/* Database Dynamically Uploaded Certificates (Uncategorized) */}
+        {dbCertificates.filter(c => !["camp", "competition", "conference", "award", "olympiad"].includes(c.category?.toLowerCase())).length > 0 && (
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">New Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {dbCertificates.map((cert) => (
+              {dbCertificates.filter(c => !["camp", "competition", "conference", "award", "olympiad"].includes(c.category?.toLowerCase())).map((cert) => (
                 <div key={cert._id} className="group relative overflow-hidden rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
                   <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
                     <img 
@@ -94,7 +94,7 @@ function Certificates() {
         )}
 
         {/* Camp Certificates Section */}
-        {campCertificates.length > 0 && (
+        {(campCertificates.length > 0 || dbCertificates.some(c => c.category?.toLowerCase() === "camp")) && (
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Camp Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -114,12 +114,28 @@ function Certificates() {
                   </div>
                 </div>
               ))}
+              {dbCertificates.filter(c => c.category?.toLowerCase() === "camp").map((cert) => (
+                <div key={cert._id} className="group relative overflow-hidden rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={cert.title} 
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">Camp Achievement</div>
+                    <div className="font-display text-xl text-cream">{cert.title}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
         {/* Competition Certificates Section */}
-        {competitionCertificates.length > 0 && (
+        {(competitionCertificates.length > 0 || dbCertificates.some(c => c.category?.toLowerCase() === "competition")) && (
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Competition Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -139,12 +155,28 @@ function Certificates() {
                   </div>
                 </div>
               ))}
+              {dbCertificates.filter(c => c.category?.toLowerCase() === "competition").map((cert) => (
+                <div key={cert._id} className="group relative overflow-hidden rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={cert.title} 
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">Competition Achievement</div>
+                    <div className="font-display text-xl text-cream">{cert.title}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
         {/* Conference Certificates Section */}
-        {conferenceCertificates.length > 0 && (
+        {(conferenceCertificates.length > 0 || dbCertificates.some(c => c.category?.toLowerCase() === "conference")) && (
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Conference Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -164,12 +196,28 @@ function Certificates() {
                   </div>
                 </div>
               ))}
+              {dbCertificates.filter(c => c.category?.toLowerCase() === "conference").map((cert) => (
+                <div key={cert._id} className="group relative overflow-hidden rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={cert.title} 
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">Conference Achievement</div>
+                    <div className="font-display text-xl text-cream">{cert.title}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
         {/* Awards Certificates Section */}
-        {awardCertificates.length > 0 && (
+        {(awardCertificates.length > 0 || dbCertificates.some(c => c.category?.toLowerCase() === "award")) && (
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Awards & Honors</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -189,12 +237,28 @@ function Certificates() {
                   </div>
                 </div>
               ))}
+              {dbCertificates.filter(c => c.category?.toLowerCase() === "award").map((cert) => (
+                <div key={cert._id} className="group relative overflow-hidden rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={cert.title} 
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">Award</div>
+                    <div className="font-display text-xl text-cream">{cert.title}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
         {/* Olympiad Certificates Section */}
-        {olympiadCertificates.length > 0 && (
+        {(olympiadCertificates.length > 0 || dbCertificates.some(c => c.category?.toLowerCase() === "olympiad")) && (
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Olympiad Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -211,6 +275,22 @@ function Certificates() {
                   <div className="p-4 text-center">
                     <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">Olympiad Achievement</div>
                     <div className="font-display text-xl text-cream">Certificate {i + 1}</div>
+                  </div>
+                </div>
+              ))}
+              {dbCertificates.filter(c => c.category?.toLowerCase() === "olympiad").map((cert) => (
+                <div key={cert._id} className="group relative overflow-hidden rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={cert.title} 
+                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">Olympiad Achievement</div>
+                    <div className="font-display text-xl text-cream">{cert.title}</div>
                   </div>
                 </div>
               ))}

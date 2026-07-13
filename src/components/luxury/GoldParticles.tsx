@@ -1,8 +1,10 @@
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 
 export function GoldParticles({ count = 30 }: { count?: number }) {
-  const parts = useMemo(
-    () =>
+  const [parts, setParts] = useState<any[]>([]);
+
+  useEffect(() => {
+    setParts(
       Array.from({ length: count }).map((_, i) => ({
         left: Math.random() * 100,
         delay: Math.random() * 12,
@@ -10,9 +12,12 @@ export function GoldParticles({ count = 30 }: { count?: number }) {
         size: 1 + Math.random() * 3,
         opacity: 0.3 + Math.random() * 0.6,
         key: i,
-      })),
-    [count]
-  );
+      }))
+    );
+  }, [count]);
+
+  if (parts.length === 0) return null;
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
       {parts.map((p) => (

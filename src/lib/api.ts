@@ -42,7 +42,7 @@ export const getSiteData = createServerFn({ method: "GET" })
   .handler(async () => {
     await connectDB();
     const data = await SiteData.findOne().lean();
-    return data || {};
+    return data ? JSON.parse(JSON.stringify(data)) : {};
   });
 
 export const updateSiteData = createServerFn({ method: "POST" })
@@ -56,7 +56,7 @@ export const updateSiteData = createServerFn({ method: "POST" })
 
     await connectDB();
     const result = await SiteData.findOneAndUpdate({}, data.payload, { upsert: true, new: true }).lean();
-    return result;
+    return JSON.parse(JSON.stringify(result));
   });
 
 // Certificates
@@ -64,7 +64,7 @@ export const getCertificates = createServerFn({ method: "GET" })
   .handler(async () => {
     await connectDB();
     const certificates = await Certificate.find().sort({ createdAt: -1 }).lean();
-    return certificates;
+    return JSON.parse(JSON.stringify(certificates));
   });
 
 export const addCertificate = createServerFn({ method: "POST" })
@@ -77,7 +77,7 @@ export const addCertificate = createServerFn({ method: "POST" })
     }
     await connectDB();
     const cert = await Certificate.create(data.certificate);
-    return cert;
+    return JSON.parse(JSON.stringify(cert));
   });
 
 export const deleteCertificate = createServerFn({ method: "POST" })
@@ -98,7 +98,7 @@ export const getMedia = createServerFn({ method: "GET" })
   .handler(async () => {
     await connectDB();
     const media = await Media.find().sort({ year: -1, createdAt: -1 }).lean();
-    return media;
+    return JSON.parse(JSON.stringify(media));
   });
 
 export const addMedia = createServerFn({ method: "POST" })
@@ -111,7 +111,7 @@ export const addMedia = createServerFn({ method: "POST" })
     }
     await connectDB();
     const media = await Media.create(data.mediaItem);
-    return media;
+    return JSON.parse(JSON.stringify(media));
   });
 
 export const deleteMedia = createServerFn({ method: "POST" })

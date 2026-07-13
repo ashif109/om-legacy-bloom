@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+import dns from "node:dns";
+
+if (process.platform === "win32") {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+}
 
 // In serverless environments, we need to cache the DB connection
 // so we don't create a new connection pool for every function invocation.
