@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 import dns from "node:dns";
+import "./models/SiteData";
+import "./models/Certificate";
+import "./models/Media";
+import "./models/AdminUser";
+import "./models/ContentModels";
 
 if (process.platform === "win32") {
   dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -29,12 +34,7 @@ export const connectDB = async () => {
       family: 4, // Force IPv4 to prevent IPv6 DNS resolution issues which cause querySrv ECONNREFUSED
     });
     
-    // Register all models here so they don't need to be imported at the top of shared files
-    await import("./models/SiteData");
-    await import("./models/Certificate");
-    await import("./models/Media");
-    await import("./models/AdminUser");
-    await import("./models/ContentModels"); // Registers all the other 13 models!
+    // Models are now statically imported at the top of the file
     
     isConnected = db.connections[0].readyState === 1;
     console.log("=> database connected successfully");
