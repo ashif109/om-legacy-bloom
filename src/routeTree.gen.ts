@@ -9,24 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorkshopsRouteImport } from './routes/workshops'
-import { Route as TrainingsRouteImport } from './routes/trainings'
 import { Route as TimelineRouteImport } from './routes/timeline'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SocialWorkRouteImport } from './routes/social-work'
 import { Route as SkillsRouteImport } from './routes/skills'
-import { Route as SeminarsRouteImport } from './routes/seminars'
 import { Route as ResponsibilitiesRouteImport } from './routes/responsibilities'
 import { Route as PublicationsRouteImport } from './routes/publications'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MediaRouteImport } from './routes/media'
 import { Route as JourneyRouteImport } from './routes/journey'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as EducationRouteImport } from './routes/education'
-import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CertificatesRouteImport } from './routes/certificates'
 import { Route as CampsRouteImport } from './routes/camps'
@@ -36,44 +30,23 @@ import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as AdminWorkshopsRouteImport } from './routes/admin/workshops'
-import { Route as AdminTrainingsRouteImport } from './routes/admin/trainings'
-import { Route as AdminTestimonialsRouteImport } from './routes/admin/testimonials'
 import { Route as AdminSkillsRouteImport } from './routes/admin/skills'
 import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
-import { Route as AdminSeminarsRouteImport } from './routes/admin/seminars'
 import { Route as AdminPublicationsRouteImport } from './routes/admin/publications'
-import { Route as AdminProjectsRouteImport } from './routes/admin/projects'
 import { Route as AdminMediaRouteImport } from './routes/admin/media'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AdminGalleryRouteImport } from './routes/admin/gallery'
 import { Route as AdminEventsRouteImport } from './routes/admin/events'
 import { Route as AdminEducationRouteImport } from './routes/admin/education'
-import { Route as AdminDownloadsRouteImport } from './routes/admin/downloads'
 import { Route as AdminContentRouteImport } from './routes/admin/content'
 import { Route as AdminCommunityRouteImport } from './routes/admin/community'
 import { Route as AdminCertificatesRouteImport } from './routes/admin/certificates'
 import { Route as AdminCampsRouteImport } from './routes/admin/camps'
 import { Route as AdminAwardsRouteImport } from './routes/admin/awards'
 
-const WorkshopsRoute = WorkshopsRouteImport.update({
-  id: '/workshops',
-  path: '/workshops',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TrainingsRoute = TrainingsRouteImport.update({
-  id: '/trainings',
-  path: '/trainings',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TimelineRoute = TimelineRouteImport.update({
   id: '/timeline',
   path: '/timeline',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -91,11 +64,6 @@ const SkillsRoute = SkillsRouteImport.update({
   path: '/skills',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SeminarsRoute = SeminarsRouteImport.update({
-  id: '/seminars',
-  path: '/seminars',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ResponsibilitiesRoute = ResponsibilitiesRouteImport.update({
   id: '/responsibilities',
   path: '/responsibilities',
@@ -104,11 +72,6 @@ const ResponsibilitiesRoute = ResponsibilitiesRouteImport.update({
 const PublicationsRoute = PublicationsRouteImport.update({
   id: '/publications',
   path: '/publications',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -139,11 +102,6 @@ const EventsRoute = EventsRouteImport.update({
 const EducationRoute = EducationRouteImport.update({
   id: '/education',
   path: '/education',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DownloadsRoute = DownloadsRouteImport.update({
-  id: '/downloads',
-  path: '/downloads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -191,21 +149,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminWorkshopsRoute = AdminWorkshopsRouteImport.update({
-  id: '/workshops',
-  path: '/workshops',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminTrainingsRoute = AdminTrainingsRouteImport.update({
-  id: '/trainings',
-  path: '/trainings',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminSkillsRoute = AdminSkillsRouteImport.update({
   id: '/skills',
   path: '/skills',
@@ -216,19 +159,9 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminSeminarsRoute = AdminSeminarsRouteImport.update({
-  id: '/seminars',
-  path: '/seminars',
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminPublicationsRoute = AdminPublicationsRouteImport.update({
   id: '/publications',
   path: '/publications',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminProjectsRoute = AdminProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminMediaRoute = AdminMediaRouteImport.update({
@@ -254,11 +187,6 @@ const AdminEventsRoute = AdminEventsRouteImport.update({
 const AdminEducationRoute = AdminEducationRouteImport.update({
   id: '/education',
   path: '/education',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminDownloadsRoute = AdminDownloadsRouteImport.update({
-  id: '/downloads',
-  path: '/downloads',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminContentRoute = AdminContentRouteImport.update({
@@ -296,43 +224,31 @@ export interface FileRoutesByFullPath {
   '/camps': typeof CampsRoute
   '/certificates': typeof CertificatesRoute
   '/contact': typeof ContactRoute
-  '/downloads': typeof DownloadsRoute
   '/education': typeof EducationRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/journey': typeof JourneyRoute
   '/media': typeof MediaRoute
   '/privacy': typeof PrivacyRoute
-  '/projects': typeof ProjectsRoute
   '/publications': typeof PublicationsRoute
   '/responsibilities': typeof ResponsibilitiesRoute
-  '/seminars': typeof SeminarsRoute
   '/skills': typeof SkillsRoute
   '/social-work': typeof SocialWorkRoute
   '/terms': typeof TermsRoute
-  '/testimonials': typeof TestimonialsRoute
   '/timeline': typeof TimelineRoute
-  '/trainings': typeof TrainingsRoute
-  '/workshops': typeof WorkshopsRoute
   '/admin/awards': typeof AdminAwardsRoute
   '/admin/camps': typeof AdminCampsRoute
   '/admin/certificates': typeof AdminCertificatesRoute
   '/admin/community': typeof AdminCommunityRoute
   '/admin/content': typeof AdminContentRoute
-  '/admin/downloads': typeof AdminDownloadsRoute
   '/admin/education': typeof AdminEducationRoute
   '/admin/events': typeof AdminEventsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
-  '/admin/projects': typeof AdminProjectsRoute
   '/admin/publications': typeof AdminPublicationsRoute
-  '/admin/seminars': typeof AdminSeminarsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/skills': typeof AdminSkillsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
-  '/admin/trainings': typeof AdminTrainingsRoute
-  '/admin/workshops': typeof AdminWorkshopsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -343,43 +259,31 @@ export interface FileRoutesByTo {
   '/camps': typeof CampsRoute
   '/certificates': typeof CertificatesRoute
   '/contact': typeof ContactRoute
-  '/downloads': typeof DownloadsRoute
   '/education': typeof EducationRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/journey': typeof JourneyRoute
   '/media': typeof MediaRoute
   '/privacy': typeof PrivacyRoute
-  '/projects': typeof ProjectsRoute
   '/publications': typeof PublicationsRoute
   '/responsibilities': typeof ResponsibilitiesRoute
-  '/seminars': typeof SeminarsRoute
   '/skills': typeof SkillsRoute
   '/social-work': typeof SocialWorkRoute
   '/terms': typeof TermsRoute
-  '/testimonials': typeof TestimonialsRoute
   '/timeline': typeof TimelineRoute
-  '/trainings': typeof TrainingsRoute
-  '/workshops': typeof WorkshopsRoute
   '/admin/awards': typeof AdminAwardsRoute
   '/admin/camps': typeof AdminCampsRoute
   '/admin/certificates': typeof AdminCertificatesRoute
   '/admin/community': typeof AdminCommunityRoute
   '/admin/content': typeof AdminContentRoute
-  '/admin/downloads': typeof AdminDownloadsRoute
   '/admin/education': typeof AdminEducationRoute
   '/admin/events': typeof AdminEventsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
-  '/admin/projects': typeof AdminProjectsRoute
   '/admin/publications': typeof AdminPublicationsRoute
-  '/admin/seminars': typeof AdminSeminarsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/skills': typeof AdminSkillsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
-  '/admin/trainings': typeof AdminTrainingsRoute
-  '/admin/workshops': typeof AdminWorkshopsRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -392,43 +296,31 @@ export interface FileRoutesById {
   '/camps': typeof CampsRoute
   '/certificates': typeof CertificatesRoute
   '/contact': typeof ContactRoute
-  '/downloads': typeof DownloadsRoute
   '/education': typeof EducationRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/journey': typeof JourneyRoute
   '/media': typeof MediaRoute
   '/privacy': typeof PrivacyRoute
-  '/projects': typeof ProjectsRoute
   '/publications': typeof PublicationsRoute
   '/responsibilities': typeof ResponsibilitiesRoute
-  '/seminars': typeof SeminarsRoute
   '/skills': typeof SkillsRoute
   '/social-work': typeof SocialWorkRoute
   '/terms': typeof TermsRoute
-  '/testimonials': typeof TestimonialsRoute
   '/timeline': typeof TimelineRoute
-  '/trainings': typeof TrainingsRoute
-  '/workshops': typeof WorkshopsRoute
   '/admin/awards': typeof AdminAwardsRoute
   '/admin/camps': typeof AdminCampsRoute
   '/admin/certificates': typeof AdminCertificatesRoute
   '/admin/community': typeof AdminCommunityRoute
   '/admin/content': typeof AdminContentRoute
-  '/admin/downloads': typeof AdminDownloadsRoute
   '/admin/education': typeof AdminEducationRoute
   '/admin/events': typeof AdminEventsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
-  '/admin/projects': typeof AdminProjectsRoute
   '/admin/publications': typeof AdminPublicationsRoute
-  '/admin/seminars': typeof AdminSeminarsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/skills': typeof AdminSkillsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
-  '/admin/trainings': typeof AdminTrainingsRoute
-  '/admin/workshops': typeof AdminWorkshopsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -442,43 +334,31 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certificates'
     | '/contact'
-    | '/downloads'
     | '/education'
     | '/events'
     | '/gallery'
     | '/journey'
     | '/media'
     | '/privacy'
-    | '/projects'
     | '/publications'
     | '/responsibilities'
-    | '/seminars'
     | '/skills'
     | '/social-work'
     | '/terms'
-    | '/testimonials'
     | '/timeline'
-    | '/trainings'
-    | '/workshops'
     | '/admin/awards'
     | '/admin/camps'
     | '/admin/certificates'
     | '/admin/community'
     | '/admin/content'
-    | '/admin/downloads'
     | '/admin/education'
     | '/admin/events'
     | '/admin/gallery'
     | '/admin/login'
     | '/admin/media'
-    | '/admin/projects'
     | '/admin/publications'
-    | '/admin/seminars'
     | '/admin/settings'
     | '/admin/skills'
-    | '/admin/testimonials'
-    | '/admin/trainings'
-    | '/admin/workshops'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -489,43 +369,31 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certificates'
     | '/contact'
-    | '/downloads'
     | '/education'
     | '/events'
     | '/gallery'
     | '/journey'
     | '/media'
     | '/privacy'
-    | '/projects'
     | '/publications'
     | '/responsibilities'
-    | '/seminars'
     | '/skills'
     | '/social-work'
     | '/terms'
-    | '/testimonials'
     | '/timeline'
-    | '/trainings'
-    | '/workshops'
     | '/admin/awards'
     | '/admin/camps'
     | '/admin/certificates'
     | '/admin/community'
     | '/admin/content'
-    | '/admin/downloads'
     | '/admin/education'
     | '/admin/events'
     | '/admin/gallery'
     | '/admin/login'
     | '/admin/media'
-    | '/admin/projects'
     | '/admin/publications'
-    | '/admin/seminars'
     | '/admin/settings'
     | '/admin/skills'
-    | '/admin/testimonials'
-    | '/admin/trainings'
-    | '/admin/workshops'
     | '/admin'
   id:
     | '__root__'
@@ -537,43 +405,31 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certificates'
     | '/contact'
-    | '/downloads'
     | '/education'
     | '/events'
     | '/gallery'
     | '/journey'
     | '/media'
     | '/privacy'
-    | '/projects'
     | '/publications'
     | '/responsibilities'
-    | '/seminars'
     | '/skills'
     | '/social-work'
     | '/terms'
-    | '/testimonials'
     | '/timeline'
-    | '/trainings'
-    | '/workshops'
     | '/admin/awards'
     | '/admin/camps'
     | '/admin/certificates'
     | '/admin/community'
     | '/admin/content'
-    | '/admin/downloads'
     | '/admin/education'
     | '/admin/events'
     | '/admin/gallery'
     | '/admin/login'
     | '/admin/media'
-    | '/admin/projects'
     | '/admin/publications'
-    | '/admin/seminars'
     | '/admin/settings'
     | '/admin/skills'
-    | '/admin/testimonials'
-    | '/admin/trainings'
-    | '/admin/workshops'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -586,54 +442,27 @@ export interface RootRouteChildren {
   CampsRoute: typeof CampsRoute
   CertificatesRoute: typeof CertificatesRoute
   ContactRoute: typeof ContactRoute
-  DownloadsRoute: typeof DownloadsRoute
   EducationRoute: typeof EducationRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
   JourneyRoute: typeof JourneyRoute
   MediaRoute: typeof MediaRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProjectsRoute: typeof ProjectsRoute
   PublicationsRoute: typeof PublicationsRoute
   ResponsibilitiesRoute: typeof ResponsibilitiesRoute
-  SeminarsRoute: typeof SeminarsRoute
   SkillsRoute: typeof SkillsRoute
   SocialWorkRoute: typeof SocialWorkRoute
   TermsRoute: typeof TermsRoute
-  TestimonialsRoute: typeof TestimonialsRoute
   TimelineRoute: typeof TimelineRoute
-  TrainingsRoute: typeof TrainingsRoute
-  WorkshopsRoute: typeof WorkshopsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/workshops': {
-      id: '/workshops'
-      path: '/workshops'
-      fullPath: '/workshops'
-      preLoaderRoute: typeof WorkshopsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/trainings': {
-      id: '/trainings'
-      path: '/trainings'
-      fullPath: '/trainings'
-      preLoaderRoute: typeof TrainingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/timeline': {
       id: '/timeline'
       path: '/timeline'
       fullPath: '/timeline'
       preLoaderRoute: typeof TimelineRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -657,13 +486,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkillsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/seminars': {
-      id: '/seminars'
-      path: '/seminars'
-      fullPath: '/seminars'
-      preLoaderRoute: typeof SeminarsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/responsibilities': {
       id: '/responsibilities'
       path: '/responsibilities'
@@ -676,13 +498,6 @@ declare module '@tanstack/react-router' {
       path: '/publications'
       fullPath: '/publications'
       preLoaderRoute: typeof PublicationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -725,13 +540,6 @@ declare module '@tanstack/react-router' {
       path: '/education'
       fullPath: '/education'
       preLoaderRoute: typeof EducationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/downloads': {
-      id: '/downloads'
-      path: '/downloads'
-      fullPath: '/downloads'
-      preLoaderRoute: typeof DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -797,27 +605,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/workshops': {
-      id: '/admin/workshops'
-      path: '/workshops'
-      fullPath: '/admin/workshops'
-      preLoaderRoute: typeof AdminWorkshopsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/trainings': {
-      id: '/admin/trainings'
-      path: '/trainings'
-      fullPath: '/admin/trainings'
-      preLoaderRoute: typeof AdminTrainingsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/testimonials': {
-      id: '/admin/testimonials'
-      path: '/testimonials'
-      fullPath: '/admin/testimonials'
-      preLoaderRoute: typeof AdminTestimonialsRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/admin/skills': {
       id: '/admin/skills'
       path: '/skills'
@@ -832,25 +619,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSettingsRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/seminars': {
-      id: '/admin/seminars'
-      path: '/seminars'
-      fullPath: '/admin/seminars'
-      preLoaderRoute: typeof AdminSeminarsRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/admin/publications': {
       id: '/admin/publications'
       path: '/publications'
       fullPath: '/admin/publications'
       preLoaderRoute: typeof AdminPublicationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/projects': {
-      id: '/admin/projects'
-      path: '/projects'
-      fullPath: '/admin/projects'
-      preLoaderRoute: typeof AdminProjectsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/media': {
@@ -886,13 +659,6 @@ declare module '@tanstack/react-router' {
       path: '/education'
       fullPath: '/admin/education'
       preLoaderRoute: typeof AdminEducationRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/downloads': {
-      id: '/admin/downloads'
-      path: '/downloads'
-      fullPath: '/admin/downloads'
-      preLoaderRoute: typeof AdminDownloadsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/content': {
@@ -939,20 +705,14 @@ interface AdminRouteChildren {
   AdminCertificatesRoute: typeof AdminCertificatesRoute
   AdminCommunityRoute: typeof AdminCommunityRoute
   AdminContentRoute: typeof AdminContentRoute
-  AdminDownloadsRoute: typeof AdminDownloadsRoute
   AdminEducationRoute: typeof AdminEducationRoute
   AdminEventsRoute: typeof AdminEventsRoute
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminMediaRoute: typeof AdminMediaRoute
-  AdminProjectsRoute: typeof AdminProjectsRoute
   AdminPublicationsRoute: typeof AdminPublicationsRoute
-  AdminSeminarsRoute: typeof AdminSeminarsRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminSkillsRoute: typeof AdminSkillsRoute
-  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
-  AdminTrainingsRoute: typeof AdminTrainingsRoute
-  AdminWorkshopsRoute: typeof AdminWorkshopsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -962,20 +722,14 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminCertificatesRoute: AdminCertificatesRoute,
   AdminCommunityRoute: AdminCommunityRoute,
   AdminContentRoute: AdminContentRoute,
-  AdminDownloadsRoute: AdminDownloadsRoute,
   AdminEducationRoute: AdminEducationRoute,
   AdminEventsRoute: AdminEventsRoute,
   AdminGalleryRoute: AdminGalleryRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminMediaRoute: AdminMediaRoute,
-  AdminProjectsRoute: AdminProjectsRoute,
   AdminPublicationsRoute: AdminPublicationsRoute,
-  AdminSeminarsRoute: AdminSeminarsRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminSkillsRoute: AdminSkillsRoute,
-  AdminTestimonialsRoute: AdminTestimonialsRoute,
-  AdminTrainingsRoute: AdminTrainingsRoute,
-  AdminWorkshopsRoute: AdminWorkshopsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -990,24 +744,18 @@ const rootRouteChildren: RootRouteChildren = {
   CampsRoute: CampsRoute,
   CertificatesRoute: CertificatesRoute,
   ContactRoute: ContactRoute,
-  DownloadsRoute: DownloadsRoute,
   EducationRoute: EducationRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
   JourneyRoute: JourneyRoute,
   MediaRoute: MediaRoute,
   PrivacyRoute: PrivacyRoute,
-  ProjectsRoute: ProjectsRoute,
   PublicationsRoute: PublicationsRoute,
   ResponsibilitiesRoute: ResponsibilitiesRoute,
-  SeminarsRoute: SeminarsRoute,
   SkillsRoute: SkillsRoute,
   SocialWorkRoute: SocialWorkRoute,
   TermsRoute: TermsRoute,
-  TestimonialsRoute: TestimonialsRoute,
   TimelineRoute: TimelineRoute,
-  TrainingsRoute: TrainingsRoute,
-  WorkshopsRoute: WorkshopsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

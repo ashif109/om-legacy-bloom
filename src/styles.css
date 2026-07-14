@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -105,6 +106,16 @@
   .font-serif-lux { font-family: var(--font-serif); }
   .font-devanagari { font-family: var(--font-devanagari); }
   ::selection { background: oklch(0.68 0.17 55 / 0.4); color: var(--cream); }
+
+  html.lang-hi body, html.lang-sa body {
+    font-family: "Noto Sans Devanagari", sans-serif;
+    font-size: 1.05rem; /* Make Devanagari slightly larger for better readability */
+    line-height: 1.6;
+  }
+  html.lang-hi h1, html.lang-hi h2, html.lang-hi h3, html.lang-hi h4,
+  html.lang-sa h1, html.lang-sa h2, html.lang-sa h3, html.lang-sa h4 {
+    font-family: "Yatra One", serif;
+  }
 }
 
 @utility text-gold-gradient {

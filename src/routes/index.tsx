@@ -7,8 +7,13 @@ import templeBg from "@/assets/temple-bg.jpg";
 import meditationImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
 import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
 import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
-import manuscriptImg from "@/assets/manuscript.jpg";
+import manuscriptImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM.jpeg";
 import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
+import previewImg1 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM (1).jpeg";
+import previewImg2 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM.jpeg";
+import mediaImg1 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (2).jpeg";
+import mediaImg2 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (1).jpeg";
+import mediaImg3 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM (1).jpeg";
 
 import { Navbar } from "@/components/luxury/Navbar";
 import { Footer } from "@/components/luxury/Footer";
@@ -45,7 +50,7 @@ export const Route = createFileRoute("/")({
 const missionIcons = [Eye, Flag, Flower, Sun];
 
 function HomePage() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const { siteData, mediaData } = Route.useLoaderData();
   const stats = siteData?.stats?.length > 0 ? siteData.stats : fallbackData.stats;
   const missionCards = siteData?.missionCards?.length > 0 ? siteData.missionCards : fallbackData.missionCards;
@@ -89,20 +94,20 @@ function HomePage() {
             </div>
             {/* floating badges */}
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="glass-card absolute -left-6 top-14 hidden rounded-2xl px-4 py-3 md:block">
-              <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">People Impacted</div>
+              <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t("home.peopleImpacted")}</div>
               <div className="mt-1 font-display text-2xl text-cream">5,000+</div>
             </motion.div>
             <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity }} className="glass-card absolute -right-6 bottom-24 hidden rounded-2xl px-4 py-3 md:block">
-              <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">Events</div>
+              <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t("home.events")}</div>
               <div className="mt-1 font-display text-2xl text-cream">150+</div>
             </motion.div>
           </motion.div>
 
           {/* Copy */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
-            <SectionLabel>Student · Youtuber · Astrologer</SectionLabel>
+            <SectionLabel>{t("hero.role")}</SectionLabel>
             <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
-              <span className="font-[cursive] font-extrabold text-gold-gradient">Triyambkeshwar Nath Tyagi</span>
+              <span className="font-[cursive] font-extrabold text-gold-gradient">{t("home.name")}</span>
             </h1>
             <div className="mt-4 font-serif-lux text-xl italic text-[color:var(--muted-foreground)]">{t("hero.role")}</div>
             <div className="mt-2 text-[color:var(--cream)]">{t("hero.tag")}</div>
@@ -112,7 +117,7 @@ function HomePage() {
                 स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥
               </p>
               <p className="mt-2 text-sm italic text-[color:var(--muted-foreground)]">
-                Better one's own duty, though imperfectly performed, than the duty of another, though well performed.
+                {t("Better one's own duty, though imperfectly performed, than the duty of another, though well performed." as any) !== "Better one's own duty, though imperfectly performed, than the duty of another, though well performed." ? t("Better one's own duty, though imperfectly performed, than the duty of another, though well performed." as any) : (lang === "hi" ? "अपूर्ण रूप से किए गए अपने धर्म का पालन करना भी, अच्छी तरह से किए गए दूसरों के धर्म का पालन करने से बेहतर है।" : lang === "sa" ? "स्वधर्मस्य अपूर्णं पालनमपि उत्तमरूपेण कृतात् परधर्मपालनात् श्रेष्ठम् अस्ति।" : "Better one's own duty, though imperfectly performed, than the duty of another, though well performed.")}
               </p>
             </div>
 
@@ -142,8 +147,8 @@ function HomePage() {
                 transition={{ delay: i * 0.06 }}
                 className="text-center"
               >
-                <div className="font-display text-3xl text-gold-gradient md:text-4xl">{s.value}</div>
-                <div className="mt-1 text-[11px] uppercase tracking-[0.3em] text-[color:var(--muted-foreground)]">{s.label}</div>
+                <div className="font-display text-3xl text-gold-gradient md:text-4xl">{t(s.value as any)}</div>
+                <div className="mt-1 text-[11px] uppercase tracking-[0.3em] text-[color:var(--muted-foreground)]">{t(s.label as any)}</div>
               </motion.div>
             ))}
           </div>
@@ -153,9 +158,9 @@ function HomePage() {
       {/* MISSION */}
       <section className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="mx-auto max-w-2xl text-center">
-          <SectionLabel>About Me</SectionLabel>
+          <SectionLabel>{t("home.aboutTitle")}</SectionLabel>
           <h2 className="mt-6 font-display text-4xl md:text-6xl">
-            Dedicated to <span className="text-gold-gradient">Dharma</span>,<br /> Inspired to <span className="text-gold-gradient">Serve</span>
+            {t("home.aboutDedicated")} <span className="text-gold-gradient">Dharma</span>,<br /> {t("home.aboutInspired")}
           </h2>
           <Ornament className="mt-6" />
         </div>
@@ -176,8 +181,8 @@ function HomePage() {
                 <div className="grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
                   <Icon size={22} />
                 </div>
-                <h3 className="mt-6 font-display text-xl text-cream">{c.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted-foreground)]">{c.body}</p>
+                <h3 className="mt-6 font-display text-xl text-cream">{t(c.title as any)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted-foreground)]">{t(c.body as any)}</p>
               </motion.div>
             );
           })}
@@ -188,11 +193,11 @@ function HomePage() {
       <section className="relative mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <SectionLabel>Journey</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl">My <span className="text-gold-gradient">Highlights</span></h2>
+            <SectionLabel>{t("home.journeyTitle")}</SectionLabel>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.journeyHighlights")}</h2>
           </div>
           <Link to="/journey" className="text-sm uppercase tracking-widest text-[color:var(--gold)] hover:text-[color:var(--gold-soft)]">
-            Full Journey →
+            {t("home.fullJourney")}
           </Link>
         </div>
 
@@ -202,11 +207,11 @@ function HomePage() {
             <div className="flex min-w-[900px] items-center justify-between gap-6">
               {journey.slice(0, 8).map((j, i) => (
                 <div key={j.year} className="relative flex flex-1 flex-col items-center text-center">
-                  <div className={`grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--card)] font-display text-sm text-[color:var(--gold)] ${i % 2 === 0 ? "shadow-[0_0_25px_oklch(0.83_0.14_82/0.35)]" : ""}`}>
-                    {j.year}
+                  <div className={`inline-flex min-w-[5rem] px-5 h-14 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--card)] font-display text-base text-[color:var(--gold)] ${i % 2 === 0 ? "shadow-[0_0_25px_oklch(0.83_0.14_82/0.35)]" : ""}`}>
+                    {t(j.year as any)}
                   </div>
-                  <div className="mt-4 text-xs font-semibold uppercase tracking-wider text-cream">{j.title}</div>
-                  <div className="mt-1 max-w-[140px] text-[11px] text-[color:var(--muted-foreground)]">{j.body}</div>
+                  <div className="mt-5 text-sm font-semibold uppercase tracking-wider text-cream">{t(j.title as any)}</div>
+                  <div className="mt-2 max-w-[260px] text-xs leading-relaxed text-[color:var(--muted-foreground)]">{t(j.body as any)}</div>
                 </div>
               ))}
             </div>
@@ -217,8 +222,8 @@ function HomePage() {
       {/* ACHIEVEMENTS + WHAT I DO */}
       <section className="mx-auto max-w-7xl px-6 py-24 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
         <div>
-          <SectionLabel>Achievements</SectionLabel>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl">Featured <span className="text-gold-gradient">Honors</span></h2>
+          <SectionLabel>{t("home.achievementsTitle")}</SectionLabel>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.featuredHonors")}</h2>
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
             {achievements.slice(0, 6).map((a, i) => (
               <motion.div
@@ -232,21 +237,21 @@ function HomePage() {
                 <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
                   <Award size={20} />
                 </div>
-                <div className="mt-3 text-[11px] uppercase tracking-wider text-[color:var(--gold)]">{a.year}</div>
-                <div className="mt-1 font-display text-sm text-cream leading-snug">{a.title}</div>
+                <div className="mt-3 text-[11px] uppercase tracking-wider text-[color:var(--gold)]">{t(String(a.year) as any)}</div>
+                <div className="mt-1 font-display text-sm text-cream leading-snug">{t(a.title as any)}</div>
               </motion.div>
             ))}
           </div>
         </div>
         <div className="relative">
-          <SectionLabel>What I Do</SectionLabel>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl">Service in <span className="text-gold-gradient">Motion</span></h2>
+          <SectionLabel>{t("home.whatIDo")}</SectionLabel>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.serviceInMotion")}</h2>
           <div className="mt-8 space-y-3">
             {[
-              { icon: Mic, title: "Public Speaking", body: "Delivering motivational and spiritual discourses." },
-              { icon: GraduationCap, title: "Teaching & Mentoring", body: "Guiding students and youth toward purpose." },
-              { icon: Users, title: "Event Management", body: "Organising cultural and social gatherings at scale." },
-              { icon: Sparkles, title: "Content Creation", body: "Videos, articles and digital content on dharma." },
+              { icon: Mic, title: t("service.publicSpeaking"), body: t("service.publicSpeakingDesc") },
+              { icon: GraduationCap, title: t("service.teaching"), body: t("service.teachingDesc") },
+              { icon: Users, title: t("service.eventMgt"), body: t("service.eventMgtDesc") },
+              { icon: Sparkles, title: t("service.contentCreation"), body: t("service.contentCreationDesc") },
             ].map(({ icon: Icon, title, body }) => (
               <div key={title} className="group flex items-start gap-4 rounded-2xl luxury-card p-5 hover:border-[color:var(--gold)]/60">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
@@ -265,28 +270,28 @@ function HomePage() {
       {/* GALLERY PREVIEW */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="text-center">
-          <SectionLabel>Gallery</SectionLabel>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl">Moments of <span className="text-gold-gradient">Seva & Sanskar</span></h2>
+          <SectionLabel>{t("home.galleryTitle")}</SectionLabel>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.galleryMoments")}</h2>
           <Ornament className="mt-6" />
         </div>
-        <div className="mt-10 grid gap-4 md:grid-cols-4 md:[grid-auto-rows:180px]">
+        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
           {[
-            { src: speechImg, cls: "md:col-span-2 md:row-span-2" },
-            { src: meditationImg, cls: "md:col-span-1 md:row-span-1" },
-            { src: manuscriptImg, cls: "md:col-span-1 md:row-span-1" },
-            { src: gatheringImg, cls: "md:col-span-2 md:row-span-1" },
-            { src: awardImg, cls: "md:col-span-1 md:row-span-1" },
-            { src: heroOm, cls: "md:col-span-1 md:row-span-1" },
-          ].map((g, i) => (
-            <div key={i} className={`group relative overflow-hidden rounded-2xl gold-border ${g.cls}`}>
-              <img src={g.src} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
+            speechImg,
+            meditationImg,
+            manuscriptImg,
+            gatheringImg,
+            previewImg1,
+            previewImg2,
+          ].map((src, i) => (
+            <div key={i} className="group relative overflow-hidden rounded-2xl gold-border break-inside-avoid">
+              <img src={src} alt="" className="w-full transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--background)]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>
         <div className="mt-10 text-center">
           <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-[color:var(--gold)]/10">
-            View Full Gallery →
+            {t("home.viewFullGallery")}
           </Link>
         </div>
       </section>
@@ -295,21 +300,21 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <SectionLabel>Media</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl">In the <span className="text-gold-gradient">Press</span></h2>
+            <SectionLabel>{t("home.mediaTitle")}</SectionLabel>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.inThePress")}</h2>
           </div>
-          <Link to="/media" className="text-sm uppercase tracking-widest text-[color:var(--gold)]">All Media →</Link>
+          <Link to="/media" className="text-sm uppercase tracking-widest text-[color:var(--gold)]">{t("home.allMedia")}</Link>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {media.slice(0,3).map((m) => (
             <div key={m.title} className="group overflow-hidden rounded-2xl luxury-card hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img src={m.type === "News" ? speechImg : m.type === "Interview" ? awardImg : gatheringImg} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
-                <span className="absolute left-4 top-4 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)]/60 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{m.type}</span>
+                <img src={m.type === "News" ? mediaImg1 : m.type === "Interview" ? mediaImg2 : mediaImg3} alt="" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
+                <span className="absolute left-4 top-4 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)]/60 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t(m.type as any)}</span>
               </div>
               <div className="p-6">
-                <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{m.source} · {m.year}</div>
-                <div className="mt-2 font-display text-lg text-cream">{m.title}</div>
+                <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t(m.source as any)} · {t(String(m.year) as any)}</div>
+                <div className="mt-2 font-display text-lg text-cream">{t(m.title as any)}</div>
               </div>
             </div>
           ))}
@@ -319,18 +324,18 @@ function HomePage() {
       {/* TESTIMONIALS */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="text-center">
-          <SectionLabel>Kind Words</SectionLabel>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl">Voices of <span className="text-gold-gradient">Blessing</span></h2>
+          <SectionLabel>{t("home.testimonialsTitle")}</SectionLabel>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.voicesOfBlessing")}</h2>
           <Ornament className="mt-6" />
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {testimonials.slice(0,4).map((t) => (
-            <div key={t.name} className="glass-card rounded-2xl p-8">
+          {testimonials.slice(0,4).map((t_item: any) => (
+            <div key={t_item.name} className="glass-card rounded-2xl p-8">
               <div className="font-devanagari text-4xl text-[color:var(--gold)]">"</div>
-              <p className="mt-2 font-serif-lux text-lg italic leading-relaxed text-[color:var(--cream)]">{t.quote}</p>
+              <p className="mt-2 font-serif-lux text-lg italic leading-relaxed text-[color:var(--cream)]">{t(t_item.quote as any)}</p>
               <div className="mt-6 border-t border-[color:var(--gold)]/20 pt-4">
-                <div className="font-display text-base text-gold-gradient">{t.name}</div>
-                <div className="text-xs uppercase tracking-widest text-[color:var(--muted-foreground)]">{t.role}</div>
+                <div className="font-display text-base text-gold-gradient">{t(t_item.name as any)}</div>
+                <div className="text-xs uppercase tracking-widest text-[color:var(--muted-foreground)]">{t(t_item.role as any)}</div>
               </div>
             </div>
           ))}
@@ -345,12 +350,12 @@ function HomePage() {
           <div>
             <div className="font-devanagari text-3xl text-[color:var(--gold)]">ॐ</div>
             <h3 className="mt-4 font-display text-3xl md:text-5xl text-gold-gradient max-w-2xl">
-              Let's join hands for Dharma, Culture & Humanity
+              {t("home.ctaJoin")}
             </h3>
-            <p className="mt-3 max-w-xl text-[color:var(--muted-foreground)]">Together we can create a better, peaceful and dhārmic world.</p>
+            <p className="mt-3 max-w-xl text-[color:var(--muted-foreground)]">{t("home.ctaTogether")}</p>
           </div>
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-gold px-8 py-4 text-sm font-semibold uppercase tracking-widest">
-            Get in Touch <ArrowRight size={16} />
+            {t("home.getInTouch")} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

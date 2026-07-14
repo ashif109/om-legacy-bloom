@@ -21,16 +21,10 @@ const more = [
   ["nav.certificates", "/certificates"],
   ["nav.awards", "/awards"],
   ["nav.social", "/social-work"],
-  ["nav.trainings", "/trainings"],
-  ["nav.workshops", "/workshops"],
   ["nav.events", "/events"],
-  ["nav.seminars", "/seminars"],
   ["nav.camps", "/camps"],
   ["nav.responsibilities", "/responsibilities"],
-  ["nav.projects", "/projects"],
   ["nav.publications", "/publications"],
-  ["nav.testimonials", "/testimonials"],
-  ["nav.downloads", "/downloads"],
 ] as const;
 
 export function Navbar() {
@@ -111,7 +105,7 @@ export function Navbar() {
               onMouseEnter={() => setShowMore(true)}
               onMouseLeave={() => setShowMore(false)}
             >
-              <button className="px-3 py-2 text-sm text-[color:var(--cream)] hover:text-[color:var(--gold)]">More ▾</button>
+              <button className="px-3 py-2 text-sm text-[color:var(--cream)] hover:text-[color:var(--gold)]">{t("nav.more")}</button>
               {showMore && (
                 <div className="absolute right-0 top-full w-[520px] pt-2">
                   <div className="glass-card grid grid-cols-2 gap-1 rounded-2xl p-3">
@@ -128,9 +122,6 @@ export function Navbar() {
 
           {/* Right cluster */}
           <div className="flex items-center gap-2">
-            <button aria-label="Search" className="hidden md:grid h-10 w-10 place-items-center rounded-full border border-[color:var(--gold)]/25 text-[color:var(--cream)] hover:border-[color:var(--gold)] hover:text-[color:var(--gold)]">
-              <Search size={16} />
-            </button>
             <div className="relative">
               <button
                 onClick={() => setShowLang((v) => !v)}
@@ -154,7 +145,7 @@ export function Navbar() {
               )}
             </div>
             <Link to="/admin" className="hidden md:inline-flex h-10 items-center justify-center gap-2 rounded-full border border-[color:var(--gold)]/25 px-4 text-xs font-semibold tracking-widest uppercase text-[color:var(--cream)] hover:border-[color:var(--gold)] hover:text-[color:var(--gold)] transition-colors">
-              Admin
+              {t("nav.admin")}
             </Link>
             <button 
               onClick={() => setShowDonation(true)}
