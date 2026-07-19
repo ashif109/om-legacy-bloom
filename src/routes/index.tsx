@@ -2,18 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Eye, Flag, Flower, Sun, Mic, GraduationCap, Users, Award } from "lucide-react";
 
-import heroOm from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM.jpeg";
+import heroOm from "@/assets/imageom/ChatGPT Image Jul 19, 2026, 07_15_16 PM.png";
 import templeBg from "@/assets/temple-bg.jpg";
-import meditationImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
-import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
-import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
-import manuscriptImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM.jpeg";
-import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
-import previewImg1 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM (1).jpeg";
-import previewImg2 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM.jpeg";
-import mediaImg1 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (2).jpeg";
-import mediaImg2 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (1).jpeg";
-import mediaImg3 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM (1).jpeg";
+import meditationImg from "@/assets/imageom/Screenshot 2026-07-19 190330.png";
+import speechImg from "@/assets/imageom/Screenshot 2026-07-19 190359.png";
+import gatheringImg from "@/assets/imageom/Screenshot 2026-07-19 190410.png";
+import manuscriptImg from "@/assets/imageom/Screenshot 2026-07-19 190428.png";
+import awardImg from "@/assets/imageom/Screenshot 2026-07-19 190438.png";
+import previewImg1 from "@/assets/imageom/Screenshot 2026-07-19 190448.png";
+import previewImg2 from "@/assets/imageom/Screenshot 2026-07-19 190502.png";
+import mediaImg1 from "@/assets/imageom/Screenshot 2026-07-19 190518.png";
+import mediaImg2 from "@/assets/imageom/Screenshot 2026-07-19 190532.png";
+import mediaImg3 from "@/assets/imageom/Screenshot 2026-07-19 190546.png";
 
 import { Navbar } from "@/components/luxury/Navbar";
 import { Footer } from "@/components/luxury/Footer";
@@ -137,8 +137,8 @@ function HomePage() {
 
         {/* Stats strip */}
         <div className="relative border-y border-[color:var(--gold)]/25 bg-[oklch(0.15_0.03_45)]/70 backdrop-blur">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 py-6 md:grid-cols-6">
-            {stats.map((s, i) => (
+          <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-8 px-6 py-6 md:gap-16">
+            {stats.map((s: any, i: number) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 12 }}
@@ -165,8 +165,8 @@ function HomePage() {
           <Ornament className="mt-6" />
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {missionCards.map((c, i) => {
+        <div className="mt-16 flex flex-wrap justify-center gap-6">
+          {missionCards.map((c: any, i: number) => {
             const Icon = missionIcons[i] ?? Sparkles;
             return (
               <motion.div
@@ -175,7 +175,7 @@ function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl luxury-card p-8 hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60"
+                className="group relative flex-1 min-w-[280px] max-w-md overflow-hidden rounded-2xl luxury-card p-8 hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60 flex flex-col items-center text-center"
               >
                 <div className="pointer-events-none absolute inset-x-0 -top-16 h-32 bg-[radial-gradient(circle,oklch(0.83_0.14_82/0.35),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
@@ -191,21 +191,22 @@ function HomePage() {
 
       {/* JOURNEY PREVIEW */}
       <section className="relative mx-auto max-w-7xl px-6 py-24">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-col items-center justify-center text-center gap-4">
           <div>
             <SectionLabel>{t("home.journeyTitle")}</SectionLabel>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.journeyHighlights")}</h2>
+            <Ornament className="mt-6" />
           </div>
-          <Link to="/journey" className="text-sm uppercase tracking-widest text-[color:var(--gold)] hover:text-[color:var(--gold-soft)]">
+          <Link to="/journey" className="mt-2 text-sm uppercase tracking-widest text-[color:var(--gold)] hover:text-[color:var(--gold-soft)]">
             {t("home.fullJourney")}
           </Link>
         </div>
 
         <div className="mt-12 rounded-3xl gold-border overflow-hidden">
           <div className="relative overflow-x-auto p-8">
-            <div className="pointer-events-none absolute left-8 right-8 top-1/2 h-px bg-gradient-to-r from-transparent via-[color:var(--gold)]/60 to-transparent" />
-            <div className="flex min-w-[900px] items-center justify-between gap-6">
-              {journey.slice(0, 8).map((j, i) => (
+            <div className="pointer-events-none absolute left-8 right-8 top-[60px] h-px bg-gradient-to-r from-transparent via-[color:var(--gold)]/60 to-transparent" />
+            <div className="flex min-w-[900px] items-start justify-between gap-6">
+              {journey.slice(0, 8).map((j: any, i: number) => (
                 <div key={j.year} className="relative flex flex-1 flex-col items-center text-center">
                   <div className={`inline-flex min-w-[5rem] px-5 h-14 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--card)] font-display text-base text-[color:var(--gold)] ${i % 2 === 0 ? "shadow-[0_0_25px_oklch(0.83_0.14_82/0.35)]" : ""}`}>
                     {t(j.year as any)}
@@ -224,15 +225,15 @@ function HomePage() {
         <div>
           <SectionLabel>{t("home.achievementsTitle")}</SectionLabel>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.featuredHonors")}</h2>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {achievements.slice(0, 6).map((a, i) => (
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            {achievements.slice(0, 6).map((a: any, i: number) => (
               <motion.div
                 key={a.title}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group relative overflow-hidden rounded-2xl luxury-card p-5 text-center hover:-translate-y-1 hover:border-[color:var(--gold)]/60"
+                className="group relative flex-1 min-w-[140px] max-w-[200px] overflow-hidden rounded-2xl luxury-card p-5 text-center hover:-translate-y-1 hover:border-[color:var(--gold)]/60"
               >
                 <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
                   <Award size={20} />
@@ -298,21 +299,22 @@ function HomePage() {
 
       {/* MEDIA */}
       <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-col items-center justify-center text-center gap-4">
           <div>
             <SectionLabel>{t("home.mediaTitle")}</SectionLabel>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.inThePress")}</h2>
+            <Ornament className="mt-6" />
           </div>
-          <Link to="/media" className="text-sm uppercase tracking-widest text-[color:var(--gold)]">{t("home.allMedia")}</Link>
+          <Link to="/media" className="mt-2 text-sm uppercase tracking-widest text-[color:var(--gold)] hover:text-[color:var(--gold-soft)]">{t("home.allMedia")}</Link>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {media.slice(0,3).map((m) => (
-            <div key={m.title} className="group overflow-hidden rounded-2xl luxury-card hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
+        <div className="mt-10 flex flex-wrap justify-center gap-6">
+          {media.slice(0, 3).map((m: any) => (
+            <div key={m.title} className="group flex-1 min-w-[300px] max-w-md overflow-hidden rounded-2xl luxury-card hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img src={m.type === "News" ? mediaImg1 : m.type === "Interview" ? mediaImg2 : mediaImg3} alt="" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
                 <span className="absolute left-4 top-4 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)]/60 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t(m.type as any)}</span>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col items-center text-center">
                 <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t(m.source as any)} · {t(String(m.year) as any)}</div>
                 <div className="mt-2 font-display text-lg text-cream">{t(m.title as any)}</div>
               </div>
@@ -329,7 +331,7 @@ function HomePage() {
           <Ornament className="mt-6" />
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {testimonials.slice(0,4).map((t_item: any) => (
+          {testimonials.slice(0, 4).map((t_item: any) => (
             <div key={t_item.name} className="glass-card rounded-2xl p-8">
               <div className="font-devanagari text-4xl text-[color:var(--gold)]">"</div>
               <p className="mt-2 font-serif-lux text-lg italic leading-relaxed text-[color:var(--cream)]">{t(t_item.quote as any)}</p>

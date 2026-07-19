@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { media } from "@/lib/site-data";
-import speechImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
-import awardImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
-import gatheringImg from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
+import speechImg from "@/assets/imageom/Screenshot 2026-07-19 190246.png";
+import awardImg from "@/assets/imageom/Screenshot 2026-07-19 190259.png";
+import gatheringImg from "@/assets/imageom/Screenshot 2026-07-19 190314.png";
 import { Play } from "lucide-react";
 
 
@@ -19,17 +19,17 @@ function Media() {
     <PageShell>
       <PageHero eyebrow="Media" title="In the Spotlight" />
       <section className="mx-auto max-w-7xl px-6 pb-32">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-6">
           {media.map((m) => (
-            <div key={m.title} className="group overflow-hidden rounded-2xl luxury-card hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
+            <div key={m.title} className="group flex-1 min-w-[300px] max-w-md overflow-hidden rounded-2xl luxury-card hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
               <div className="relative aspect-video overflow-hidden">
-                <img src={imgFor(m.type)} alt="" className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" />
+                <img src={imgFor(m.type)} alt="" className="h-full w-full object-cover object-[center_50%] transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 grid place-items-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)] bg-[color:var(--background)]/60 text-[color:var(--gold)]"><Play size={20} /></div>
                 </div>
                 <span className="absolute left-4 top-4 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)]/70 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{m.type}</span>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col items-center text-center">
                 <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{m.source} · {m.year}</div>
                 <div className="mt-2 font-display text-lg text-cream">{m.title}</div>
               </div>

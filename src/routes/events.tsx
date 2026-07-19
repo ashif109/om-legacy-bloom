@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { events } from "@/lib/site-data";
-import speech from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
+import speech from "@/assets/imageom/Screenshot 2026-07-19 190532.png";
 
 export const Route = createFileRoute("/events")({
   head: () => ({ meta: [{ title: "Events — Om" }, { name: "description", content: "Events where Om has spoken and organised." }, { property: "og:url", content: "/events" }], links: [{ rel: "canonical", href: "/events" }] }),

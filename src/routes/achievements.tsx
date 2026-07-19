@@ -13,9 +13,9 @@ function Achievements() {
     <PageShell>
       <PageHero eyebrow="Achievements" title="Honors of the Journey" sanskrit="कर्मण्येवाधिकारस्ते मा फलेषु कदाचन" />
       <section className="mx-auto max-w-7xl px-6 pb-32">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-6">
           {achievements.map((a) => (
-            <div key={a.title} className="group relative overflow-hidden rounded-2xl luxury-card p-6 text-center hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
+            <div key={a.title} className="group relative flex-1 min-w-[280px] max-w-sm overflow-hidden rounded-2xl luxury-card p-6 text-center hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "var(--gradient-radial-gold)" }} />
               <div className="relative">
                 <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">

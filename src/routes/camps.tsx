@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { camps } from "@/lib/site-data";
-import gathering from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
+import gathering from "@/assets/imageom/Screenshot 2026-07-19 190546.png";
 
 export const Route = createFileRoute("/camps")({
   head: () => ({ meta: [{ title: "Camps — Om" }, { name: "description", content: "Residential camps and shivirs." }, { property: "og:url", content: "/camps" }], links: [{ rel: "canonical", href: "/camps" }] }),

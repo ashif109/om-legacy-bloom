@@ -1,20 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
-import img1 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM (1).jpeg";
-import img2 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.11 PM.jpeg";
-import img3 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (1).jpeg";
-import img4 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (2).jpeg";
-import img5 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM (3).jpeg";
-import img6 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.12 PM.jpeg";
-import img7 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM (1).jpeg";
-import img8 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM (2).jpeg";
-import img9 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.13 PM.jpeg";
-import img10 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (1).jpeg";
-import img11 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM (2).jpeg";
-import img12 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.14 PM.jpeg";
-import img13 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM (1).jpeg";
-import img14 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM (2).jpeg";
-import img15 from "@/assets/img/WhatsApp Image 2026-05-10 at 6.46.15 PM.jpeg";
+import img1 from "@/assets/imageom/Screenshot 2026-07-19 190607.png";
+import img2 from "@/assets/imageom/Screenshot 2026-07-19 190622.png";
+import img3 from "@/assets/imageom/Screenshot 2026-07-19 190640.png";
+import img4 from "@/assets/imageom/Screenshot 2026-07-19 190654.png";
+import img5 from "@/assets/imageom/Screenshot 2026-07-19 190246.png";
+import img6 from "@/assets/imageom/Screenshot 2026-07-19 190259.png";
+import img7 from "@/assets/imageom/Screenshot 2026-07-19 190314.png";
+import img8 from "@/assets/imageom/Screenshot 2026-07-19 190330.png";
+import img9 from "@/assets/imageom/Screenshot 2026-07-19 190359.png";
+import img10 from "@/assets/imageom/Screenshot 2026-07-19 190410.png";
+import img11 from "@/assets/imageom/Screenshot 2026-07-19 190428.png";
+import img12 from "@/assets/imageom/Screenshot 2026-07-19 190438.png";
+import img13 from "@/assets/imageom/Screenshot 2026-07-19 190448.png";
+import img14 from "@/assets/imageom/Screenshot 2026-07-19 190502.png";
+import img15 from "@/assets/imageom/Screenshot 2026-07-19 190518.png";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15];
 

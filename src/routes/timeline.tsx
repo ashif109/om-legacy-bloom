@@ -11,11 +11,11 @@ function Timeline() {
   return (
     <PageShell>
       <PageHero eyebrow="Timeline" title="Chronology of Seva" />
-      <section className="mx-auto max-w-4xl px-6 pb-32">
+      <section className="mx-auto max-w-4xl px-6 pb-6">
         <div className="relative border-l border-[color:var(--gold)]/30 pl-10">
           {journey.map((j) => (
-            <div key={j.year} className="relative mb-10">
-              <span className="absolute -left-[46px] top-2 grid h-9 w-9 place-items-center rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)] font-display text-xs text-[color:var(--gold)]">{j.year.slice(2)}</span>
+            <div key={j.year} className="relative mb-10 last:mb-0">
+              <span className="absolute -left-10 top-[26px] h-3 w-3 -translate-x-1/2 rounded-full border-2 border-[color:var(--gold)] bg-[color:var(--background)]" />
               <div className="rounded-2xl luxury-card p-6">
                 <div className="text-xs uppercase tracking-widest text-[color:var(--gold)]">{j.year}</div>
                 <div className="mt-1 font-display text-2xl text-cream">{j.title}</div>
