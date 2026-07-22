@@ -69,7 +69,7 @@ export const contact = {
   email: "omjiworld@gmail.com",
   address: "A- 1006 Om Shree Platinum Taj Nagari Phase-2 Agra UP",
   socials: [
-    { name: "Facebook", href: "https://facebook.com/Omjiworld" },
+    { name: "Facebook", href: "https://www.facebook.com/lal.singh.52090" },
     { name: "Instagram", href: "https://instagram.com/omjiworld_05" },
     { name: "WhatsApp", href: "https://wa.me/919412162807" },
   ],

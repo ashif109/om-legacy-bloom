@@ -29,8 +29,8 @@ export function GoldParticles({ count = 30 }: { count?: number }) {
             bottom: "-10px",
             width: p.size,
             height: p.size,
-            background: "radial-gradient(circle, #F6C453, transparent 70%)",
-            boxShadow: "0 0 10px #F6C453",
+            background: "radial-gradient(circle, #173823ff, transparent 70%)",
+            boxShadow: "0 0 10px #254932ff",
             opacity: p.opacity,
             animation: `ember ${p.duration}s linear ${p.delay}s infinite`,
           }}

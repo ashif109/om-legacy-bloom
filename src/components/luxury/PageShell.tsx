@@ -35,12 +35,12 @@ export function PageHero({
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
       <div className="relative mx-auto max-w-5xl px-6 text-center animate-fade-in-up">
         <SectionLabel>{eyebrow}</SectionLabel>
-        <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.05] text-gold-gradient">{title}</h1>
+        <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-gold-gradient drop-shadow-xs">{title}</h1>
         {sanskrit && (
-          <p className="mt-6 font-devanagari text-xl text-muted-foreground">{sanskrit}</p>
+          <p className="mt-6 font-devanagari text-xl md:text-2xl text-muted-foreground font-medium">{sanskrit}</p>
         )}
         {subtitle && (
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{subtitle}</p>
+          <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">{subtitle}</p>
         )}
         <Ornament className="mt-10" />
       </div>

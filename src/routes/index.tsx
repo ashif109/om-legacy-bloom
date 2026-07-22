@@ -75,7 +75,38 @@ function HomePage() {
         <Mandala className="right-[-160px] top-[-140px] opacity-30" size={720} />
         <Mandala className="left-[-200px] bottom-[-140px] opacity-20" size={560} />
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pt-10 pb-24 md:pt-20 md:pb-28 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pt-10 pb-24 md:pt-20 md:pb-28 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+          {/* Copy */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
+            <SectionLabel>{t("hero.role")}</SectionLabel>
+            <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
+              <span className="font-cursive font-extrabold text-gold-gradient" style={{ fontFamily: "cursive" }}>{t("home.name")}</span>
+            </h1>
+            <div className="mt-4 font-serif-lux text-xl italic text-muted-foreground">{t("hero.role")}</div>
+            <div className="mt-2 text-foreground/90 font-sans">{t("hero.tag")}</div>
+
+            <div className="mt-8 rounded-[24px] glass-card p-6 border border-gold/30">
+              <p className="font-devanagari text-2xl leading-relaxed text-gold italic">
+                स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥
+              </p>
+              <p className="mt-2 text-sm italic text-foreground/80">
+                Better one's own duty, though imperfectly performed, than the duty of another, though well performed.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/journey" className="group inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest">
+                {t("cta.explore")} <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link to="/achievements" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-gold/10">
+                {t("cta.achievements")}
+              </Link>
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-gold/10">
+                {t("cta.contact")}
+              </Link>
+            </div>
+          </motion.div>
+
           {/* Portrait */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -101,37 +132,6 @@ function HomePage() {
               <div className="text-[10px] uppercase tracking-widest text-gold">{t("home.events")}</div>
               <div className="mt-1 font-display text-2xl text-foreground">150+</div>
             </motion.div>
-          </motion.div>
-
-          {/* Copy */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
-            <SectionLabel>{t("hero.role")}</SectionLabel>
-            <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
-              <span className="font-[cursive] font-extrabold text-gold-gradient">{t("home.name")}</span>
-            </h1>
-            <div className="mt-4 font-serif-lux text-xl italic text-muted-foreground">{t("hero.role")}</div>
-            <div className="mt-2 text-foreground">{t("hero.tag")}</div>
-
-            <div className="mt-8 rounded-[24px] glass-card p-6 border border-gold/30">
-              <p className="font-devanagari text-2xl leading-relaxed text-gold">
-                "Guard the green, protect the blue, secure the future."
-              </p>
-              <p className="mt-2 text-sm italic text-muted-foreground">
-                - By Triyambakeshwar Nath
-              </p>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/journey" className="group inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest">
-                {t("cta.explore")} <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link to="/achievements" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-gold/10">
-                {t("cta.achievements")}
-              </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-gold/10">
-                {t("cta.contact")}
-              </Link>
-            </div>
           </motion.div>
         </div>
 

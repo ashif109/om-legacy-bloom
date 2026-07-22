@@ -1,41 +1,75 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
-import { skills } from "@/lib/site-data";
+import { skills as fallbackSkills } from "@/lib/site-data";
 import { getSkills } from "@/lib/api";
 
 export const Route = createFileRoute("/skills")({
   loader: async () => {
     try {
-      return await getSkills();
+      const data = await getSkills();
+      return Array.isArray(data) ? data : [];
     } catch (e) {
       console.error(e);
       return [];
     }
   },
-  head: () => ({ meta: [{ title: "Skills — Om" }, { name: "description", content: "Skills of Om across scholarship, leadership and service." }, { property: "og:url", content: "/skills" }], links: [{ rel: "canonical", href: "/skills" }] }),
+  head: () => ({ 
+    meta: [
+      { title: "Skills — Triyambakam" }, 
+      { name: "description", content: "Skills of Triyambakam across environmental leadership, advocacy and service." }, 
+      { property: "og:url", content: "/skills" }
+    ], 
+    links: [{ rel: "canonical", href: "/skills" }] 
+  }),
   component: Skills,
 });
 
 function Skills() {
-  const dbSkills = Route.useLoaderData() || [];
+  const dbSkills = Route.useLoaderData();
+  const list = dbSkills && dbSkills.length > 0 ? dbSkills : fallbackSkills;
 
   return (
     <PageShell>
-      <PageHero eyebrow="Skills" title="Craft & Capability" />
+      <PageHero 
+        eyebrow="Skills & Capabilities" 
+        title="Craft, Leadership & Knowledge" 
+        subtitle="Dedicated to spreading climate action awareness, youth empowerment, and environmental preservation." 
+      />
       <section className="mx-auto max-w-5xl px-6 pb-32">
-        <div className="grid gap-8 md:grid-cols-2">
-          {dbSkills.map((s, i) => (
-            <div key={s._id || s.name || i} className="rounded-2xl border border-white/5 bg-[#183B2D]/80 p-6 shadow-sm transition-all hover:bg-[#183B2D]">
-              <div className="flex items-center justify-between">
-                <span className="font-display text-lg tracking-wide text-foreground">{s.name}</span>
-                <span className="text-sm font-medium tracking-wider text-gold">{s.value || s.proficiency || 0}%</span>
+        <div className="grid gap-6 md:grid-cols-2">
+          {list.map((s: any, i: number) => {
+            const val = s.value || s.proficiency || 85;
+            return (
+              <div 
+                key={s._id || s.name || i} 
+                className="group relative overflow-hidden rounded-2xl glass-card p-6 border border-gold/30 hover-lift transition-all"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-primary/10 border border-gold/30 text-gold text-xs font-bold font-display">
+                      0{i + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-display font-semibold text-lg text-gold tracking-wide">{s.name}</h3>
+                      {s.category && (
+                        <div className="text-[10px] text-muted-foreground uppercase tracking-widest mt-0.5">{s.category}</div>
+                      )}
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-gold/10 border border-gold/30 px-3.5 py-1 font-display text-sm font-bold text-gold">
+                    {val}%
+                  </span>
+                </div>
+
+                <div className="mt-5 h-3 w-full overflow-hidden rounded-full bg-black/10 border border-gold/20 p-0.5">
+                  <div 
+                    className="h-full rounded-full bg-gradient-to-r from-primary via-gold to-gold-hover shadow-[0_0_10px_rgba(74,101,78,0.3)] transition-all duration-1000" 
+                    style={{ width: `${val}%` }} 
+                  />
+                </div>
               </div>
-              {s.category && <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest">{s.category}</div>}
-              <div className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-black/20">
-                <div className="h-full rounded-full bg-[#0B2418] transition-all duration-1000" style={{ width: `${(s.value || s.proficiency || 0)}%` }} />
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </PageShell>

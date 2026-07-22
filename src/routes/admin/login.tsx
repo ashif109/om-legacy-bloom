@@ -33,35 +33,35 @@ function AdminLogin() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black">
-      <div className="w-full max-w-md p-8 rounded-2xl gold-border bg-[color:var(--card)] shadow-2xl shadow-[color:var(--gold)]/5">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="w-full max-w-md p-8 md:p-10 rounded-[2rem] glass-card border border-gold/30 shadow-xl">
         <h1 className="text-3xl font-display text-gold-gradient text-center mb-8">Admin Login</h1>
         
         {error && (
-          <div className="mb-4 p-3 bg-red-950/50 border border-red-500/50 text-red-200 rounded-lg text-sm text-center">
+          <div className="mb-6 p-3.5 bg-red-100 border border-red-300 text-red-700 rounded-xl text-sm text-center font-medium">
             {error}
           </div>
         )}
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-cream mb-2">Email Address</label>
+            <label className="block text-sm font-semibold text-foreground mb-2 font-sans">Email Address</label>
             <input 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-[color:var(--gold)] focus:ring-1 focus:ring-[color:var(--gold)] transition-colors"
+              className="w-full bg-white/90 border border-gold/30 rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
               placeholder="admin@omlegacybloom.com"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-cream mb-2">Password</label>
+            <label className="block text-sm font-semibold text-foreground mb-2 font-sans">Password</label>
             <input 
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-4 py-3 text-cream focus:outline-none focus:border-[color:var(--gold)] focus:ring-1 focus:ring-[color:var(--gold)] transition-colors"
+              className="w-full bg-white/90 border border-gold/30 rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
               placeholder="••••••••"
               required
             />
@@ -70,7 +70,7 @@ function AdminLogin() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full btn-gold rounded-lg px-4 py-3 font-semibold uppercase tracking-widest disabled:opacity-50 transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full btn-gold rounded-xl px-4 py-3.5 font-semibold uppercase tracking-widest text-xs disabled:opacity-50 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             {loading ? "Authenticating..." : "Login to Dashboard"}
           </button>

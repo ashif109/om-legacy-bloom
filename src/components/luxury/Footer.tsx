@@ -2,18 +2,25 @@ import { Link } from "@tanstack/react-router";
 import { contact } from "@/lib/site-data";
 import { Ornament } from "./Ornament";
 import { useLang } from "@/lib/i18n";
+import footerBg from "@/assets/footer.png";
+import { TriyambakamLogo } from "./TriyambakamLogo";
+import { SocialIcon } from "./SocialIcon";
 
 export function Footer() {
   const { t } = useLang();
   return (
-    <footer className="relative mt-32 border-t border-gold/30 bg-[#0B2418]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,169,98,0.15),transparent_60%)]" />
+    <footer
+      className="relative mt-32 border-t border-gold/30 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${footerBg})` }}
+    >
       <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-gold/40 font-devanagari text-3xl text-gold shadow-[0_0_20px_rgba(196,169,98,0.2)]">ॐ</div>
+          <div className="mx-auto flex justify-center">
+            <TriyambakamLogo size={64} />
+          </div>
           <h3 className="mt-6 font-display text-3xl md:text-4xl text-gold-gradient">{t("footer.pathTogether")}</h3>
           <p className="mt-3 text-muted-foreground">{t("footer.subscribeUpdates")}</p>
-          <form className="mx-auto mt-6 flex max-w-md items-center gap-2 rounded-full border border-gold/30 bg-card p-1.5">
+          <form className="mx-auto mt-6 flex max-w-md items-center gap-2 rounded-full border border-gold/30 bg-card/90 backdrop-blur-sm p-1.5">
             <input type="email" placeholder="you@example.com" className="flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-muted-foreground text-foreground" />
             <button type="button" className="rounded-[999px] btn-gold px-5 py-2 text-xs font-semibold uppercase tracking-widest">{t("footer.subscribe")}</button>
           </form>
@@ -23,14 +30,24 @@ export function Footer() {
 
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
-            <div className="font-display text-2xl tracking-widest text-gold-gradient">OM</div>
+            <div className="flex items-center gap-3">
+              <TriyambakamLogo size={36} />
+              <div className="font-display text-xl font-bold tracking-widest text-gold-gradient">TRIYAMBAKAM</div>
+            </div>
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
               {t("footer.bio")}
             </p>
-            <div className="mt-5 flex gap-2">
+            <div className="mt-5 flex gap-2.5">
               {contact.socials.map((s) => (
-                <a key={s.name} href={s.href} className="grid h-9 w-9 place-items-center rounded-full border border-gold/30 text-xs text-foreground hover:border-gold hover:text-gold transition-colors">
-                  {s.name[0]}
+                <a 
+                  key={s.name} 
+                  href={s.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="grid h-10 w-10 place-items-center rounded-full border border-gold/35 text-foreground hover:border-gold hover:text-gold hover:bg-gold/10 transition-all hover:scale-110 bg-background/60 backdrop-blur-sm shadow-xs"
+                  title={s.name}
+                >
+                  <SocialIcon name={s.name} size={18} />
                 </a>
               ))}
             </div>

@@ -163,56 +163,56 @@ function AdminAwards() {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-[color:var(--card)] w-full max-w-md rounded-2xl gold-border p-6 shadow-2xl">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-display text-cream">{editingId ? "Edit Award" : "Add Award"}</h2>
-              <button onClick={closeModal} className="text-gray-400 hover:text-white"><X size={20} /></button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="glass-card w-full max-w-md rounded-[2rem] border border-gold/40 p-8 shadow-2xl bg-card">
+            <div className="flex items-center justify-between mb-6 border-b border-gold/20 pb-4">
+              <h2 className="text-2xl font-display text-gold-gradient font-bold">{editingId ? "Edit Award" : "Add Award"}</h2>
+              <button onClick={closeModal} className="text-muted-foreground hover:text-foreground p-1.5 rounded-full hover:bg-gold/10 transition-colors"><X size={20} /></button>
             </div>
             
             <form onSubmit={handleAdd} className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Award Title</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-gold mb-1.5">Award Title</label>
                 <input 
                   type="text" 
                   value={title} 
                   onChange={e => setTitle(e.target.value)}
-                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
+                  className="w-full bg-white/90 border border-gold/30 rounded-xl px-4 py-3 text-foreground font-semibold focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Year</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-gold mb-1.5">Year</label>
                 <input 
                   type="text" 
                   value={year} 
                   onChange={e => setYear(e.target.value)}
                   placeholder="e.g. 2023"
-                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
+                  className="w-full bg-white/90 border border-gold/30 rounded-xl px-4 py-3 text-foreground font-semibold placeholder:text-muted-foreground/60 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Description</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-gold mb-1.5">Description</label>
                 <textarea 
                   value={description} 
                   onChange={e => setDescription(e.target.value)}
-                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none custom-scrollbar"
+                  className="w-full bg-white/90 border border-gold/30 rounded-xl px-4 py-3 text-foreground font-medium focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none custom-scrollbar transition-all"
                   rows={3}
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-1">Upload Image {editingId && "(Leave blank to keep existing)"}</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-gold mb-1.5">Upload Image {editingId && "(Leave blank to keep existing)"}</label>
                 <input 
                   type="file" 
                   accept="image/*"
                   onChange={e => setFile(e.target.files?.[0] || null)}
-                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[color:var(--gold)] file:text-black hover:file:bg-[color:var(--gold)]/80"
+                  className="w-full bg-white/90 border border-gold/30 rounded-xl px-3 py-2 text-foreground text-sm file:mr-4 file:py-1.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-[#4A654E] file:text-white hover:file:bg-[#39503D] cursor-pointer"
                 />
               </div>
               <button 
                 type="submit" 
                 disabled={uploading}
-                className="w-full btn-gold rounded-lg px-4 py-2.5 mt-6 flex justify-center items-center gap-2 disabled:opacity-50 font-medium"
+                className="w-full btn-gold rounded-xl px-4 py-3.5 mt-6 flex justify-center items-center gap-2 disabled:opacity-50 font-bold uppercase tracking-widest text-xs shadow-sm"
               >
                 {uploading ? <Loader2 size={18} className="animate-spin" /> : (editingId ? <Edit size={18} /> : <Upload size={18} />)}
                 {uploading ? "Saving..." : (editingId ? "Update Award" : "Add Award")}

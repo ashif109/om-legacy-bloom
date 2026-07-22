@@ -42,11 +42,11 @@ export function DataTable<T extends { _id?: string }>({
   const paginatedData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className="bg-[color:var(--card)] rounded-2xl border border-[color:var(--gold)]/20 overflow-hidden">
+    <div className="glass-card rounded-2xl border border-gold/30 overflow-hidden shadow-sm">
       {/* Toolbar */}
-      <div className="p-4 border-b border-[color:var(--gold)]/10 flex justify-between items-center bg-black/20">
+      <div className="p-4 border-b border-gold/20 flex justify-between items-center bg-card/60">
         <div className="relative w-72">
-          <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+          <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
           <input 
             type="text" 
             placeholder="Search..." 
@@ -55,45 +55,45 @@ export function DataTable<T extends { _id?: string }>({
               setSearchTerm(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full bg-black/50 border border-[color:var(--gold)]/20 rounded-lg pl-10 pr-4 py-2 text-sm text-cream focus:outline-none focus:border-[color:var(--gold)]"
+            className="w-full bg-white/90 border border-gold/30 rounded-xl pl-10 pr-4 py-2 text-sm text-foreground focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all placeholder:text-muted-foreground/70"
           />
         </div>
       </div>
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm text-gray-400">
-          <thead className="bg-black/40 text-gray-500 uppercase text-xs">
+        <table className="w-full text-left text-sm text-foreground">
+          <thead className="bg-primary/5 text-gold uppercase text-xs tracking-wider border-b border-gold/20">
             <tr>
-              <th className="px-6 py-4 font-medium w-12"></th>
+              <th className="px-6 py-4 font-semibold w-12"></th>
               {columns.map((col, i) => (
-                <th key={i} className="px-6 py-4 font-medium">{col.header}</th>
+                <th key={i} className="px-6 py-4 font-semibold">{col.header}</th>
               ))}
-              <th className="px-6 py-4 font-medium text-right">Actions</th>
+              <th className="px-6 py-4 font-semibold text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[color:var(--gold)]/10">
+          <tbody className="divide-y divide-gold/15">
             {paginatedData.length === 0 ? (
               <tr>
-                <td colSpan={columns.length + 2} className="px-6 py-12 text-center text-gray-500">
+                <td colSpan={columns.length + 2} className="px-6 py-12 text-center text-muted-foreground">
                   No records found.
                 </td>
               </tr>
             ) : (
               paginatedData.map((item, idx) => (
-                <tr key={item._id || idx} className="hover:bg-white/5 transition-colors group">
-                  <td className="px-6 py-4 text-[color:var(--gold)]/30 group-hover:text-[color:var(--gold)] cursor-grab">
+                <tr key={item._id || idx} className="hover:bg-gold/5 transition-colors group">
+                  <td className="px-6 py-4 text-gold/40 group-hover:text-gold cursor-grab">
                     <GripVertical size={16} />
                   </td>
                   {columns.map((col, i) => (
-                    <td key={i} className="px-6 py-4 text-cream">
+                    <td key={i} className="px-6 py-4 text-foreground font-medium">
                       {col.cell ? col.cell(item) : col.accessorKey ? String(item[col.accessorKey] || "") : null}
                     </td>
                   ))}
                   <td className="px-6 py-4 text-right flex justify-end gap-2">
                     <button 
                       onClick={() => onEdit(item)}
-                      className="p-2 text-gray-400 hover:text-[color:var(--gold)] hover:bg-[color:var(--gold)]/10 rounded-lg transition-colors"
+                      className="p-2 text-muted-foreground hover:text-gold hover:bg-gold/10 rounded-lg transition-colors"
                     >
                       <Edit size={16} />
                     </button>

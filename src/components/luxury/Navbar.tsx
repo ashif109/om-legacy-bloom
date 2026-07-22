@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Search, Heart, Globe } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
 import { DonationModal } from "@/components/DonationModal";
+import { TriyambakamLogo } from "./TriyambakamLogo";
 
 const links = [
   { to: "/", key: "nav.home" as const },
@@ -53,25 +54,25 @@ export function Navbar() {
   return (
     <>
       {/* Top strip */}
-      <div className="hidden md:block border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-[11px] tracking-[0.25em] text-muted-foreground font-devanagari">
-          <span>Protect Nature • Inspire Change • Build a Sustainable Future</span>
+      <div className="hidden md:block border-b border-gold/20 bg-background/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-[12px] tracking-[0.25em] text-gold/90 font-devanagari">
+          <span>ॐ सर्वे भवन्तु सुखिनः · सर्वे सन्तु निरामयाः ॐ</span>
         </div>
       </div>
 
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/70 backdrop-blur-xl border-b border-gold/30" : "bg-transparent border-b border-transparent"
+        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/85 backdrop-blur-xl border-b border-gold/30" : "bg-transparent border-b border-transparent"
           }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 py-3">
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full border border-gold/40 bg-card font-devanagari text-2xl text-gold shadow-[0_0_25px_rgba(196,169,98,0.15)] transition-transform group-hover:scale-105">
-              ॐ
-            </span>
+            <div className="transition-transform group-hover:scale-105">
+              <TriyambakamLogo size={42} />
+            </div>
             <span className="leading-tight">
-              <span className="block font-display text-xl tracking-[0.18em] text-gold-gradient" style={{ fontFamily: "cursive" }}>OM</span>
-              <span className="block text-[9px] tracking-[0.3em] uppercase text-muted-foreground">Environmentalist</span>
+              <span className="block font-display text-xl font-bold tracking-[0.18em] text-gold-gradient">TRIYAMBAKAM</span>
+              <span className="block text-[9px] font-semibold tracking-[0.28em] uppercase text-gold/80">ENVIRONMENTAL ACTIVIST</span>
             </span>
           </Link>
 

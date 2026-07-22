@@ -89,21 +89,21 @@ export function DonationModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
-      <div className="relative w-full max-w-md rounded-3xl bg-[color:var(--card)] p-8 gold-border animate-in zoom-in-95 duration-200 shadow-2xl">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+      <div className="relative w-full max-w-md rounded-3xl glass-card p-8 border border-gold/30 animate-in zoom-in-95 duration-200 shadow-2xl">
         <button 
           onClick={onClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors"
+          className="absolute right-4 top-4 text-muted-foreground hover:text-foreground transition-colors p-2 rounded-full hover:bg-gold/10"
         >
           <X size={20} />
         </button>
         
         <div className="text-center mb-8">
-          <div className="grid h-16 w-16 place-items-center rounded-full bg-[color:var(--gold)]/10 text-[color:var(--gold)] mx-auto mb-4 border border-[color:var(--gold)]/30">
-            <Heart size={30} />
+          <div className="grid h-16 w-16 place-items-center rounded-full bg-primary/10 text-gold mx-auto mb-4 border border-gold/30 font-display">
+            <Heart size={28} />
           </div>
           <h2 className="text-2xl font-display text-gold-gradient">Support Our Mission</h2>
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-muted-foreground mt-2">
             Your contribution helps spread the knowledge of environmental conservation and climate action globally.
           </p>
         </div>
@@ -114,10 +114,10 @@ export function DonationModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
               <button 
                 key={val}
                 onClick={() => setAmount(val)}
-                className={`py-3 rounded-xl border font-medium text-sm transition-all ${
+                className={`py-3 rounded-xl border font-semibold text-sm transition-all ${
                   amount === val 
-                    ? "border-[color:var(--gold)] bg-[color:var(--gold)]/10 text-[color:var(--gold)]" 
-                    : "border-[color:var(--gold)]/20 text-cream hover:border-[color:var(--gold)]/50"
+                    ? "border-gold bg-gold/15 text-gold shadow-sm" 
+                    : "border-gold/30 bg-white/70 text-foreground hover:border-gold/60"
                 }`}
               >
                 ₹{val}
@@ -126,12 +126,12 @@ export function DonationModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
           </div>
 
           <div className="relative mt-4">
-            <span className="absolute left-4 top-3.5 text-gray-400">₹</span>
+            <span className="absolute left-4 top-3.5 text-muted-foreground font-semibold">₹</span>
             <input 
               type="number" 
               value={amount}
               onChange={(e) => setAmount(Number(e.target.value))}
-              className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-xl py-3 pl-8 pr-4 text-cream font-medium focus:border-[color:var(--gold)] focus:ring-1 focus:ring-[color:var(--gold)] focus:outline-none"
+              className="w-full bg-white/90 border border-gold/30 rounded-xl py-3 pl-8 pr-4 text-foreground font-semibold focus:border-gold focus:ring-2 focus:ring-gold/20 focus:outline-none"
               placeholder="Other Amount"
             />
           </div>
@@ -139,13 +139,13 @@ export function DonationModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
           <button 
             onClick={handleDonate}
             disabled={loading}
-            className="w-full btn-gold rounded-xl py-4 font-bold uppercase tracking-widest mt-6 flex items-center justify-center gap-2"
+            className="w-full btn-gold rounded-xl py-4 font-bold uppercase tracking-widest text-xs mt-6 flex items-center justify-center gap-2"
           >
             {loading ? "Processing..." : `Donate ₹${amount}`}
           </button>
           
-          <div className="flex items-center justify-center gap-1.5 text-xs text-gray-500 mt-4">
-            <ShieldCheck size={14} className="text-green-500/70" />
+          <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground mt-4 font-medium">
+            <ShieldCheck size={14} className="text-emerald-600" />
             <span>Secured by Razorpay. 100% safe & secure.</span>
           </div>
         </div>

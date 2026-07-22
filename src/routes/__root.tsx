@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LangProvider } from "../lib/i18n";
+import { GoldParticles } from "../components/luxury/GoldParticles";
 
 function NotFoundComponent() {
   return (
@@ -81,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Triyambkeshwar Nath Tyagi — Environmentalist & Climate Action Advocate" },
       { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Environment and Climate Action." },
       { name: "author", content: "Triyambkeshwar Nath Tyagi" },
-      { name: "theme-color", content: "#0B2418" },
+      { name: "theme-color", content: "#FAF8F2" },
       { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Environmentalist & Climate Action Advocate" },
       { property: "og:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Environment and Climate Action." },
       { property: "og:type", content: "website" },
@@ -97,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Inter:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" },
       { rel: "stylesheet", href: "https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" },
     ],
   }),
@@ -127,8 +128,13 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <LangProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
+        <div className="relative min-h-screen">
+          <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+            <GoldParticles count={32} />
+          </div>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </div>
       </LangProvider>
     </QueryClientProvider>
   );
