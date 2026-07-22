@@ -61,11 +61,11 @@ export const dict: Dict = {
   "service.contentCreationDesc": { en: "Videos, articles and digital content on environment.", hi: "पर्यावरण पर वीडियो, लेख और डिजिटल सामग्री।", sa: "पर्यावरणविषये चलचित्राणि, लेखाः, डिजिटल-सामग्री च।" },
 
   "home.galleryTitle": { en: "Gallery", hi: "गैलरी", sa: "चित्रशाला" },
-  "home.galleryMoments": { en: "Moments of Seva & Sanskar", hi: "सेवा और संस्कार के क्षण", sa: "सेवा-संस्कारयोः क्षणाः" },
+  "home.galleryMoments": { en: "Moments of Environmental Leadership", hi: "पर्यावरणीय नेतृत्व के क्षण", sa: "पर्यावरणीयनेतृत्वस्य क्षणाः" },
   "home.viewFullGallery": { en: "View Full Gallery →", hi: "पूरी गैलरी देखें →", sa: "पूर्णां चित्रशालां पश्यत →" },
   
   "home.mediaTitle": { en: "Media", hi: "मीडिया", sa: "प्रसारमाध्यमम्" },
-  "home.inThePress": { en: "In the Press", hi: "प्रेस में", sa: "समाचारपत्रेषु" },
+  "home.inThePress": { en: "Videos & Awareness", hi: "प्रेस में", sa: "समाचारपत्रेषु" },
   "home.allMedia": { en: "All Media →", hi: "सभी मीडिया →", sa: "सर्वाणि प्रसारमाध्यमानि →" },
   
   "home.testimonialsTitle": { en: "Kind Words", hi: "शुभकामनाएं", sa: "शुभवचनानि" },

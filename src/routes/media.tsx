@@ -5,19 +5,39 @@ import speechImg from "@/assets/imageom/Screenshot 2026-07-19 190246.png";
 import awardImg from "@/assets/imageom/Screenshot 2026-07-19 190259.png";
 import gatheringImg from "@/assets/imageom/Screenshot 2026-07-19 190314.png";
 import { Play } from "lucide-react";
-
-
 import { getMedia } from "@/lib/api";
 
 const imgFor = (t: string) => (t === "News" || t === "Press" ? speechImg : t === "Interview" || t === "Podcast" ? awardImg : gatheringImg);
 
+function formatYouTubeUrl(url?: string) {
+  if (!url) return "https://www.youtube.com/watch?v=0foE_izpiBE";
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  if (match && match[1]) {
+    return `https://www.youtube.com/watch?v=${match[1]}`;
+  }
+  return url;
+}
+
+function getYouTubeThumbnail(url?: string) {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  if (match && match[1]) {
+    return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+  }
+  return null;
+}
+
 export const Route = createFileRoute("/media")({
   loader: async () => {
     try {
-      return await getMedia();
+      const data = await getMedia().catch(() => []);
+      const combined = [...(data || []), ...media];
+      const unique = combined.filter((m, index, self) =>
+        index === self.findIndex((t) => (t.title && t.title === m.title) || (t.url && t.url === m.url))
+      );
+      return unique;
     } catch (e) {
-      console.error(e);
-      return [];
+      return media;
     }
   },
   head: () => ({ meta: [{ title: "Media — Om" }, { name: "description", content: "Press, interviews, videos and articles featuring Om." }, { property: "og:url", content: "/media" }], links: [{ rel: "canonical", href: "/media" }] }),
@@ -31,37 +51,39 @@ function Media() {
     <PageShell>
       <PageHero eyebrow="Media" title="In the Spotlight" />
       <section className="mx-auto max-w-7xl px-6 pb-32">
-        <div className="flex flex-wrap justify-center gap-6">
-          {dbMedia.map((m, i) => (
-            <div key={m._id || m.title || i} className="group flex-1 min-w-[300px] max-w-md overflow-hidden rounded-2xl glass-card hover-lift hover:-translate-y-1 hover:border-gold/60">
-              <div className="relative aspect-video overflow-hidden">
-                {m.thumbnail ? (
-                  <img src={m.thumbnail} alt={m.title} className="h-full w-full object-cover object-[center_50%] transition-transform duration-700 group-hover:scale-110" />
-                ) : (
-                  <img src={imgFor(m.type)} alt={m.title} className="h-full w-full object-cover object-[center_50%] transition-transform duration-700 group-hover:scale-110" />
-                )}
-                {m.url ? (
-                  <a href={m.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 grid place-items-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
-                    <div className="grid h-14 w-14 place-items-center rounded-full border border-gold bg-background/60 text-gold"><Play size={20} /></div>
-                  </a>
-                ) : (
-                  <div className="absolute inset-0 grid place-items-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
-                    <div className="grid h-14 w-14 place-items-center rounded-full border border-gold bg-background/60 text-gold"><Play size={20} /></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {dbMedia.map((m: any, i: number) => {
+            const videoUrl = formatYouTubeUrl(m.url);
+            const thumbnail = m.thumbnail || m.image || getYouTubeThumbnail(m.url) || imgFor(m.type);
+
+            return (
+              <a
+                key={m._id || m.title || i}
+                href={videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col overflow-hidden rounded-[24px] glass-card hover-lift hover:border-gold/60 cursor-pointer transition-all border border-gold/30 shadow-md"
+              >
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/5">
+                  <img src={thumbnail} alt={m.title} className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors" />
+                  <div className="absolute inset-0 grid place-items-center">
+                    <div className="grid h-14 w-14 place-items-center rounded-full border border-gold/60 bg-background/90 text-gold shadow-lg backdrop-blur-md transition-transform group-hover:scale-110">
+                      <Play size={22} className="ml-0.5 fill-gold/30" />
+                    </div>
                   </div>
-                )}
-                <span className="absolute left-4 top-4 rounded-full border border-gold/50 bg-background/70 px-3 py-1 text-[10px] uppercase tracking-widest text-gold backdrop-blur-sm">{m.type}</span>
-              </div>
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="text-[10px] uppercase tracking-widest text-gold">{m.source} · {(m.year || m.date || "")}</div>
-                <div className="mt-2 font-display text-lg text-foreground">
-                  {m.url ? (
-                    <a href={m.url} target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:underline transition-colors">{m.title}</a>
-                  ) : m.title}
+                  <span className="absolute left-4 top-4 rounded-full border border-gold/50 bg-background/90 px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-gold shadow-xs backdrop-blur-md">{m.type}</span>
                 </div>
-                {m.description && <div className="mt-2 text-xs text-[color:var(--muted-foreground)]">{m.description}</div>}
-              </div>
-            </div>
-          ))}
+                <div className="p-6 flex flex-1 flex-col items-center justify-between text-center">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-widest font-medium text-gold">{m.source} · {(m.year || m.date || "")}</div>
+                    <div className="mt-2 font-display text-lg text-foreground group-hover:text-gold transition-colors leading-snug">{m.title}</div>
+                  </div>
+                  {m.description && <div className="mt-2 text-xs text-muted-foreground">{m.description}</div>}
+                </div>
+              </a>
+            );
+          })}
         </div>
       </section>
     </PageShell>

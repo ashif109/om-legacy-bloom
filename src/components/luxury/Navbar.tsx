@@ -19,7 +19,6 @@ const more = [
   ["nav.timeline", "/timeline"],
   ["nav.education", "/education"],
   ["nav.skills", "/skills"],
-  ["nav.certificates", "/certificates"],
   ["nav.awards", "/awards"],
   ["nav.social", "/social-work"],
   ["nav.events", "/events"],
@@ -56,7 +55,7 @@ export function Navbar() {
       {/* Top strip */}
       <div className="hidden md:block border-b border-gold/20 bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-[12px] tracking-[0.25em] text-gold/90 font-devanagari">
-          <span>ॐ सर्वे भवन्तु सुखिनः · सर्वे सन्तु निरामयाः ॐ</span>
+          <span>Protecting Nature • Inspiring Change • Building a Sustainable Future.</span>
         </div>
       </div>
 

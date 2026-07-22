@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Eye, Flag, Flower, Sun, Mic, GraduationCap, Users, Award } from "lucide-react";
+import { ArrowRight, Sparkles, Eye, Flag, Flower, Sun, Mic, GraduationCap, Users, Award, Trees, Leaf, Play } from "lucide-react";
 
 import heroOm from "@/assets/imageom/ChatGPT Image Jul 19, 2026, 07_15_16 PM.png";
 import templeBg from "@/assets/temple-bg.jpg";
@@ -27,10 +27,13 @@ import { useLang } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   loader: async () => {
     try {
-      const siteData = await getSiteData();
-      const media = await getMedia();
-      if (!siteData || Object.keys(siteData).length === 0) throw new Error("No DB Data");
-      return { siteData, mediaData: media?.length ? media : fallbackData.media };
+      const siteData = await getSiteData().catch(() => null);
+      const dbMedia = await getMedia().catch(() => []);
+      const combinedMedia = [...(dbMedia || []), ...fallbackData.media];
+      const uniqueMedia = combinedMedia.filter((m, index, self) =>
+        index === self.findIndex((t) => (t.title && t.title === m.title) || (t.url && t.url === m.url))
+      );
+      return { siteData: (siteData && Object.keys(siteData).length > 0) ? siteData : fallbackData, mediaData: uniqueMedia };
     } catch (e) {
       return { siteData: fallbackData, mediaData: fallbackData.media };
     }
@@ -48,6 +51,24 @@ export const Route = createFileRoute("/")({
 });
 
 const missionIcons = [Eye, Flag, Flower, Sun];
+
+const impactPillars = [
+  {
+    icon: Trees,
+    title: "ECOSYSTEM RESTORATION",
+    body: "Restoring forests, conserving biodiversity, and protecting natural habitats through afforestation, ecosystem rehabilitation, and sustainable land management. We work to strengthen the balance between people and nature for a healthier planet.",
+  },
+  {
+    icon: GraduationCap,
+    title: "CLIMATE EDUCATION",
+    body: "Empowering individuals and communities through environmental awareness, sustainability education, research, and advocacy. We inspire responsible choices that contribute to long-term climate action and ecological stewardship.",
+  },
+  {
+    icon: Leaf,
+    title: "SUSTAINABLE DEVELOPMENT",
+    body: "Promoting sustainable lifestyles by encouraging waste reduction, resource conservation, renewable solutions, and community-driven environmental initiatives. Our focus is creating measurable, lasting impact for future generations.",
+  },
+];
 
 function HomePage() {
   const { t, lang } = useLang();
@@ -80,7 +101,23 @@ function HomePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
             <SectionLabel>{t("hero.role")}</SectionLabel>
             <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
-              <span className="font-cursive font-extrabold text-gold-gradient" style={{ fontFamily: "cursive" }}>{t("home.name")}</span>
+              <span className="text-gold-gradient"
+  style={{
+  fontFamily: "cursive",
+  fontWeight: 900,
+
+color: "#f3cb50ff",
+WebkitTextStroke: "2.2px #6E4B00",
+textShadow: `
+0 1px 0 #FFFFFF,
+0 2px 0 #FFE7A3,
+0 4px 0 #C08A00,
+0 8px 18px rgba(0,0,0,.35)
+`
+}}
+>
+  {t("home.name")}
+</span>
             </h1>
             <div className="mt-4 font-serif-lux text-xl italic text-muted-foreground">{t("hero.role")}</div>
             <div className="mt-2 text-foreground/90 font-sans">{t("hero.tag")}</div>
@@ -119,8 +156,6 @@ function HomePage() {
               <img src={heroOm} alt="Portrait of Om" className="h-[560px] w-full object-cover object-[center_30%]" />
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-gold">
-                <span>Est. 2017</span>
-                <span className="font-devanagari text-base normal-case tracking-normal">कर्मण्येवाधिकारस्ते</span>
               </div>
             </div>
             {/* floating badges */}
@@ -152,6 +187,40 @@ function HomePage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* KEY IMPACT PILLARS */}
+      <section className="relative mx-auto max-w-7xl px-6 pt-24 pb-8 md:pt-32 md:pb-12">
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionLabel>KEY IMPACT PILLARS</SectionLabel>
+          <h2 className="mt-6 font-display text-4xl md:text-6xl text-gold-gradient">
+            Pillars of Environmental Action
+          </h2>
+          <Ornament className="mt-6" />
+        </div>
+
+        <div className="mt-16 flex flex-wrap justify-center gap-6">
+          {impactPillars.map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <motion.div
+                key={c.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="group relative flex-1 min-w-[280px] max-w-md overflow-hidden glass-card p-8 hover-lift flex flex-col items-center text-center"
+              >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gold/15 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="grid h-14 w-14 place-items-center rounded-full border border-gold/40 text-gold bg-background/50">
+                  <Icon size={22} />
+                </div>
+                <h3 className="mt-6 font-display text-xl text-foreground uppercase tracking-wider">{c.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -307,24 +376,46 @@ function HomePage() {
           </div>
           <Link to="/media" className="mt-2 text-sm uppercase tracking-widest text-gold hover:text-gold-hover transition-colors">{t("home.allMedia")}</Link>
         </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-6">
-          {media.slice(0, 3).map((m: any) => (
-            <div key={m.title} className="group flex-1 min-w-[300px] max-w-md overflow-hidden glass-card">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-t-[20px]">
-                <img src={m.type === "News" ? mediaImg1 : m.type === "Interview" ? mediaImg2 : mediaImg3} alt="" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
-                <span className="absolute left-4 top-4 rounded-full border border-gold/50 bg-background/80 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-gold">{t(m.type as any)}</span>
-              </div>
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="text-[10px] uppercase tracking-widest text-gold">{t(m.source as any)} · {t(String(m.year) as any)}</div>
-                <div className="mt-2 font-display text-lg text-foreground">{t(m.title as any)}</div>
-              </div>
-            </div>
-          ))}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {media.slice(0, 3).map((m: any) => {
+            const rawUrl = m.url || "https://www.youtube.com/watch?v=0foE_izpiBE";
+            const ytMatch = rawUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+            const videoUrl = ytMatch ? `https://www.youtube.com/watch?v=${ytMatch[1]}` : rawUrl;
+            const ytThumb = ytMatch ? `https://img.youtube.com/vi/${ytMatch[1]}/hqdefault.jpg` : null;
+            const thumb = m.thumbnail || m.image || ytThumb || (m.type === "News" ? mediaImg1 : m.type === "Interview" ? mediaImg2 : mediaImg3);
+
+            return (
+              <a
+                key={m.title}
+                href={videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col overflow-hidden rounded-[24px] glass-card hover-lift hover:border-gold/60 cursor-pointer transition-all border border-gold/30 shadow-md"
+              >
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/5">
+                  <img src={thumb} alt="" className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors" />
+                  <div className="absolute inset-0 grid place-items-center">
+                    <div className="grid h-12 w-12 place-items-center rounded-full border border-gold/60 bg-background/90 text-gold shadow-lg backdrop-blur-md transition-transform group-hover:scale-110">
+                      <Play size={20} className="ml-0.5 fill-gold/30" />
+                    </div>
+                  </div>
+                  <span className="absolute left-4 top-4 rounded-full border border-gold/50 bg-background/90 px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-gold shadow-xs backdrop-blur-md">{t(m.type as any)}</span>
+                </div>
+                <div className="p-6 flex flex-1 flex-col items-center justify-between text-center">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-widest font-medium text-gold">{t(m.source as any)} · {t(String(m.year) as any)}</div>
+                    <div className="mt-2 font-display text-lg text-foreground group-hover:text-gold transition-colors leading-snug">{t(m.title as any)}</div>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-7xl px-6 py-24 bg-section-bg rounded-[40px] my-10">
+      {/* <section className="mx-auto max-w-7xl px-6 py-24 bg-section-bg rounded-[40px] my-10">
         <div className="text-center">
           <SectionLabel>{t("home.testimonialsTitle")}</SectionLabel>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.voicesOfBlessing")}</h2>
@@ -342,7 +433,7 @@ function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="relative mx-6 my-24 overflow-hidden rounded-[40px] border border-border shadow-card">
@@ -350,7 +441,7 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50" />
         <div className="relative grid gap-6 p-10 md:grid-cols-[1fr_auto] md:items-center md:p-16">
           <div>
-            <div className="font-devanagari text-3xl text-gold">ॐ</div>
+           
             <h3 className="mt-4 font-display text-3xl md:text-5xl text-gold-gradient max-w-2xl">
               {t("home.ctaJoin")}
             </h3>

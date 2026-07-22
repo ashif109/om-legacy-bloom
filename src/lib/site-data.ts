@@ -43,7 +43,22 @@ export const education = [
 export const certificates: any[] = [];
 
 export const media = [
-  { type: "YouTube", title: "Connecting Youth to Climate Action", source: "Omjiworld", year: 2024 },
+  { 
+    type: "YouTube", 
+    title: "Connecting Youth to Climate Action", 
+    source: "Omjiworld", 
+    year: 2024,
+    url: "https://www.youtube.com/watch?v=0foE_izpiBE",
+    thumbnail: "https://img.youtube.com/vi/0foE_izpiBE/hqdefault.jpg"
+  },
+  { 
+    type: "YouTube", 
+    title: "Prize Distribution by UPPCS 2018 batch 2nd Rank holder & SDM Kheragarh Smt Sangeeta Raghav", 
+    source: "Omjiworld", 
+    year: 2021,
+    url: "https://www.youtube.com/watch?v=2IBc9tyucOI",
+    thumbnail: "https://img.youtube.com/vi/2IBc9tyucOI/hqdefault.jpg"
+  },
 ];
 
 export const socialWork = [
@@ -72,5 +87,6 @@ export const contact = {
     { name: "Facebook", href: "https://www.facebook.com/lal.singh.52090" },
     { name: "Instagram", href: "https://instagram.com/omjiworld_05" },
     { name: "WhatsApp", href: "https://wa.me/919412162807" },
+    { name: "YouTube", href: "https://www.youtube.com/@omjiworld1700" },
   ],
 };
