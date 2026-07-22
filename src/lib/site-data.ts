@@ -59,7 +59,7 @@ export const camps: any[] = [];
 
 export const responsibilities = [
   { position: "Student", org: "CBSE Board", period: "Present", level: "Academic" },
-  { position: "Youtuber & Young Astrologer", org: "Omjiworld", period: "Present", level: "Global" },
+  { position: "Youtuber, Environmentalist & Young Astrologer", org: "Omjiworld", period: "Present", level: "Global" },
 ];
 
 export const projects: any[] = [];

@@ -1,13 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { responsibilities } from "@/lib/site-data";
+import { getProjects } from "@/lib/api";
 
 export const Route = createFileRoute("/responsibilities")({
+  loader: async () => {
+    try {
+      return await getProjects();
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  },
   head: () => ({ meta: [{ title: "Responsibilities — Om" }, { name: "description", content: "Roles held by Om across levels." }, { property: "og:url", content: "/responsibilities" }], links: [{ rel: "canonical", href: "/responsibilities" }] }),
   component: Resp,
 });
 
 function Resp() {
+  const dbProjects = Route.useLoaderData() || [];
+  const allResponsibilities = dbProjects.map((p: any) => ({
+    position: p.name,
+    org: p.description || p.teamMembers?.join(", ") || "",
+    period: p.status || "",
+    level: p.techStack?.[0] || "Global",
+    ...p
+  }));
+
   return (
     <PageShell>
       <PageHero eyebrow="Responsibilities" title="Duty as Devotion" />
@@ -22,8 +40,8 @@ function Resp() {
             </tr>
           </thead>
           <tbody>
-            {responsibilities.map((r) => (
-              <tr key={r.position + r.period} className="border-t border-[color:var(--gold)]/15 hover:bg-[color:var(--gold)]/5">
+            {allResponsibilities.map((r, i) => (
+              <tr key={r._id || r.position + r.period || i} className="border-t border-[color:var(--gold)]/15 hover:bg-[color:var(--gold)]/5">
                 <td className="p-5 font-display text-base text-cream">{r.position}</td>
                 <td className="p-5 text-[color:var(--muted-foreground)]">{r.org}</td>
                 <td className="p-5 text-[color:var(--muted-foreground)]">{r.period}</td>

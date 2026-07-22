@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { getCertificates, addCertificate, updateCertificate, deleteCertificate, uploadImage } from "@/lib/api";
 import Cookies from "js-cookie";
-import { Plus, Trash2, Upload, Loader2, X } from "lucide-react";
+import { Plus, Trash2, Upload, Loader2, X, Edit } from "lucide-react";
 import { DataTable, ColumnDef } from "@/components/admin/DataTable";
 
 export const Route = createFileRoute("/admin/certificates")({
@@ -12,11 +12,15 @@ export const Route = createFileRoute("/admin/certificates")({
 function AdminCertificates() {
   const [certificates, setCertificates] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("camp");
+  const [organization, setOrganization] = useState("");
+  const [achievement, setAchievement] = useState("");
+  const [date, setDate] = useState("");
+  const [url, setUrl] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
 
@@ -42,6 +46,10 @@ function AdminCertificates() {
     setEditingId(cert._id);
     setTitle(cert.title);
     setCategory(cert.category);
+    setOrganization(cert.organization || "");
+    setAchievement(cert.achievement || "");
+    setDate(cert.date || "");
+    setUrl(cert.url || "");
     setFile(null);
     setIsModalOpen(true);
   };
@@ -72,17 +80,21 @@ function AdminCertificates() {
           };
         });
       }
-        
+
       // 3. Save to MongoDB
       if (editingId) {
         await updateCertificate({
           data: {
             token,
             id: editingId,
-            certificate: { 
-              title, 
-              category, 
-              imageUrl: imageUrl || certificates.find(c => c._id === editingId)?.imageUrl 
+            certificate: {
+              title,
+              category,
+              organization,
+              achievement,
+              date,
+              url,
+              imageUrl: imageUrl || certificates.find(c => c._id === editingId)?.imageUrl
             },
           }
         });
@@ -90,15 +102,19 @@ function AdminCertificates() {
         await addCertificate({
           data: {
             token,
-            certificate: { 
-              title, 
-              category, 
+            certificate: {
+              title,
+              category,
+              organization,
+              achievement,
+              date,
+              url,
               imageUrl: imageUrl
             },
           }
         });
       }
-      
+
       closeModal();
       fetchCertificates();
     } catch (e: any) {
@@ -123,6 +139,10 @@ function AdminCertificates() {
     setEditingId(null);
     setTitle("");
     setCategory("camp");
+    setOrganization("");
+    setAchievement("");
+    setDate("");
+    setUrl("");
     setFile(null);
   };
 
@@ -134,12 +154,12 @@ function AdminCertificates() {
       )
     },
     { header: "Title", accessorKey: "title" },
-    { 
-      header: "Category", 
+    {
+      header: "Category",
       cell: (item) => <span className="uppercase text-xs font-semibold px-2 py-1 bg-[color:var(--gold)]/20 text-[color:var(--gold)] rounded">{item.category}</span>
     },
-    { 
-      header: "Date Added", 
+    {
+      header: "Date Added",
       cell: (item) => new Date(item.createdAt || Date.now()).toLocaleDateString()
     }
   ];
@@ -151,7 +171,7 @@ function AdminCertificates() {
           <h1 className="text-3xl font-display text-gold-gradient">Certificates</h1>
           <p className="text-gray-400">Manage your certificates and awards.</p>
         </div>
-        <button 
+        <button
           onClick={() => setIsModalOpen(true)}
           className="btn-gold px-4 py-2 rounded-lg flex items-center gap-2 font-medium"
         >
@@ -162,7 +182,7 @@ function AdminCertificates() {
       {loading ? (
         <div className="flex justify-center p-12"><Loader2 size={32} className="animate-spin text-[color:var(--gold)]" /></div>
       ) : (
-        <DataTable 
+        <DataTable
           data={certificates}
           columns={columns}
           searchKey="title"
@@ -179,13 +199,13 @@ function AdminCertificates() {
               <h2 className="text-xl font-display text-cream">{editingId ? "Edit Certificate" : "Add Certificate"}</h2>
               <button onClick={closeModal} className="text-gray-400 hover:text-white"><X size={20} /></button>
             </div>
-            
+
             <form onSubmit={handleAdd} className="space-y-4">
               <div>
                 <label className="block text-sm text-gray-400 mb-1">Title</label>
-                <input 
-                  type="text" 
-                  value={title} 
+                <input
+                  type="text"
+                  value={title}
                   onChange={e => setTitle(e.target.value)}
                   className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
                   required
@@ -193,8 +213,8 @@ function AdminCertificates() {
               </div>
               <div>
                 <label className="block text-sm text-gray-400 mb-1">Category</label>
-                <select 
-                  value={category} 
+                <select
+                  value={category}
                   onChange={e => setCategory(e.target.value)}
                   className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
                 >
@@ -206,17 +226,60 @@ function AdminCertificates() {
                 </select>
               </div>
               <div>
+                <label className="block text-sm text-gray-400 mb-1">Organization</label>
+                <input
+                  type="text"
+                  value={organization}
+                  onChange={e => setOrganization(e.target.value)}
+                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-400 mb-1">Achievement Details</label>
+                <textarea
+                  value={achievement}
+                  onChange={e => setAchievement(e.target.value)}
+                  className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
+                  rows={3}
+                  required
+                ></textarea>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">Date</label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={e => setDate(e.target.value)}
+                    placeholder="e.g. 2024-25"
+                    className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">URL (Optional)</label>
+                  <input
+                    type="url"
+                    value={url}
+                    onChange={e => setUrl(e.target.value)}
+                    placeholder="https://..."
+                    className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream focus:border-[color:var(--gold)] outline-none"
+                  />
+                </div>
+              </div>
+              <div>
                 <label className="block text-sm text-gray-400 mb-1">Upload Image {editingId && "(Leave blank to keep existing)"}</label>
-                <input 
-                  type="file" 
+                <input
+                  type="file"
                   accept="image/*"
                   onChange={e => setFile(e.target.files?.[0] || null)}
                   className="w-full bg-black/50 border border-[color:var(--gold)]/30 rounded-lg px-3 py-2 text-cream file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[color:var(--gold)] file:text-black hover:file:bg-[color:var(--gold)]/80"
                   required={!editingId}
                 />
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={uploading}
                 className="w-full btn-gold rounded-lg px-4 py-2.5 mt-6 flex justify-center items-center gap-2 disabled:opacity-50 font-medium"
               >

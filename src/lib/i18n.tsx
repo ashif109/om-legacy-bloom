@@ -32,7 +32,7 @@ export const dict: Dict = {
   "cta.explore": { en: "Explore My Journey", hi: "मेरी यात्रा देखें", sa: "यात्रा दृश्यताम्" },
   "cta.contact": { en: "Contact Me", hi: "संपर्क करें", sa: "सम्पर्कं कुरुत" },
   "cta.achievements": { en: "View Achievements", hi: "उपलब्धियाँ देखें", sa: "सिद्धयः पश्यत" },
-  "hero.role": { en: "Student · Youtuber · Astrologer", hi: "छात्र · यूट्यूबर · ज्योतिषी", sa: "छात्रः · यूट्यूबर · ज्योतिषी" },
+  "hero.role": { en: "Student · Youtuber · Astrologer · Environmentalist", hi: "छात्र · यूट्यूबर · ज्योतिषी · पर्यावरणविद", sa: "छात्रः · यूट्यूबर · ज्योतिषी · पर्यावरणविद्" },
   "hero.tag": { en: "Working for Dharma & Vedic Astrology", hi: "सनातन धर्म और वैदिक ज्योतिष के लिए समर्पित", sa: "सनातनधर्मस्य वैदिकज्योतिषस्य च प्रसारे समर्पितः" },
   
   "home.peopleImpacted": { en: "People Impacted", hi: "लोग जुड़े", sa: "जनाः सम्बद्धाः" },

@@ -54,8 +54,8 @@ export function Navbar() {
   return (
     <>
       {/* Top strip */}
-      <div className="hidden md:block border-b border-[color:var(--gold)]/15 bg-[oklch(0.11_0.025_45)]/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-[11px] tracking-[0.25em] text-[color:var(--gold-soft)] font-devanagari">
+      <div className="hidden md:block border-b border-border bg-background/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-[11px] tracking-[0.25em] text-muted-foreground font-devanagari">
           <span>ॐ</span>
           <span>सर्वे भवन्तु सुखिनः · सर्वे सन्तु निरामयाः</span>
           <span>ॐ</span>
@@ -63,19 +63,19 @@ export function Navbar() {
       </div>
 
       <header
-        className={`sticky top-0 z-50 transition-all ${
-          scrolled ? "bg-[oklch(0.11_0.025_45)]/85 backdrop-blur-xl border-b border-[color:var(--gold)]/20" : "bg-transparent"
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled ? "bg-background/70 backdrop-blur-xl border-b border-gold/30" : "bg-transparent border-b border-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 py-3">
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full border border-[color:var(--gold)]/40 bg-[oklch(0.18_0.035_45)] font-devanagari text-2xl text-[color:var(--gold)] shadow-[0_0_25px_oklch(0.83_0.14_82/0.25)] transition-transform group-hover:scale-105">
+            <span className="grid h-11 w-11 place-items-center rounded-full border border-gold/40 bg-card font-devanagari text-2xl text-gold shadow-[0_0_25px_rgba(196,169,98,0.15)] transition-transform group-hover:scale-105">
               ॐ
             </span>
             <span className="leading-tight">
-              <span className="block font-display text-xl tracking-[0.18em] text-gold-gradient">OM</span>
-              <span className="block text-[9px] tracking-[0.3em] uppercase text-[color:var(--muted-foreground)]">Sanatan Gurukulam</span>
+              <span className="block font-display text-xl tracking-[0.18em] text-gold-gradient" style={{ fontFamily: "cursive" }}>OM</span>
+              <span className="block text-[9px] tracking-[0.3em] uppercase text-muted-foreground">Sanatan Gurukulam</span>
             </span>
           </Link>
 
@@ -88,12 +88,12 @@ export function Navbar() {
                   key={l.to}
                   to={l.to}
                   className={`relative px-3 py-2 text-sm tracking-wide transition-colors ${
-                    active ? "text-[color:var(--gold)]" : "text-[color:var(--cream)] hover:text-[color:var(--gold)]"
+                    active ? "text-gold" : "text-foreground hover:text-gold"
                   }`}
                 >
                   {t(l.key)}
                   <span
-                    className={`absolute inset-x-3 -bottom-0.5 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-[color:var(--gold)] to-transparent transition-transform duration-500 ${
+                    className={`absolute inset-x-3 -bottom-0.5 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-300 ${
                       active ? "scale-x-100" : "group-hover:scale-x-100"
                     }`}
                   />
@@ -105,12 +105,12 @@ export function Navbar() {
               onMouseEnter={() => setShowMore(true)}
               onMouseLeave={() => setShowMore(false)}
             >
-              <button className="px-3 py-2 text-sm text-[color:var(--cream)] hover:text-[color:var(--gold)]">{t("nav.more")}</button>
+              <button className="px-3 py-2 text-sm text-foreground hover:text-gold transition-colors">{t("nav.more")}</button>
               {showMore && (
                 <div className="absolute right-0 top-full w-[520px] pt-2">
-                  <div className="glass-card grid grid-cols-2 gap-1 rounded-2xl p-3">
+                  <div className="glass-card grid grid-cols-2 gap-1 rounded-[24px] p-4">
                     {more.map(([k, to]) => (
-                      <Link key={to} to={to} className="rounded-lg px-3 py-2 text-sm text-[color:var(--cream)] hover:bg-[color:var(--gold)]/10 hover:text-[color:var(--gold)]">
+                      <Link key={to} to={to} className="rounded-lg px-3 py-2 text-sm text-foreground hover:bg-gold/10 hover:text-gold transition-colors">
                         {t(k as never)}
                       </Link>
                     ))}
@@ -125,18 +125,18 @@ export function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setShowLang((v) => !v)}
-                className="flex h-10 items-center gap-2 rounded-full border border-[color:var(--gold)]/25 px-3 text-xs text-[color:var(--cream)] hover:border-[color:var(--gold)] hover:text-[color:var(--gold)]"
+                className="flex h-10 items-center gap-2 rounded-full border border-gold/25 px-3 text-xs text-foreground hover:border-gold hover:text-gold transition-colors"
               >
                 <Globe size={14} />
                 <span className="tracking-wider">{langs.find((l) => l.code === lang)?.label}</span>
               </button>
               {showLang && (
-                <div className="absolute right-0 top-12 z-50 w-40 rounded-xl glass-card p-1">
+                <div className="absolute right-0 top-12 z-50 w-40 rounded-[20px] glass-card p-2">
                   {langs.map((l) => (
                     <button
                       key={l.code}
                       onClick={() => { setLang(l.code); setShowLang(false); }}
-                      className={`block w-full rounded-lg px-3 py-2 text-left text-sm ${lang === l.code ? "bg-[color:var(--gold)]/15 text-[color:var(--gold)]" : "text-[color:var(--cream)] hover:bg-[color:var(--gold)]/10"}`}
+                      className={`block w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${lang === l.code ? "bg-gold/15 text-gold" : "text-foreground hover:bg-gold/10"}`}
                     >
                       {l.label}
                     </button>
@@ -144,16 +144,16 @@ export function Navbar() {
                 </div>
               )}
             </div>
-            <Link to="/admin" className="hidden md:inline-flex h-10 items-center justify-center gap-2 rounded-full border border-[color:var(--gold)]/25 px-4 text-xs font-semibold tracking-widest uppercase text-[color:var(--cream)] hover:border-[color:var(--gold)] hover:text-[color:var(--gold)] transition-colors">
+            <Link to="/admin" className="hidden md:inline-flex h-10 items-center justify-center gap-2 rounded-full border border-gold/25 px-4 text-xs font-semibold tracking-widest uppercase text-foreground hover:border-gold hover:text-gold transition-colors">
               {t("nav.admin")}
             </Link>
             <button 
               onClick={() => setShowDonation(true)}
-              className="hidden md:inline-flex h-10 items-center gap-2 rounded-full btn-gold px-4 text-xs font-semibold tracking-widest uppercase"
+              className="hidden md:inline-flex h-10 items-center gap-2 rounded-[999px] btn-gold px-5 text-xs font-semibold tracking-widest uppercase"
             >
               <Heart size={14} /> {t("cta.donate")}
             </button>
-            <button className="lg:hidden grid h-10 w-10 place-items-center rounded-full border border-[color:var(--gold)]/30 text-[color:var(--cream)]" onClick={() => setOpen((v) => !v)} aria-label="Menu">
+            <button className="lg:hidden grid h-10 w-10 place-items-center rounded-full border border-gold/30 text-foreground transition-colors hover:text-gold hover:border-gold" onClick={() => setOpen((v) => !v)} aria-label="Menu">
               {open ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
@@ -161,10 +161,10 @@ export function Navbar() {
 
         {/* Mobile drawer */}
         {open && (
-          <div className="lg:hidden border-t border-[color:var(--gold)]/15 bg-[oklch(0.11_0.025_45)]/95 backdrop-blur-xl">
-            <div className="max-h-[70vh] overflow-y-auto p-4 grid grid-cols-2 gap-1">
+          <div className="lg:hidden border-t border-gold/15 bg-background/95 backdrop-blur-xl">
+            <div className="max-h-[70vh] overflow-y-auto p-4 grid grid-cols-2 gap-2">
               {[...links, ...more.map(([k, to]) => ({ to: to as string, key: k as never }))].map((l) => (
-                <Link key={l.to} to={l.to} className="rounded-lg px-3 py-2 text-sm text-[color:var(--cream)] hover:bg-[color:var(--gold)]/10 hover:text-[color:var(--gold)]">
+                <Link key={l.to} to={l.to} className="rounded-lg px-3 py-2 text-sm text-foreground hover:bg-gold/10 hover:text-gold transition-colors">
                   {t(l.key)}
                 </Link>
               ))}
@@ -176,3 +176,4 @@ export function Navbar() {
     </>
   );
 }
+

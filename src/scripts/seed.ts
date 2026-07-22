@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import { SiteData } from "../lib/models/SiteData";
 import { Certificate } from "../lib/models/Certificate";
 import { Media } from "../lib/models/Media";
+import { Journey, Education, Skill, SocialWork } from "../lib/models/ContentModels";
 import * as siteData from "../lib/site-data";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -27,6 +28,10 @@ async function seed() {
     await SiteData.deleteMany({});
     await Certificate.deleteMany({});
     await Media.deleteMany({});
+    await Journey.deleteMany({});
+    await Education.deleteMany({});
+    await Skill.deleteMany({});
+    await SocialWork.deleteMany({});
 
     console.log("Cleared existing data.");
 
@@ -34,14 +39,44 @@ async function seed() {
     const payload = {
       stats: siteData.stats,
       missionCards: siteData.missionCards,
-      skills: siteData.skills,
-      education: siteData.education,
-      journey: siteData.journey,
       contact: siteData.contact,
     };
     
     await SiteData.create(payload);
     console.log("Inserted Site Data.");
+
+    // 2. Insert Individual Collections
+    if (siteData.journey && siteData.journey.length > 0) {
+      await Journey.insertMany(siteData.journey);
+      console.log(`Inserted ${siteData.journey.length} Journey items.`);
+    }
+
+    if (siteData.education && siteData.education.length > 0) {
+      await Education.insertMany(siteData.education.map(e => ({
+        degree: e.degree,
+        institution: e.org,
+        year: e.period
+      })));
+      console.log(`Inserted ${siteData.education.length} Education items.`);
+    }
+
+    if (siteData.skills && siteData.skills.length > 0) {
+      await Skill.insertMany(siteData.skills.map(s => ({
+        name: s.name,
+        category: "General",
+        proficiency: s.value
+      })));
+      console.log(`Inserted ${siteData.skills.length} Skill items.`);
+    }
+
+    if (siteData.socialWork && siteData.socialWork.length > 0) {
+      await SocialWork.insertMany(siteData.socialWork.map(s => ({
+        title: s.title,
+        organization: s.impact, // impact maps nicely to organization in the schema for now
+        date: s.year.toString()
+      })));
+      console.log(`Inserted ${siteData.socialWork.length} SocialWork items.`);
+    }
 
     // 2. Insert Media
     if (siteData.media && siteData.media.length > 0) {

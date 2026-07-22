@@ -37,9 +37,9 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer" },
+      { title: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer · Environmentalist" },
       { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
-      { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer" },
+      { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer · Environmentalist" },
       { property: "og:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
       { property: "og:url", content: "/" },
     ],
@@ -69,11 +69,11 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={templeBg} alt="" className="h-full w-full object-cover object-[center_30%] opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--background)]/70 via-[color:var(--background)]/60 to-[color:var(--background)]" />
+          <img src={templeBg} alt="" className="h-full w-full object-cover object-[center_30%] opacity-40 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
         </div>
-        <Mandala className="right-[-160px] top-[-140px] opacity-70" size={720} />
-        <Mandala className="left-[-200px] bottom-[-140px] opacity-40" size={560} />
+        <Mandala className="right-[-160px] top-[-140px] opacity-30" size={720} />
+        <Mandala className="left-[-200px] bottom-[-140px] opacity-20" size={560} />
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pt-10 pb-24 md:pt-20 md:pb-28 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           {/* Portrait */}
@@ -83,23 +83,23 @@ function HomePage() {
             transition={{ duration: 1 }}
             className="relative mx-auto w-full max-w-lg"
           >
-            <div className="pointer-events-none absolute inset-0 -m-6 rounded-[2rem] bg-[color:var(--gold)]/10 blur-3xl" />
+            <div className="pointer-events-none absolute inset-0 -m-6 rounded-[2rem] bg-gold/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] gold-border">
               <img src={heroOm} alt="Portrait of Om" className="h-[560px] w-full object-cover object-[center_30%]" />
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[color:var(--background)] to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-[color:var(--gold)]">
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-gold">
                 <span>Est. 2017</span>
                 <span className="font-devanagari text-base normal-case tracking-normal">कर्मण्येवाधिकारस्ते</span>
               </div>
             </div>
             {/* floating badges */}
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="glass-card absolute -left-6 top-14 hidden rounded-2xl px-4 py-3 md:block">
-              <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t("home.peopleImpacted")}</div>
-              <div className="mt-1 font-display text-2xl text-cream">5,000+</div>
+              <div className="text-[10px] uppercase tracking-widest text-gold">{t("home.peopleImpacted")}</div>
+              <div className="mt-1 font-display text-2xl text-foreground">5,000+</div>
             </motion.div>
             <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity }} className="glass-card absolute -right-6 bottom-24 hidden rounded-2xl px-4 py-3 md:block">
-              <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t("home.events")}</div>
-              <div className="mt-1 font-display text-2xl text-cream">150+</div>
+              <div className="text-[10px] uppercase tracking-widest text-gold">{t("home.events")}</div>
+              <div className="mt-1 font-display text-2xl text-foreground">150+</div>
             </motion.div>
           </motion.div>
 
@@ -109,14 +109,14 @@ function HomePage() {
             <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
               <span className="font-[cursive] font-extrabold text-gold-gradient">{t("home.name")}</span>
             </h1>
-            <div className="mt-4 font-serif-lux text-xl italic text-[color:var(--muted-foreground)]">{t("hero.role")}</div>
-            <div className="mt-2 text-[color:var(--cream)]">{t("hero.tag")}</div>
+            <div className="mt-4 font-serif-lux text-xl italic text-muted-foreground">{t("hero.role")}</div>
+            <div className="mt-2 text-foreground">{t("hero.tag")}</div>
 
-            <div className="mt-8 rounded-2xl gold-border p-6">
-              <p className="font-devanagari text-2xl leading-relaxed text-[color:var(--gold-soft)]">
+            <div className="mt-8 rounded-[24px] glass-card p-6 border border-gold/30">
+              <p className="font-devanagari text-2xl leading-relaxed text-gold">
                 स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥
               </p>
-              <p className="mt-2 text-sm italic text-[color:var(--muted-foreground)]">
+              <p className="mt-2 text-sm italic text-muted-foreground">
                 {t("Better one's own duty, though imperfectly performed, than the duty of another, though well performed." as any) !== "Better one's own duty, though imperfectly performed, than the duty of another, though well performed." ? t("Better one's own duty, though imperfectly performed, than the duty of another, though well performed." as any) : (lang === "hi" ? "अपूर्ण रूप से किए गए अपने धर्म का पालन करना भी, अच्छी तरह से किए गए दूसरों के धर्म का पालन करने से बेहतर है।" : lang === "sa" ? "स्वधर्मस्य अपूर्णं पालनमपि उत्तमरूपेण कृतात् परधर्मपालनात् श्रेष्ठम् अस्ति।" : "Better one's own duty, though imperfectly performed, than the duty of another, though well performed.")}
               </p>
             </div>
@@ -125,10 +125,10 @@ function HomePage() {
               <Link to="/journey" className="group inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest">
                 {t("cta.explore")} <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/achievements" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-[color:var(--gold)]/10">
+              <Link to="/achievements" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-gold/10">
                 {t("cta.achievements")}
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-[color:var(--gold)]/10">
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-gold/10">
                 {t("cta.contact")}
               </Link>
             </div>
@@ -136,7 +136,7 @@ function HomePage() {
         </div>
 
         {/* Stats strip */}
-        <div className="relative border-y border-[color:var(--gold)]/25 bg-[oklch(0.15_0.03_45)]/70 backdrop-blur">
+        <div className="relative border-y border-gold/25 bg-card/70 backdrop-blur">
           <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-8 px-6 py-6 md:gap-16">
             {stats.map((s: any, i: number) => (
               <motion.div
@@ -148,7 +148,7 @@ function HomePage() {
                 className="text-center"
               >
                 <div className="font-display text-3xl text-gold-gradient md:text-4xl">{t(s.value as any)}</div>
-                <div className="mt-1 text-[11px] uppercase tracking-[0.3em] text-[color:var(--muted-foreground)]">{t(s.label as any)}</div>
+                <div className="mt-1 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">{t(s.label as any)}</div>
               </motion.div>
             ))}
           </div>
@@ -175,14 +175,14 @@ function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="group relative flex-1 min-w-[280px] max-w-md overflow-hidden rounded-2xl luxury-card p-8 hover-lift hover:-translate-y-1 hover:border-[color:var(--gold)]/60 flex flex-col items-center text-center"
+                className="group relative flex-1 min-w-[280px] max-w-md overflow-hidden glass-card p-8 hover-lift flex flex-col items-center text-center"
               >
-                <div className="pointer-events-none absolute inset-x-0 -top-16 h-32 bg-[radial-gradient(circle,oklch(0.83_0.14_82/0.35),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gold/15 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="grid h-14 w-14 place-items-center rounded-full border border-gold/40 text-gold bg-background/50">
                   <Icon size={22} />
                 </div>
-                <h3 className="mt-6 font-display text-xl text-cream">{t(c.title as any)}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted-foreground)]">{t(c.body as any)}</p>
+                <h3 className="mt-6 font-display text-xl text-foreground">{t(c.title as any)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t(c.body as any)}</p>
               </motion.div>
             );
           })}
@@ -190,29 +190,29 @@ function HomePage() {
       </section>
 
       {/* JOURNEY PREVIEW */}
-      <section className="relative mx-auto max-w-7xl px-6 py-24">
+      <section className="relative mx-auto max-w-7xl px-6 py-24 bg-section-bg rounded-[40px] my-10">
         <div className="flex flex-col items-center justify-center text-center gap-4">
           <div>
             <SectionLabel>{t("home.journeyTitle")}</SectionLabel>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.journeyHighlights")}</h2>
             <Ornament className="mt-6" />
           </div>
-          <Link to="/journey" className="mt-2 text-sm uppercase tracking-widest text-[color:var(--gold)] hover:text-[color:var(--gold-soft)]">
+          <Link to="/journey" className="mt-2 text-sm uppercase tracking-widest text-gold hover:text-gold-hover transition-colors">
             {t("home.fullJourney")}
           </Link>
         </div>
 
-        <div className="mt-12 rounded-3xl gold-border overflow-hidden">
-          <div className="relative overflow-x-auto p-8">
-            <div className="pointer-events-none absolute left-8 right-8 top-[60px] h-px bg-gradient-to-r from-transparent via-[color:var(--gold)]/60 to-transparent" />
-            <div className="flex min-w-[900px] items-start justify-between gap-6">
+        <div className="mt-12 rounded-[24px] gold-border overflow-hidden bg-card/50 backdrop-blur-md">
+          <div className="relative overflow-x-auto p-8 custom-scrollbar">
+            <div className="pointer-events-none absolute left-8 right-8 top-[60px] h-[1px] bg-gradient-to-r from-gold/10 via-gold/40 to-gold/10 z-0" />
+            <div className="flex min-w-[900px] items-start justify-between gap-6 relative z-10">
               {journey.slice(0, 8).map((j: any, i: number) => (
-                <div key={j.year} className="relative flex flex-1 flex-col items-center text-center">
-                  <div className={`inline-flex min-w-[5rem] px-5 h-14 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--card)] font-display text-base text-[color:var(--gold)] ${i % 2 === 0 ? "shadow-[0_0_25px_oklch(0.83_0.14_82/0.35)]" : ""}`}>
+                <div key={j.year} className="relative flex flex-1 flex-col items-center text-center group">
+                  <div className="inline-flex min-w-[7rem] px-6 h-14 items-center justify-center rounded-full border border-gold/40 bg-background font-display text-sm tracking-widest uppercase text-gold shadow-[0_0_20px_rgba(196,169,98,0.15)] transition-transform group-hover:scale-105">
                     {t(j.year as any)}
                   </div>
-                  <div className="mt-5 text-sm font-semibold uppercase tracking-wider text-cream">{t(j.title as any)}</div>
-                  <div className="mt-2 max-w-[260px] text-xs leading-relaxed text-[color:var(--muted-foreground)]">{t(j.body as any)}</div>
+                  <div className="mt-5 text-sm font-semibold uppercase tracking-wider text-foreground">{t(j.title as any)}</div>
+                  <div className="mt-2 max-w-[260px] text-xs leading-relaxed text-muted-foreground">{t(j.body as any)}</div>
                 </div>
               ))}
             </div>
@@ -233,13 +233,13 @@ function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group relative flex-1 min-w-[140px] max-w-[200px] overflow-hidden rounded-2xl luxury-card p-5 text-center hover:-translate-y-1 hover:border-[color:var(--gold)]/60"
+                className="group relative flex-1 min-w-[140px] max-w-[200px] overflow-hidden glass-card p-5 text-center"
               >
-                <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
+                <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-gold/40 text-gold bg-background/50">
                   <Award size={20} />
                 </div>
-                <div className="mt-3 text-[11px] uppercase tracking-wider text-[color:var(--gold)]">{t(String(a.year) as any)}</div>
-                <div className="mt-1 font-display text-sm text-cream leading-snug">{t(a.title as any)}</div>
+                <div className="mt-3 text-[11px] uppercase tracking-wider text-gold">{t(String(a.year) as any)}</div>
+                <div className="mt-1 font-display text-sm text-foreground leading-snug">{t(a.title as any)}</div>
               </motion.div>
             ))}
           </div>
@@ -254,13 +254,13 @@ function HomePage() {
               { icon: Users, title: t("service.eventMgt"), body: t("service.eventMgtDesc") },
               { icon: Sparkles, title: t("service.contentCreation"), body: t("service.contentCreationDesc") },
             ].map(({ icon: Icon, title, body }) => (
-              <div key={title} className="group flex items-start gap-4 rounded-2xl luxury-card p-5 hover:border-[color:var(--gold)]/60">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]">
+              <div key={title} className="group flex items-start gap-4 glass-card p-5 hover:border-gold/60">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-gold/40 text-gold bg-background/50">
                   <Icon size={18} />
                 </div>
                 <div>
-                  <div className="font-display text-lg text-cream">{title}</div>
-                  <div className="mt-1 text-sm text-[color:var(--muted-foreground)]">{body}</div>
+                  <div className="font-display text-lg text-foreground">{title}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">{body}</div>
                 </div>
               </div>
             ))}
@@ -269,7 +269,7 @@ function HomePage() {
       </section>
 
       {/* GALLERY PREVIEW */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-24 bg-secondary-bg rounded-[40px] my-10">
         <div className="text-center">
           <SectionLabel>{t("home.galleryTitle")}</SectionLabel>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.galleryMoments")}</h2>
@@ -284,14 +284,14 @@ function HomePage() {
             previewImg1,
             previewImg2,
           ].map((src, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-2xl gold-border break-inside-avoid">
+            <div key={i} className="group relative overflow-hidden rounded-[20px] border border-border break-inside-avoid">
               <img src={src} alt="" className="w-full transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--background)]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-[color:var(--gold)]/10">
+          <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full btn-ghost-gold px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-gold/10 transition-colors">
             {t("home.viewFullGallery")}
           </Link>
         </div>
@@ -305,18 +305,18 @@ function HomePage() {
             <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.inThePress")}</h2>
             <Ornament className="mt-6" />
           </div>
-          <Link to="/media" className="mt-2 text-sm uppercase tracking-widest text-[color:var(--gold)] hover:text-[color:var(--gold-soft)]">{t("home.allMedia")}</Link>
+          <Link to="/media" className="mt-2 text-sm uppercase tracking-widest text-gold hover:text-gold-hover transition-colors">{t("home.allMedia")}</Link>
         </div>
         <div className="mt-10 flex flex-wrap justify-center gap-6">
           {media.slice(0, 3).map((m: any) => (
-            <div key={m.title} className="group flex-1 min-w-[300px] max-w-md overflow-hidden rounded-2xl luxury-card hover:-translate-y-1 hover:border-[color:var(--gold)]/60">
-              <div className="relative aspect-[16/10] overflow-hidden">
+            <div key={m.title} className="group flex-1 min-w-[300px] max-w-md overflow-hidden glass-card">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-t-[20px]">
                 <img src={m.type === "News" ? mediaImg1 : m.type === "Interview" ? mediaImg2 : mediaImg3} alt="" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
-                <span className="absolute left-4 top-4 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--background)]/60 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t(m.type as any)}</span>
+                <span className="absolute left-4 top-4 rounded-full border border-gold/50 bg-background/80 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-gold">{t(m.type as any)}</span>
               </div>
               <div className="p-6 flex flex-col items-center text-center">
-                <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{t(m.source as any)} · {t(String(m.year) as any)}</div>
-                <div className="mt-2 font-display text-lg text-cream">{t(m.title as any)}</div>
+                <div className="text-[10px] uppercase tracking-widest text-gold">{t(m.source as any)} · {t(String(m.year) as any)}</div>
+                <div className="mt-2 font-display text-lg text-foreground">{t(m.title as any)}</div>
               </div>
             </div>
           ))}
@@ -324,7 +324,7 @@ function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-24 bg-section-bg rounded-[40px] my-10">
         <div className="text-center">
           <SectionLabel>{t("home.testimonialsTitle")}</SectionLabel>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.voicesOfBlessing")}</h2>
@@ -332,12 +332,12 @@ function HomePage() {
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {testimonials.slice(0, 4).map((t_item: any) => (
-            <div key={t_item.name} className="glass-card rounded-2xl p-8">
-              <div className="font-devanagari text-4xl text-[color:var(--gold)]">"</div>
-              <p className="mt-2 font-serif-lux text-lg italic leading-relaxed text-[color:var(--cream)]">{t(t_item.quote as any)}</p>
-              <div className="mt-6 border-t border-[color:var(--gold)]/20 pt-4">
+            <div key={t_item.name} className="glass-card p-8">
+              <div className="font-devanagari text-4xl text-gold">"</div>
+              <p className="mt-2 font-serif-lux text-lg italic leading-relaxed text-foreground">{t(t_item.quote as any)}</p>
+              <div className="mt-6 border-t border-gold/20 pt-4">
                 <div className="font-display text-base text-gold-gradient">{t(t_item.name as any)}</div>
-                <div className="text-xs uppercase tracking-widest text-[color:var(--muted-foreground)]">{t(t_item.role as any)}</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">{t(t_item.role as any)}</div>
               </div>
             </div>
           ))}
@@ -345,18 +345,18 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative mx-6 my-24 overflow-hidden rounded-3xl">
-        <img src={templeBg} alt="" className="absolute inset-0 h-full w-full object-cover object-[center_30%]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--background)]/95 via-[color:var(--background)]/70 to-transparent" />
+      <section className="relative mx-6 my-24 overflow-hidden rounded-[40px] border border-border shadow-card">
+        <img src={templeBg} alt="" className="absolute inset-0 h-full w-full object-cover object-[center_30%] mix-blend-overlay opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50" />
         <div className="relative grid gap-6 p-10 md:grid-cols-[1fr_auto] md:items-center md:p-16">
           <div>
-            <div className="font-devanagari text-3xl text-[color:var(--gold)]">ॐ</div>
+            <div className="font-devanagari text-3xl text-gold">ॐ</div>
             <h3 className="mt-4 font-display text-3xl md:text-5xl text-gold-gradient max-w-2xl">
               {t("home.ctaJoin")}
             </h3>
-            <p className="mt-3 max-w-xl text-[color:var(--muted-foreground)]">{t("home.ctaTogether")}</p>
+            <p className="mt-3 max-w-xl text-muted-foreground">{t("home.ctaTogether")}</p>
           </div>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-gold px-8 py-4 text-sm font-semibold uppercase tracking-widest">
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-gold px-8 py-4 text-sm font-semibold uppercase tracking-widest hover:scale-105 transition-transform">
             {t("home.getInTouch")} <ArrowRight size={16} />
           </Link>
         </div>

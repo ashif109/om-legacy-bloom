@@ -16,6 +16,22 @@ const certificateSchema = new mongoose.Schema({
   description: {
     type: String,
     default: ""
+  },
+  organization: {
+    type: String,
+    default: ""
+  },
+  achievement: {
+    type: String,
+    default: ""
+  },
+  date: {
+    type: String,
+    default: ""
+  },
+  url: {
+    type: String,
+    default: ""
   }
 }, { timestamps: true });
 

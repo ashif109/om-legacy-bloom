@@ -20,34 +20,39 @@ function Contact() {
             { Icon: Mail, label: "Email", value: contact.email },
             { Icon: MapPin, label: "Address", value: contact.address },
           ].map(({ Icon, label, value }) => (
-            <div key={label} className="flex items-start gap-4 rounded-2xl luxury-card p-5">
-              <div className="grid h-11 w-11 place-items-center rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold)]"><Icon size={16}/></div>
+            <div key={label} className="flex items-start gap-4 rounded-2xl glass-card p-5">
+              <div className="grid h-11 w-11 place-items-center rounded-full border border-gold/40 text-gold bg-background/50"><Icon size={16}/></div>
               <div>
-                <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{label}</div>
-                <div className="mt-1 text-cream">{value}</div>
+                <div className="text-[10px] uppercase tracking-widest text-gold">{label}</div>
+                <div className="mt-1 text-foreground">{value}</div>
               </div>
             </div>
           ))}
-          <div className="relative overflow-hidden rounded-3xl gold-border aspect-[16/10]">
-            <img src={temple} alt="" className="h-full w-full object-cover object-[center_30%]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--background)]/70 to-transparent" />
-            <div className="absolute bottom-4 left-4 text-xs uppercase tracking-widest text-[color:var(--gold)]">Kashi · Uttar Pradesh</div>
+          <div className="relative overflow-hidden rounded-3xl gold-border aspect-[16/10] bg-background">
+            <iframe
+              src="https://maps.google.com/maps?q=Om%20Shree%20Platinum%20Taj%20Nagari%20Phase-2%20Agra&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              className="absolute inset-0 h-full w-full border-0 grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+              allowFullScreen
+              loading="lazy"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+            <div className="pointer-events-none absolute bottom-4 left-4 text-xs uppercase tracking-widest text-gold drop-shadow-md">Agra · Uttar Pradesh</div>
           </div>
         </div>
         <form className="glass-card rounded-3xl p-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
           <div>
-            <label className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">Your Name</label>
-            <input className="mt-2 w-full rounded-lg border border-[color:var(--gold)]/25 bg-[color:var(--background)]/50 px-4 py-3 outline-none focus:border-[color:var(--gold)]" />
+            <label className="text-[10px] uppercase tracking-widest text-gold">Your Name</label>
+            <input className="mt-2 w-full rounded-lg border border-gold/25 bg-background/50 px-4 py-3 outline-none focus:border-gold text-foreground" />
           </div>
           <div>
-            <label className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">Your Email</label>
-            <input type="email" className="mt-2 w-full rounded-lg border border-[color:var(--gold)]/25 bg-[color:var(--background)]/50 px-4 py-3 outline-none focus:border-[color:var(--gold)]" />
+            <label className="text-[10px] uppercase tracking-widest text-gold">Your Email</label>
+            <input type="email" className="mt-2 w-full rounded-lg border border-gold/25 bg-background/50 px-4 py-3 outline-none focus:border-gold text-foreground" />
           </div>
           <div>
-            <label className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">Message</label>
-            <textarea rows={6} className="mt-2 w-full rounded-lg border border-[color:var(--gold)]/25 bg-[color:var(--background)]/50 px-4 py-3 outline-none focus:border-[color:var(--gold)]" />
+            <label className="text-[10px] uppercase tracking-widest text-gold">Message</label>
+            <textarea rows={6} className="mt-2 w-full rounded-lg border border-gold/25 bg-background/50 px-4 py-3 outline-none focus:border-gold text-foreground" />
           </div>
-          <button className="inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-xs font-semibold uppercase tracking-widest">
+          <button className="inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:scale-105 transition-transform">
             <Send size={14}/> Send Message
           </button>
         </form>
