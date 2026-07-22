@@ -86,11 +86,11 @@ function HomePage() {
             <div className="mt-2 text-foreground/90 font-sans">{t("hero.tag")}</div>
 
             <div className="mt-8 rounded-[24px] glass-card p-6 border border-gold/30">
-              <p className="font-devanagari text-2xl leading-relaxed text-gold italic">
-                स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥
+              <p className="font-serif-lux text-xl leading-relaxed text-gold italic">
+                "Guard the green, protect the blue, secure the future."
               </p>
               <p className="mt-2 text-sm italic text-foreground/80">
-                Better one's own duty, though imperfectly performed, than the duty of another, though well performed.
+                — Triyambakeshwar Nath Tyagi
               </p>
             </div>
 

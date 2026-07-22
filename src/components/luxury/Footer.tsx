@@ -3,7 +3,7 @@ import { contact } from "@/lib/site-data";
 import { Ornament } from "./Ornament";
 import { useLang } from "@/lib/i18n";
 import footerBg from "@/assets/footer.png";
-import { TriyambakamLogo } from "./TriyambakamLogo";
+import logo from "@/assets/logo.png";
 import { SocialIcon } from "./SocialIcon";
 
 export function Footer() {
@@ -16,7 +16,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto flex justify-center">
-            <TriyambakamLogo size={64} />
+            <img src={logo} alt="Triyambakam Logo" className="h-16 w-auto object-contain" />
           </div>
           <h3 className="mt-6 font-display text-3xl md:text-4xl text-gold-gradient">{t("footer.pathTogether")}</h3>
           <p className="mt-3 text-muted-foreground">{t("footer.subscribeUpdates")}</p>
@@ -31,7 +31,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <TriyambakamLogo size={36} />
+              <img src={logo} alt="Triyambakam Logo" className="h-9 w-auto object-contain" />
               <div className="font-display text-xl font-bold tracking-widest text-gold-gradient">TRIYAMBAKAM</div>
             </div>
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">

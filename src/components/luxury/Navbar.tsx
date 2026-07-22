@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Search, Heart, Globe } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
 import { DonationModal } from "@/components/DonationModal";
-import { TriyambakamLogo } from "./TriyambakamLogo";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", key: "nav.home" as const },
@@ -68,7 +68,7 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-3">
             <div className="transition-transform group-hover:scale-105">
-              <TriyambakamLogo size={42} />
+              <img src={logo} alt="Triyambakam Logo" className="h-11 w-auto object-contain" />
             </div>
             <span className="leading-tight">
               <span className="block font-display text-xl font-bold tracking-[0.18em] text-gold-gradient">TRIYAMBAKAM</span>
