@@ -5,19 +5,19 @@ import { FileText, Search } from "lucide-react";
 
 // Load all images from campus and competition directories
 const campImages = import.meta.glob("@/assets/campus/*.{png,jpg,jpeg}", { eager: true, import: "default" });
-const campCertificates = Object.values(campImages) as string[];
+const campCertificates = Object.entries(campImages).map(([path, url]) => ({ path, url: url as string }));
 
 const competitionImages = import.meta.glob("@/assets/competition/*.{png,jpg,jpeg}", { eager: true, import: "default" });
-const competitionCertificates = Object.values(competitionImages) as string[];
+const competitionCertificates = Object.entries(competitionImages).map(([path, url]) => ({ path, url: url as string }));
 
 const conferenceImages = import.meta.glob("@/assets/conference/*.{png,jpg,jpeg}", { eager: true, import: "default" });
-const conferenceCertificates = Object.values(conferenceImages) as string[];
+const conferenceCertificates = Object.entries(conferenceImages).map(([path, url]) => ({ path, url: url as string }));
 
 const awardImages = import.meta.glob("@/assets/award/*.{png,jpg,jpeg}", { eager: true, import: "default" });
-const awardCertificates = Object.values(awardImages) as string[];
+const awardCertificates = Object.entries(awardImages).map(([path, url]) => ({ path, url: url as string }));
 
 const olympiadImages = import.meta.glob("@/assets/olympiad/*.{png,jpg,jpeg}", { eager: true, import: "default" });
-const olympiadCertificates = Object.values(olympiadImages) as string[];
+const olympiadCertificates = Object.entries(olympiadImages).map(([path, url]) => ({ path, url: url as string }));
 
 import { getCertificates } from "@/lib/api";
 
@@ -210,8 +210,8 @@ export const certificateDetails: Record<string, { title?: string; category?: str
   }
 };
 
-function LocalCertificateCard({ imgSrc, defaultCategory, defaultTitle, index }: { imgSrc: string, defaultCategory: string, defaultTitle: string, index: number }) {
-  const filename = decodeURIComponent(imgSrc.split('/').pop() || "");
+function LocalCertificateCard({ file, defaultCategory, defaultTitle, index }: { file: { path: string, url: string }, defaultCategory: string, defaultTitle: string, index: number }) {
+  const filename = decodeURIComponent(file.path.split('/').pop() || "");
   const details = certificateDetails[filename] || {};
   const title = details.title || `${defaultTitle} ${index + 1}`;
   const category = details.category || defaultCategory;
@@ -223,7 +223,7 @@ function LocalCertificateCard({ imgSrc, defaultCategory, defaultTitle, index }: 
     <div className="group relative overflow-hidden flex flex-col justify-between rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
       <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
         <img
-          src={imgSrc}
+          src={file.url}
           alt={title}
           className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
@@ -341,8 +341,8 @@ function Certificates() {
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Camp Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {campCertificates.map((imgSrc, i) => (
-                <LocalCertificateCard key={i} imgSrc={imgSrc} defaultCategory="Camp Achievement" defaultTitle="Certificate" index={i} />
+              {campCertificates.map((file, i) => (
+                <LocalCertificateCard key={i} file={file} defaultCategory="Camp Achievement" defaultTitle="Certificate" index={i} />
               ))}
               {dbCertificates.filter(c => c.category?.toLowerCase() === "camp").map((cert) => (
                 <DbCertificateCard key={cert._id} cert={cert} />
@@ -356,8 +356,8 @@ function Certificates() {
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Competition Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {competitionCertificates.map((imgSrc, i) => (
-                <LocalCertificateCard key={i} imgSrc={imgSrc} defaultCategory="Competition Achievement" defaultTitle="Certificate" index={i} />
+              {competitionCertificates.map((file, i) => (
+                <LocalCertificateCard key={i} file={file} defaultCategory="Competition Achievement" defaultTitle="Certificate" index={i} />
               ))}
               {dbCertificates.filter(c => c.category?.toLowerCase() === "competition").map((cert) => (
                 <DbCertificateCard key={cert._id} cert={cert} />
@@ -371,8 +371,8 @@ function Certificates() {
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Conference Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {conferenceCertificates.map((imgSrc, i) => (
-                <LocalCertificateCard key={i} imgSrc={imgSrc} defaultCategory="Conference Achievement" defaultTitle="Certificate" index={i} />
+              {conferenceCertificates.map((file, i) => (
+                <LocalCertificateCard key={i} file={file} defaultCategory="Conference Achievement" defaultTitle="Certificate" index={i} />
               ))}
               {dbCertificates.filter(c => c.category?.toLowerCase() === "conference").map((cert) => (
                 <DbCertificateCard key={cert._id} cert={cert} />
@@ -386,8 +386,8 @@ function Certificates() {
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Awards & Honors</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {awardCertificates.map((imgSrc, i) => (
-                <LocalCertificateCard key={i} imgSrc={imgSrc} defaultCategory="Award" defaultTitle="Honor" index={i} />
+              {awardCertificates.map((file, i) => (
+                <LocalCertificateCard key={i} file={file} defaultCategory="Award" defaultTitle="Honor" index={i} />
               ))}
               {dbCertificates.filter(c => c.category?.toLowerCase() === "award").map((cert) => (
                 <DbCertificateCard key={cert._id} cert={cert} />
@@ -401,8 +401,8 @@ function Certificates() {
           <div className="mt-16">
             <h2 className="mb-10 font-display text-4xl text-gold-gradient text-center">Olympiad Certificates</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {olympiadCertificates.map((imgSrc, i) => (
-                <LocalCertificateCard key={i} imgSrc={imgSrc} defaultCategory="Olympiad Achievement" defaultTitle="Certificate" index={i} />
+              {olympiadCertificates.map((file, i) => (
+                <LocalCertificateCard key={i} file={file} defaultCategory="Olympiad Achievement" defaultTitle="Certificate" index={i} />
               ))}
               {dbCertificates.filter(c => c.category?.toLowerCase() === "olympiad").map((cert) => (
                 <DbCertificateCard key={cert._id} cert={cert} />
