@@ -41,7 +41,7 @@ export const Education = mongoose.models.Education || mongoose.model("Education"
 // --- Skill ---
 const skillSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  category: { type: String, required: true }, // e.g. Vedic, Technical, Spiritual
+  category: { type: String, required: true }, // e.g. Environmental, Technical, Academic
   proficiency: { type: Number, min: 0, max: 100 },
   icon: String,
   order: { type: Number, default: 0 }

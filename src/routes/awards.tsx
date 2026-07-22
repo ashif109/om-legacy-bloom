@@ -21,7 +21,7 @@ function Awards() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Awards" title="Recognitions" sanskrit="यशसा वर्धते धर्मः" />
+      <PageHero eyebrow="Awards" title="Recognitions" sanskrit="प्रकृत्याः रक्षणेन भविष्यस्य रक्षणम्" />
       <section className="mx-auto max-w-6xl px-6 pb-32 space-y-10">
         {dbAwards.map((a, i) => (
           <div key={a._id || a.title || i} className={`grid gap-6 rounded-3xl gold-border overflow-hidden md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
@@ -36,7 +36,7 @@ function Awards() {
               <div className="text-xs uppercase tracking-widest text-[color:var(--gold)]">{a.year} · {(a.org || a.organization || "")}</div>
               <h3 className="mt-3 font-display text-3xl text-gold-gradient">{a.title}</h3>
               <p className="mt-4 text-[color:var(--muted-foreground)]">
-                {a.description || "Presented in recognition of outstanding contribution to the propagation of dharma, cultural values and youth leadership across the region."}
+                {a.description || "Presented in recognition of outstanding contribution to the propagation of environmental awareness, ecological values and youth leadership across the region."}
               </p>
             </div>
           </div>

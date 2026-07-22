@@ -37,8 +37,8 @@ export function DonationModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
         key: key, 
         amount: order.amount,
         currency: order.currency,
-        name: "Om Sanatan Gurukulam",
-        description: "Donation for Dharma",
+        name: "Triyambakam Environmental Initiatives",
+        description: "Donation for the Earth",
         image: "https://example.com/your_logo", // Replace with actual logo URL
         order_id: order.id,
         handler: async function (response: any) {
@@ -104,7 +104,7 @@ export function DonationModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
           </div>
           <h2 className="text-2xl font-display text-gold-gradient">Support Our Mission</h2>
           <p className="text-sm text-gray-400 mt-2">
-            Your contribution helps spread the knowledge of Sanatan Dharma and Vedas globally.
+            Your contribution helps spread the knowledge of environmental conservation and climate action globally.
           </p>
         </div>
 

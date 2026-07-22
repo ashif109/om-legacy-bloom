@@ -90,31 +90,15 @@ function AdminLayout() {
           <NavGroup title="Events & Programs">
             <NavItem to="/admin/events" icon={Calendar} label="Events" />
             <NavItem to="/admin/camps" icon={Calendar} label="Camps" />
-            <NavItem to="/admin/seminars" icon={Calendar} label="Seminars" />
-            <NavItem to="/admin/workshops" icon={Calendar} label="Workshops" />
-            <NavItem to="/admin/trainings" icon={Calendar} label="Trainings" />
-          </NavGroup>
-
-          <NavGroup title="Work & Projects">
-            <NavItem to="/admin/projects" icon={Briefcase} label="Responsibilities" />
           </NavGroup>
 
           <NavGroup title="Resources">
             <NavItem to="/admin/publications" icon={BookOpen} label="Publications" />
-            <NavItem to="/admin/downloads" icon={BookOpen} label="Downloads" />
           </NavGroup>
 
           <NavGroup title="Media & Feedback">
-            <NavItem to="/admin/testimonials" icon={MessageSquare} label="Testimonials" />
             <NavItem to="/admin/gallery" icon={ImageIcon} label="Gallery" />
             <NavItem to="/admin/media" icon={LinkIcon} label="Media & Press" />
-          </NavGroup>
-
-          <NavGroup title="Configuration">
-            <NavItem to="/admin/settings" icon={Settings} label="General Settings" />
-            <NavItem to="/admin/contact" icon={Phone} label="Contact Info" />
-            <NavItem to="/admin/profile" icon={User} label="Admin Profile" />
-            <NavItem to="/admin/backup" icon={Database} label="Backup & Export" />
           </NavGroup>
         </div>
 

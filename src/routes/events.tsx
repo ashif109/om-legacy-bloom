@@ -35,7 +35,7 @@ function Events() {
               <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)]">{(e.year || e.date)} · {(e.venue || "")}</div>
               <div className="mt-2 font-display text-2xl text-gold-gradient">{e.title}</div>
               {(e.role || e.status) && <div className="mt-1 text-sm text-[color:var(--muted-foreground)]">{(e.role ? `Role · ${e.role}` : `Status · ${e.status}`)}</div>}
-              <p className="mt-4 text-sm text-[color:var(--cream)]">{e.description || "A memorable gathering that brought together seekers, scholars and youth in celebration of dharma and cultural pride."}</p>
+              <p className="mt-4 text-sm text-[color:var(--cream)]">{e.description || "A memorable gathering that brought together environmentalists, youth, and leaders in celebration of sustainability and ecological preservation."}</p>
               {e.registrationLink && (
                 <a href={e.registrationLink} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-[color:var(--gold)] hover:underline text-sm font-semibold uppercase tracking-widest">Register / Details &rarr;</a>
               )}

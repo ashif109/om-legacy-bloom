@@ -22,7 +22,7 @@ function Education() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Education" title="Studies of the Śāstra" sanskrit="सा विद्या या विमुक्तये" />
+      <PageHero eyebrow="Education" title="Environmental & Academic Studies" sanskrit="सा विद्या या विमुक्तये" />
       <section className="mx-auto max-w-5xl px-6 pb-32">
         <div className="flex flex-wrap justify-center gap-6">
           {dbEducations.map((e, i) => (
@@ -40,7 +40,7 @@ function Education() {
         <div className="mt-14 glass-card rounded-3xl p-10">
           <div className="text-xs uppercase tracking-widest text-[color:var(--gold)]">Ongoing Study</div>
           <p className="mt-3 text-lg text-[color:var(--cream)]">
-            Independent research on Vedic ethics, Sanskrit revival pedagogy, and the role of dharma in modern civic life — supported by weekly satsangs and month-long retreats.
+            Independent research on environmental ethics, ecological restoration, and the role of sustainability in modern civic life — supported by weekly field studies and month-long eco-retreats.
           </p>
         </div>
       </section>

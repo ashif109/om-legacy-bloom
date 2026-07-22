@@ -35,9 +35,9 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <FooterCol title={t("footer.quickLinks")} items={[[t("nav.home"),"/"],[t("nav.about"),"/about"],[t("nav.journey"),"/journey"],[t("nav.achievements"),"/achievements"],[t("nav.timeline"),"/timeline"]]} />
-          <FooterCol title={t("footer.explore")} items={[[t("nav.gallery"),"/gallery"],[t("nav.media"),"/media"],[t("nav.publications"),"/publications"]]} />
-          <FooterCol title={t("footer.contact")} items={[[contact.phone, "#"],[contact.email, "#"],[contact.address, "#"],[t("Privacy"),"/privacy"],[t("Terms"),"/terms"]]} />
+          <FooterCol title={t("footer.quickLinks")} items={[[t("nav.home"), "/"], [t("nav.about"), "/about"], [t("nav.journey"), "/journey"], [t("nav.achievements"), "/achievements"], [t("nav.timeline"), "/timeline"]]} />
+          <FooterCol title={t("footer.explore")} items={[[t("nav.gallery"), "/gallery"], [t("nav.media"), "/media"], [t("nav.publications"), "/publications"]]} />
+          <FooterCol title={t("footer.contact")} items={[[contact.phone, "#"], [contact.email, "#"], [contact.address, "#"], [t("Privacy"), "/privacy"], [t("Terms"), "/terms"]]} />
         </div>
 
         <div className="mt-14 border-t border-gold/15 pt-6 text-center text-xs text-muted-foreground">

@@ -48,10 +48,10 @@ export const certificateDetails: Record<string, { title?: string; category?: str
     organization: "Motion Education, Kota",
   },
   "Screenshot 2026-07-09 200822.png": {
-    title: "Vedic Mathrix Residential Camp",
+    title: "Eco-Leadership Residential Camp",
     category: "Ancient Mathematics & Academic Development",
-    organization: "Vichar Vatika × Chinmaya International Foundation",
-    achievement: "Successfully completed the 5-day Vedic Mathrix Residential Camp, exploring Ancient Indian Mathematics, logical reasoning, and mathematical concepts inspired by nature.",
+    organization: "Conservation Institute",
+    achievement: "Successfully completed the 5-day Eco-Leadership Residential Camp, exploring climate action, logical reasoning, and sustainable concepts inspired by nature.",
     date: "18th – 22nd April, 2026",
   }, "Screenshot 2026-07-09 200848.png": {
     title: "Sambhashan Shala Participation",
@@ -297,10 +297,7 @@ function Certificates() {
     <PageShell>
       <PageHero eyebrow="Certificates" title="Marks of Merit" />
       <section className="mx-auto max-w-6xl px-6 pb-32">
-        <div className="mx-auto mb-10 flex max-w-md items-center gap-2 rounded-full border border-[color:var(--gold)]/30 bg-[color:var(--card)] px-4 py-2">
-          <Search size={16} className="text-[color:var(--gold)]" />
-          <input className="flex-1 bg-transparent text-sm outline-none placeholder:text-[color:var(--muted-foreground)]" placeholder="Search certificates..." />
-        </div>
+    
 
         {certificates.length > 0 && (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-16">

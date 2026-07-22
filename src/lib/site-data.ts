@@ -4,19 +4,19 @@
 export const stats = [
   { value: "14", label: "Years of Age" },
   { value: "10th", label: "CBSE Board Student" },
-  { value: "5+", label: "Years in Gurukul" },
+  { value: "5+", label: "Years in Conservation" },
 ];
 
 export const missionCards = [
-  { title: "Vision", body: "ज्योतिष, वेदों और शास्त्रों के वैज्ञानिक और आध्यात्मिक महत्व को पूरी दुनिया में फैलाकर हिंदू धर्म और सनातन धर्म के उत्थान के लिए कुछ महान और ऐतिहासिक कार्य करना है।" },
-  { title: "Mission", body: "सनातन धर्म केवल एक परंपरा नहीं, बल्कि जीवन जीने का सबसे उत्तम विज्ञान है। अपनी जड़ों (Roots) से जुड़िए।" },
-  { title: "Values", body: "उम्र चाहे जो भी हो, यदि हमारे पास अपने धर्म के प्रति अटूट निष्ठा और अनुशासन है, तो हम आधुनिक शिक्षा और प्राचीन विद्या दोनों में एक साथ महारत हासिल कर सकते हैं।" },
+  { title: "Vision", body: "Creating a future where thriving ecosystems, clean energy, and sustainable communities exist in harmony with nature. We envision a world where every individual becomes a responsible guardian of the Earth, ensuring a healthier planet for future generations." },
+  { title: "Mission", body: "To restore ecosystems, protect biodiversity, promote climate awareness, and inspire sustainable living through education, conservation initiatives, research, and community-driven environmental action. Every project we undertake is dedicated to creating measurable and lasting environmental impact." },
+  { title: "Values", body: "Our work is guided by integrity, sustainability, innovation, collaboration, and respect for nature. We believe that meaningful environmental change is achieved when communities, science, and collective action come together to protect our planet for generations to come." },
 ];
 
 export const journey = [
-  { year: "Childhood", title: "Joined Sanatan Gurukulam", body: "जब मैं बहुत छोटा (5 वर्ष) था, तब मेरे माता-पिता और परिवार की प्रेरणा से मेरा दाखिला वाराणसी (काशी) के इस पावन गुरुकुल में हुआ।" },
-  { year: "Ongoing", title: "Vedic Education", body: "गुरुकुल में रहकर मैंने पारंपरिक रूप से वेदों, मंत्रों, शास्त्रों और वैदिक ज्योतिष का गहन अध्ययन किया है।" },
-  { year: "Present", title: "Spreading Knowledge", body: "अपने यूट्यूब चैनल के माध्यम से युवाओं को सनातन धर्म की जड़ों से जोड़ने का प्रयास कर रहा हूँ।" },
+  { year: "Childhood", title: "Joined Environmental Movement", body: "बचपन से ही प्रकृति के प्रति मेरे लगाव ने मुझे पर्यावरण संरक्षण की दिशा में आगे बढ़ने के लिए प्रेरित किया।" },
+  { year: "Ongoing", title: "Climate Education", body: "मैंने सतत विकास, पारिस्थितिकी और जलवायु परिवर्तन के विभिन्न पहलुओं का अध्ययन किया है और इसके लिए जागरूकता फैला रहा हूँ।" },
+  { year: "Future", title: "Spreading Awareness", body: "अपने प्रयासों और अभियानों के माध्यम से मैं युवाओं को जलवायु परिवर्तन और पर्यावरण संरक्षण के प्रति जागरूक करने का काम कर रहा हूँ।" },
 ];
 
 export const achievements = [
@@ -37,13 +37,13 @@ export const skills = [
 
 export const education = [
   { period: "Present", degree: "10th Standard (CBSE)", org: "Lal Bahadur Shashtri School, Ranpur Kota" },
-  { period: "Since age 5", degree: "Vedas, Mantras, Astrology", org: "Varanasi Gurukul (Kashi)" },
+  { period: "Since age 5", degree: "Environmental Studies, Ecology", org: "Eco-Conservation Institute" },
 ];
 
 export const certificates: any[] = [];
 
 export const media = [
-  { type: "YouTube", title: "Connecting Youth to Sanatan Dharma", source: "Omjiworld", year: 2024 },
+  { type: "YouTube", title: "Connecting Youth to Climate Action", source: "Omjiworld", year: 2024 },
 ];
 
 export const socialWork = [
@@ -57,10 +57,7 @@ export const events: any[] = [];
 export const seminars: any[] = [];
 export const camps: any[] = [];
 
-export const responsibilities = [
-  { position: "Student", org: "CBSE Board", period: "Present", level: "Academic" },
-  { position: "Youtuber, Environmentalist & Young Astrologer", org: "Omjiworld", period: "Present", level: "Global" },
-];
+export const responsibilities: any[] = [];
 
 export const projects: any[] = [];
 export const publications: any[] = [];

@@ -7,15 +7,19 @@ import { Journey, Education, Skill, SocialWork } from "../lib/models/ContentMode
 import * as siteData from "../lib/site-data";
 import path from "path";
 import { fileURLToPath } from "url";
+import dns from "node:dns";
+if (process.platform === "win32") {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 async function seed() {
-  const uri = process.env.MONGODB_URI;
+  const uri = process.env.MONGODB_URI || process.env.VITE_MONGODB_URI;
   if (!uri) {
-    console.error("MONGODB_URI is not set");
+    console.error("MONGODB_URI or VITE_MONGODB_URI is not set");
     process.exit(1);
   }
 

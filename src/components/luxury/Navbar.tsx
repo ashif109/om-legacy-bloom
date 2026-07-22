@@ -23,7 +23,6 @@ const more = [
   ["nav.social", "/social-work"],
   ["nav.events", "/events"],
   ["nav.camps", "/camps"],
-  ["nav.responsibilities", "/responsibilities"],
   ["nav.publications", "/publications"],
 ] as const;
 
@@ -56,16 +55,13 @@ export function Navbar() {
       {/* Top strip */}
       <div className="hidden md:block border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-[11px] tracking-[0.25em] text-muted-foreground font-devanagari">
-          <span>ॐ</span>
-          <span>सर्वे भवन्तु सुखिनः · सर्वे सन्तु निरामयाः</span>
-          <span>ॐ</span>
+          <span>Protect Nature • Inspire Change • Build a Sustainable Future</span>
         </div>
       </div>
 
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background/70 backdrop-blur-xl border-b border-gold/30" : "bg-transparent border-b border-transparent"
-        }`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/70 backdrop-blur-xl border-b border-gold/30" : "bg-transparent border-b border-transparent"
+          }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 py-3">
           {/* Logo */}
@@ -75,7 +71,7 @@ export function Navbar() {
             </span>
             <span className="leading-tight">
               <span className="block font-display text-xl tracking-[0.18em] text-gold-gradient" style={{ fontFamily: "cursive" }}>OM</span>
-              <span className="block text-[9px] tracking-[0.3em] uppercase text-muted-foreground">Sanatan Gurukulam</span>
+              <span className="block text-[9px] tracking-[0.3em] uppercase text-muted-foreground">Environmentalist</span>
             </span>
           </Link>
 
@@ -87,15 +83,13 @@ export function Navbar() {
                 <Link
                   key={l.to}
                   to={l.to}
-                  className={`relative px-3 py-2 text-sm tracking-wide transition-colors ${
-                    active ? "text-gold" : "text-foreground hover:text-gold"
-                  }`}
+                  className={`relative px-3 py-2 text-sm tracking-wide transition-colors ${active ? "text-gold" : "text-foreground hover:text-gold"
+                    }`}
                 >
                   {t(l.key)}
                   <span
-                    className={`absolute inset-x-3 -bottom-0.5 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-300 ${
-                      active ? "scale-x-100" : "group-hover:scale-x-100"
-                    }`}
+                    className={`absolute inset-x-3 -bottom-0.5 h-[2px] origin-left scale-x-0 bg-gold transition-transform duration-300 ${active ? "scale-x-100" : "group-hover:scale-x-100"
+                      }`}
                   />
                 </Link>
               );
@@ -147,7 +141,7 @@ export function Navbar() {
             <Link to="/admin" className="hidden md:inline-flex h-10 items-center justify-center gap-2 rounded-full border border-gold/25 px-4 text-xs font-semibold tracking-widest uppercase text-foreground hover:border-gold hover:text-gold transition-colors">
               {t("nav.admin")}
             </Link>
-            <button 
+            <button
               onClick={() => setShowDonation(true)}
               className="hidden md:inline-flex h-10 items-center gap-2 rounded-[999px] btn-gold px-5 text-xs font-semibold tracking-widest uppercase"
             >

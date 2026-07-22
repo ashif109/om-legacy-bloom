@@ -37,9 +37,9 @@ function About() {
     <PageShell>
       <PageHero
         eyebrow="About Me"
-        title="A Life Rooted in Dharma"
+        title="A Life Rooted in Nature"
         sanskrit="विद्या ददाति विनयं विनयाद् याति पात्रताम्"
-        subtitle="Student, Youtuber, Environmentalist, and young astrologer devoted to the revival of Sanatan values through education, culture and selfless service."
+        subtitle="Student, Youtuber, and young environmentalist devoted to the revival of our ecosystems through education, conservation and selfless service."
       />
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr]">
@@ -49,10 +49,10 @@ function About() {
           <div className="space-y-6">
             <h2 className="font-display text-4xl text-gold-gradient">Introduction</h2>
             <p className="text-lg leading-relaxed text-foreground">
-              I am Om — a passionate student of Sanatan Dharma, an orator, and a worker for society. From the ancient ghats of Kashi to the auditoriums of modern India, I carry one message: our culture is not a memory, it is a living force.
+              I am Om — a young environmentalist and a Class 10 student, driven by a deep passion for protecting nature and creating a sustainable future. I believe that even the smallest actions can inspire meaningful environmental change.
             </p>
             <p className="leading-relaxed text-muted-foreground">
-              My work stands on four pillars — spreading the essence of Sanatan Dharma, empowering youth through knowledge, serving society with humility, and believing that service to humanity is service to the divine.
+             My journey is built on four core principles — protecting ecosystems, spreading environmental awareness, inspiring climate action among young people, and encouraging sustainable living. Through education, community initiatives, and responsible action, I strive to make a positive impact on our planet, one step at a time.
             </p>
             <div className="grid gap-3 sm:grid-cols-2">
               {details.map(([k, v]) => (
@@ -69,7 +69,7 @@ function About() {
           <div className="glass-card rounded-3xl p-10">
             <div className="text-xs uppercase tracking-widest text-gold">Life Purpose</div>
             <p className="mt-4 font-serif-lux text-2xl italic leading-relaxed text-foreground">
-              "Service to humanity is service to God. My life is a small offering at the feet of Bhārat."
+              "My purpose is to inspire people to care for nature, take meaningful environmental action, and build a future where humanity and the Earth thrive together."
             </p>
           </div>
           <div className="relative overflow-hidden rounded-3xl gold-border">

@@ -37,10 +37,10 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer · Environmentalist" },
-      { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
-      { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Student · Youtuber · Astrologer · Environmentalist" },
-      { property: "og:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Dharma and Society." },
+      { title: "Triyambkeshwar Nath Tyagi — Environmentalist & Climate Action Advocate" },
+      { name: "description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Environment and Climate Action." },
+      { property: "og:title", content: "Triyambkeshwar Nath Tyagi — Environmentalist & Climate Action Advocate" },
+      { property: "og:description", content: "Portfolio of Triyambkeshwar Nath Tyagi — working for Environment and Climate Action." },
       { property: "og:url", content: "/" },
     ],
   }),
@@ -94,8 +94,8 @@ function HomePage() {
             </div>
             {/* floating badges */}
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="glass-card absolute -left-6 top-14 hidden rounded-2xl px-4 py-3 md:block">
-              <div className="text-[10px] uppercase tracking-widest text-gold">{t("home.peopleImpacted")}</div>
-              <div className="mt-1 font-display text-2xl text-foreground">5,000+</div>
+              <div className="text-[10px] uppercase tracking-widest text-gold">{t("home.treesPlanted")}</div>
+              <div className="mt-1 font-display text-2xl text-foreground">500+</div>
             </motion.div>
             <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity }} className="glass-card absolute -right-6 bottom-24 hidden rounded-2xl px-4 py-3 md:block">
               <div className="text-[10px] uppercase tracking-widest text-gold">{t("home.events")}</div>
@@ -114,10 +114,10 @@ function HomePage() {
 
             <div className="mt-8 rounded-[24px] glass-card p-6 border border-gold/30">
               <p className="font-devanagari text-2xl leading-relaxed text-gold">
-                स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥
+                "Guard the green, protect the blue, secure the future."
               </p>
               <p className="mt-2 text-sm italic text-muted-foreground">
-                {t("Better one's own duty, though imperfectly performed, than the duty of another, though well performed." as any) !== "Better one's own duty, though imperfectly performed, than the duty of another, though well performed." ? t("Better one's own duty, though imperfectly performed, than the duty of another, though well performed." as any) : (lang === "hi" ? "अपूर्ण रूप से किए गए अपने धर्म का पालन करना भी, अच्छी तरह से किए गए दूसरों के धर्म का पालन करने से बेहतर है।" : lang === "sa" ? "स्वधर्मस्य अपूर्णं पालनमपि उत्तमरूपेण कृतात् परधर्मपालनात् श्रेष्ठम् अस्ति।" : "Better one's own duty, though imperfectly performed, than the duty of another, though well performed.")}
+                - By Triyambakeshwar Nath
               </p>
             </div>
 
@@ -160,7 +160,7 @@ function HomePage() {
         <div className="mx-auto max-w-2xl text-center">
           <SectionLabel>{t("home.aboutTitle")}</SectionLabel>
           <h2 className="mt-6 font-display text-4xl md:text-6xl">
-            {t("home.aboutDedicated")} <span className="text-gold-gradient">Dharma</span>,<br /> {t("home.aboutInspired")}
+            {t("home.aboutDedicated")} <span className="text-gold-gradient">{t("home.aboutEnvironment")}</span>,<br /> {t("home.aboutInspired")}
           </h2>
           <Ornament className="mt-6" />
         </div>
