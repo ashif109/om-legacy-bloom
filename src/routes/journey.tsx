@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
-import { journey } from "@/lib/site-data";
+import { getSiteData } from "@/lib/api";
+import * as fallbackData from "@/lib/site-data";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Calendar, MapPin, Sparkles, X, ZoomIn, Newspaper, CheckCircle2, TreePine, Eye, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/journey")({
+  loader: async () => {
+    try {
+      const siteData = await getSiteData().catch(() => null);
+      return { siteData };
+    } catch {
+      return { siteData: null };
+    }
+  },
   head: () => ({
     meta: [
       { title: "Journey & Environmental Milestones — Om Tyagi" },
@@ -18,6 +27,11 @@ export const Route = createFileRoute("/journey")({
 });
 
 function JourneyPage() {
+  const loaderData = Route.useLoaderData();
+  const journey = loaderData?.siteData?.journey?.some((j: any) => j.featured)
+    ? loaderData.siteData.journey
+    : fallbackData.journey;
+
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeModalMedia, setActiveModalMedia] = useState<{ src: string; title: string; caption: string; type?: string } | null>(null);
 

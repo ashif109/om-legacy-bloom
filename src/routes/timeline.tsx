@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
-import { journey } from "@/lib/site-data";
+import { getSiteData } from "@/lib/api";
+import * as fallbackData from "@/lib/site-data";
 import { Award, Calendar, Sparkles, ChevronRight, Newspaper, ZoomIn, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Route = createFileRoute("/timeline")({
+  loader: async () => {
+    try {
+      const siteData = await getSiteData().catch(() => null);
+      return { siteData };
+    } catch {
+      return { siteData: null };
+    }
+  },
   head: () => ({
     meta: [
       { title: "Chronology of Seva & Milestones — Om Tyagi" },
@@ -18,6 +27,11 @@ export const Route = createFileRoute("/timeline")({
 });
 
 function Timeline() {
+  const loaderData = Route.useLoaderData();
+  const journey = loaderData?.siteData?.journey?.some((j: any) => j.featured)
+    ? loaderData.siteData.journey
+    : fallbackData.journey;
+
   const [activeModalMedia, setActiveModalMedia] = useState<{ src: string; title: string; caption: string } | null>(null);
 
   return (

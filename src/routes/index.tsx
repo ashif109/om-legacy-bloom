@@ -76,7 +76,7 @@ function HomePage() {
   const { siteData, mediaData } = Route.useLoaderData();
   const stats = siteData?.stats?.length > 0 ? siteData.stats : fallbackData.stats;
   const missionCards = siteData?.missionCards?.length > 0 ? siteData.missionCards : fallbackData.missionCards;
-  const journey = siteData?.journey?.length > 0 ? siteData.journey : fallbackData.journey;
+  const journey = siteData?.journey?.some((j: any) => j.featured) ? siteData.journey : fallbackData.journey;
   const achievements = siteData?.achievements?.length > 0 ? siteData.achievements : fallbackData.achievements;
   const testimonials = siteData?.testimonials?.length > 0 ? siteData.testimonials : fallbackData.testimonials;
   const media = mediaData;
