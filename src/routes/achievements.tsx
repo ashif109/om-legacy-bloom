@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { certificates, achievements } from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
 import { Award, Download, Share2, FileText, ZoomIn, Eye, Newspaper, Sparkles, X, Calendar } from "lucide-react";
 import { getAwards, getCertificates } from "@/lib/api";
 import { motion, AnimatePresence } from "framer-motion";
@@ -323,13 +324,17 @@ export const Route = createFileRoute("/achievements")({
 });
 
 function Achievements() {
+  const { t } = useLang();
   const loaderData = Route.useLoaderData() || { dbAwards: [], dbCertificates: [] };
   const dbAwards = loaderData.dbAwards || [];
   const dbCertificates = loaderData.dbCertificates || [];
+  const [activeModalMedia, setActiveModalMedia] = useState<{ src: string; title: string; caption: string } | null>(null);
+
+  const featuredAward = achievements[0];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Achievements & Certificates" title="Honors & Marks of Merit" />
+      <PageHero eyebrow={t("achievements.eyebrow")} title={t("achievements.title")} />
 
       <section className="mx-auto max-w-7xl px-6 pb-32">
         {/* Awards & Honors Section */}

@@ -5,7 +5,8 @@ export type Lang = "en" | "hi" | "sa";
 type Dict = Record<string, { en: string; hi: string; sa: string }>;
 
 export const dict: Dict = {
-  "nav.home": { en: "Home", hi: "मुख्य", sa: "मुख्यम्" },
+  // Navbar
+  "nav.home": { en: "Home", hi: "मुख्य पृष्ठ", sa: "मुख्यम्" },
   "nav.about": { en: "About", hi: "परिचय", sa: "परिचयः" },
   "nav.journey": { en: "Journey", hi: "यात्रा", sa: "यात्रा" },
   "nav.timeline": { en: "Timeline", hi: "कालक्रम", sa: "कालक्रमः" },
@@ -28,17 +29,30 @@ export const dict: Dict = {
   "nav.testimonials": { en: "Testimonials", hi: "प्रशंसा", sa: "अभिनन्दनम्" },
   "nav.downloads": { en: "Downloads", hi: "डाउनलोड", sa: "अवचयनम्" },
   "nav.contact": { en: "Contact", hi: "संपर्क", sa: "सम्पर्कः" },
+  "nav.more": { en: "More ▾", hi: "और ▾", sa: "अधिकम् ▾" },
+  "nav.admin": { en: "Admin", hi: "व्यवस्थापक", sa: "प्रशासकः" },
+
+  // CTAs & Buttons
   "cta.donate": { en: "Donate", hi: "दान करें", sa: "दानम्" },
   "cta.explore": { en: "Explore My Journey", hi: "मेरी यात्रा देखें", sa: "यात्रा दृश्यताम्" },
   "cta.contact": { en: "Contact Me", hi: "संपर्क करें", sa: "सम्पर्कं कुरुत" },
   "cta.achievements": { en: "View Achievements", hi: "उपलब्धियाँ देखें", sa: "सिद्धयः पश्यत" },
+  "btn.share": { en: "Share", hi: "शेयर करें", sa: "विभजत" },
+  "btn.copied": { en: "Copied Link!", hi: "लिंक कॉपी हो गया!", sa: "अनुबद्धम्!" },
+  "btn.close": { en: "Close", hi: "बंद करें", sa: "पिदधातु" },
+  "btn.view": { en: "View", hi: "देखें", sa: "पश्यत" },
+  "btn.preview": { en: "Preview", hi: "पूर्वावलोकन", sa: "पूर्वावलोकनम्" },
+  "btn.pdf": { en: "PDF", hi: "पीडीएफ", sa: "पीडीएफ" },
+
+  // Hero section
   "hero.role": { en: "Student · Youtuber · Environmentalist", hi: "छात्र · यूट्यूबर · पर्यावरणविद", sa: "छात्रः · यूट्यूबर · पर्यावरणविद्" },
   "hero.tag": { en: "Environmental advocate working to combat climate change and protect our planet's future", hi: "जलवायु परिवर्तन से लड़ने और हमारे ग्रह के भविष्य की रक्षा के लिए समर्पित पर्यावरण कार्यकर्ता", sa: "जलवायुपरिवर्तनेन सह युध्दाय मम पृथिव्याः भविष्यस्य रक्षणाय च कटिबद्धः पर्यावरणप्रचारकः" },
-  
+
+  // Home Page
+  "home.name": { en: "Triyambkeshwar Nath Tyagi", hi: "त्र्यम्बकेश्वर नाथ त्यागी", sa: "त्र्यम्बकेश्वरनाथत्यागी" },
   "home.peopleImpacted": { en: "People Impacted", hi: "लोग जुड़े", sa: "जनाः सम्बद्धाः" },
   "home.treesPlanted": { en: "Trees Planted", hi: "वृक्षारोपण", sa: "वृक्षारोपणम्" },
   "home.events": { en: "Events", hi: "कार्यक्रम", sa: "कार्यक्रमाः" },
-  "home.name": { en: "Triyambkeshwar Nath Tyagi", hi: "त्र्यम्बकेश्वर नाथ त्यागी", sa: "त्र्यम्बकेश्वरनाथत्यागी" },
   "home.aboutTitle": { en: "About Me", hi: "मेरे बारे में", sa: "मम परिचयः" },
   "home.aboutDedicated": { en: "Dedicated to", hi: "प्रति समर्पित", sa: "समर्पितः" },
   "home.aboutEnvironment": { en: "Environment", hi: "पर्यावरण के", sa: "पर्यावरणाय" },
@@ -50,7 +64,19 @@ export const dict: Dict = {
   "home.featuredHonors": { en: "Featured Honors", hi: "प्रमुख सम्मान", sa: "प्रमुखाः सम्मानाः" },
   "home.whatIDo": { en: "What I Do", hi: "मैं क्या करता हूँ", sa: "मम कार्याणि" },
   "home.serviceInMotion": { en: "Service in Motion", hi: "सेवा कार्य", sa: "सेवाकार्यम्" },
-  
+  "home.galleryTitle": { en: "Gallery", hi: "गैलरी", sa: "चित्रशाला" },
+  "home.galleryMoments": { en: "Moments of Environmental Leadership", hi: "पर्यावरणीय नेतृत्व के क्षण", sa: "पर्यावरणीयनेतृत्वस्य क्षणाः" },
+  "home.viewFullGallery": { en: "View Full Gallery →", hi: "पूरी गैलरी देखें →", sa: "पूर्णां चित्रशालां पश्यत →" },
+  "home.mediaTitle": { en: "Media", hi: "मीडिया", sa: "प्रसारमाध्यमम्" },
+  "home.inThePress": { en: "Videos & Awareness", hi: "प्रेस और वीडियो", sa: "समाचारपत्रेषु चलचित्रेषु च" },
+  "home.allMedia": { en: "All Media →", hi: "सभी मीडिया →", sa: "सर्वाणि प्रसारमाध्यमानि →" },
+  "home.testimonialsTitle": { en: "Kind Words", hi: "शुभकामनाएं", sa: "शुभवचनानि" },
+  "home.voicesOfBlessing": { en: "Voices of Blessing", hi: "आशीर्वाद के स्वर", sa: "आशीर्वादस्य स्वराः" },
+  "home.ctaJoin": { en: "Let's join hands for the Earth, Nature & Humanity", hi: "पृथ्वी, प्रकृति और मानवता के लिए हाथ मिलाएं", sa: "पृथिव्यै, प्रकृत्यै, मानवतायै च सङ्घटीभवाम" },
+  "home.ctaTogether": { en: "Together we can create a better, peaceful and sustainable world.", hi: "हम सब मिलकर एक बेहतर, शांतिपूर्ण और सतत विश्व का निर्माण कर सकते हैं।", sa: "वयं मिलित्वा उत्तमं, शान्तिपूर्णं, सततञ्च विश्वं निर्मातुं शक्नुमः।" },
+  "home.getInTouch": { en: "Get in Touch", hi: "संपर्क करें", sa: "सम्पर्कं कुर्वन्तु" },
+
+  // Services / What I do
   "service.publicSpeaking": { en: "Public Speaking", hi: "सार्वजनिक भाषण", sa: "सार्वजनिकभाषणम्" },
   "service.publicSpeakingDesc": { en: "Delivering motivational and environmental discourses.", hi: "प्रेरक और पर्यावरण संबंधित वक्तव्य देना।", sa: "प्रेरक-पर्यावरण-भाषणानं प्रदानम्।" },
   "service.teaching": { en: "Teaching & Mentoring", hi: "शिक्षण और मार्गदर्शन", sa: "शिक्षणं मार्गदर्शनञ्च" },
@@ -60,61 +86,79 @@ export const dict: Dict = {
   "service.contentCreation": { en: "Content Creation", hi: "सामग्री निर्माण", sa: "सामग्रीनिर्माणम्" },
   "service.contentCreationDesc": { en: "Videos, articles and digital content on environment.", hi: "पर्यावरण पर वीडियो, लेख और डिजिटल सामग्री।", sa: "पर्यावरणविषये चलचित्राणि, लेखाः, डिजिटल-सामग्री च।" },
 
-  "home.galleryTitle": { en: "Gallery", hi: "गैलरी", sa: "चित्रशाला" },
-  "home.galleryMoments": { en: "Moments of Environmental Leadership", hi: "पर्यावरणीय नेतृत्व के क्षण", sa: "पर्यावरणीयनेतृत्वस्य क्षणाः" },
-  "home.viewFullGallery": { en: "View Full Gallery →", hi: "पूरी गैलरी देखें →", sa: "पूर्णां चित्रशालां पश्यत →" },
-  
-  "home.mediaTitle": { en: "Media", hi: "मीडिया", sa: "प्रसारमाध्यमम्" },
-  "home.inThePress": { en: "Videos & Awareness", hi: "प्रेस में", sa: "समाचारपत्रेषु" },
-  "home.allMedia": { en: "All Media →", hi: "सभी मीडिया →", sa: "सर्वाणि प्रसारमाध्यमानि →" },
-  
-  "home.testimonialsTitle": { en: "Kind Words", hi: "शुभकामनाएं", sa: "शुभवचनानि" },
-  "home.voicesOfBlessing": { en: "Voices of Blessing", hi: "आशीर्वाद के स्वर", sa: "आशीर्वादस्य स्वराः" },
-  
-  "home.ctaJoin": { en: "Let's join hands for the Earth, Nature & Humanity", hi: "पृथ्वी, प्रकृति और मानवता के लिए हाथ मिलाएं", sa: "पृथिव्यै, प्रकृत्यै, मानवतायै च सङ्घटीभवाम" },
-  "home.ctaTogether": { en: "Together we can create a better, peaceful and sustainable world.", hi: "हम सब मिलकर एक बेहतर, शांतिपूर्ण और सतत विश्व का निर्माण कर सकते हैं।", sa: "वयं मिलित्वा उत्तमं, शान्तिपूर्णं, सततञ्च विश्वं निर्मातुं शक्नुमः।" },
-  "home.getInTouch": { en: "Get in Touch", hi: "संपर्क करें", sa: "सम्पर्कं कुर्वन्तु" },
+  // Journey Page
+  "journey.eyebrow": { en: "Journey & Milestones", hi: "यात्रा और मील के पत्थर", sa: "यात्रा प्रमुखाङ्काश्च" },
+  "journey.title": { en: "A Path of Devotion & Climate Action", hi: "समर्पण और जलवायु कार्य का मार्ग", sa: "समर्पणस्य जलवायुकार्यस्य च मार्गः" },
+  "journey.subtitle": { en: "Tracing the milestones of tree plantation, youth climate awareness, and official recognitions from childhood to present.", hi: "बचपन से लेकर वर्तमान तक वृक्षारोपण, युवा जलवायु जागरूकता और आधिकारिक सम्मान का विस्तृत विवरण।", sa: "बाल्यकालात् अद्य पर्यन्तं वृक्षारोपणस्य, युवा-जागरूकतायाः, सम्मानानाञ्च विवरणम्।" },
+  "journey.spotlightBadge": { en: "Featured Award at Age 9 · 10 Jun 2021", hi: "9 वर्ष की आयु का प्रमुख पुरस्कार · 10 जून 2021", sa: "९ वर्षस्य वयसि प्रमुखः पुरस्कारः · १० जून २०२१" },
+  "journey.clickClipping": { en: "Click Any Clipping To Read Full View", hi: "पूरा देखने के लिए किसी भी पेपर क्लिपिंग पर क्लिक करें", sa: "पूर्णं द्रष्टुं चित्रं स्पृशत" },
 
-  "14": { en: "14", hi: "14", sa: "१४" },
-  "Years of Age": { en: "Years of Age", hi: "वर्ष की आयु", sa: "वर्षस्य आयुः" },
-  "10th": { en: "10th", hi: "10वीं", sa: "१०मः" },
-  "CBSE Board Student": { en: "CBSE Board Student", hi: "सीबीएसई बोर्ड के छात्र", sa: "सीबीएसई-मण्डलस्य छात्रः" },
-  "5+": { en: "5+", hi: "5+", sa: "५+" },
-  "Years in Conservation": { en: "Years in Conservation", hi: "संरक्षण में वर्ष", sa: "संरक्षणे वर्षाणि" },
+  // Timeline Page
+  "timeline.eyebrow": { en: "Timeline", hi: "कालक्रम", sa: "कालक्रमः" },
+  "timeline.title": { en: "Chronology of Seva", hi: "सेवा का कालक्रम", sa: "सेवाकालक्रमः" },
+  "timeline.subtitle": { en: "A detailed year-by-year account of tree plantation drives, official recognitions, and community engagement.", hi: "वृक्षारोपण अभियानों, आधिकारिक सम्मानों और सामुदायिक भागीदारी का वर्ष-दर-वर्ष विस्तृत विवरण।", sa: "वृक्षारोपण-अभियानानां सम्मानानाञ्च वर्ष-क्रमेण विवरणम्।" },
 
-  "Tree Plantation Award": { en: "Tree Plantation Award", hi: "वृक्षारोपण पुरस्कार", sa: "वृक्षारोपणपुरस्कारः" },
-  "Awarded by IAS Officer Sangeeta Raghav": { en: "Awarded by IAS Officer Sangeeta Raghav", hi: "आईएएस अधिकारी संगीता राघव द्वारा सम्मानित", sa: "आईएएस अधिकारिण्या सङ्गीतराघवेण सम्मानितः" },
-  
-  "Connecting Youth to Climate Action": { en: "Connecting Youth to Climate Action", hi: "युवाओं को जलवायु कार्रवाई से जोड़ना", sa: "यूवकान् जलवायुकार्येण सह योजनम्" },
-  "News": { en: "News", hi: "समाचार", sa: "वार्ता" },
-  "Interview": { en: "Interview", hi: "साक्षात्कार", sa: "साक्षात्कारः" },
-  "YouTube": { en: "YouTube", hi: "यूट्यूब", sa: "यूट्यूब" },
-  "Omjiworld": { en: "Omjiworld", hi: "ओमजीवर्ल्ड", sa: "ओमजीवर्ल्ड" },
+  // About Page
+  "about.eyebrow": { en: "About Me", hi: "मेरे बारे में", sa: "मम परिचयः" },
+  "about.title": { en: "A Life Rooted in Nature", hi: "प्रकृति में निहित जीवन", sa: "प्रकृतौ निहितं जीवनम्" },
+  "about.subtitle": { en: "Student, Youtuber, and young environmentalist devoted to the revival of our ecosystems through education, conservation and selfless service.", hi: "शिक्षा, संरक्षण और निःस्वार्थ सेवा के माध्यम से हमारे पारिस्थितिक तंत्र के पुनरुद्धार के लिए समर्पित छात्र, यूट्यूबर और युवा पर्यावरणविद।", sa: "शिक्षया, संरक्षणेन, निःस्वार्थसेवया च प्रकृतये समर्पितः छात्रः।" },
+  "about.introduction": { en: "Introduction", hi: "परिचय", sa: "परिचयः" },
+  "about.skillsTitle": { en: "Skills & Qualities", hi: "कौशल और क्षमताएं", sa: "कौशलानि गुणाश्च" },
+  "about.educationTitle": { en: "Education & Studies", hi: "शिक्षा और अध्ययन", sa: "शिक्षा अध्ययनानि च" },
 
-  "Vision": { en: "Vision", hi: "दृष्टिकोण", sa: "दृष्टिकोणः" },
-  "Mission": { en: "Mission", hi: "लक्ष्य", sa: "लक्ष्यम्" },
-  "Values": { en: "Values", hi: "मूल्य", sa: "मूल्यानि" },
-  "Ecosystem Restoration": { en: "Ecosystem Restoration", hi: "पारिस्थितिकी तंत्र बहाली", sa: "पारिस्थितिकीतन्त्रस्य पुनरुद्धारः" },
-  "Sustainable Living": { en: "Sustainable Living", hi: "सतत जीवन", sa: "सततजीवनम्" },
-  "Native tree planting, soil health preservation, and habitat protection.": { en: "Native tree planting, soil health preservation, and habitat protection.", hi: "देसी पौधे लगाना, मिट्टी के स्वास्थ्य का संरक्षण और आवास सुरक्षा।", sa: "स्वदेशीवृक्षारोपणम्, मृदास्वास्थ्यसंरक्षणम्, आवाससुरक्षा च।" },
-  "Raising awareness, publishing research, and empowering youth voices.": { en: "Raising awareness, publishing research, and empowering youth voices.", hi: "जागरूकता बढ़ाना, शोध प्रकाशित करना और युवाओं की आवाज को सशक्त बनाना।", sa: "जागरूकता-प्रसारः, शोध-प्रकाशनम्, युवानां सशक्तिकरणञ्च।" },
-  "Promoting waste reduction, circular economy practices, and renewable energy solutions.": { en: "Promoting waste reduction, circular economy practices, and renewable energy solutions.", hi: "अपशिष्ट में कमी, परिपत्र अर्थव्यवस्था प्रथाओं और नवीकरणीय ऊर्जा समाधानों को बढ़ावा देना।", sa: "अपशिष्टन्यूनता, चक्रीय-अर्थव्यवस्था, नवीकरणीय-ऊर्जा-समाधानानां प्रोत्साहनम्।" },
+  // Awards Page
+  "awards.eyebrow": { en: "Honors & Recognitions", hi: "सम्मान और पुरस्कार", sa: "सम्मानाः पुरस्काराश्च" },
+  "awards.title": { en: "Awards & Official Certificates", hi: "पुरस्कार और आधिकारिक प्रमाणपत्र", sa: "पुरस्काराः आधिकारिक-प्रमाणपत्राणि च" },
+  "awards.subtitle": { en: "Official commendations, certificates of appreciation, and environmental awards honoring Om Tyagi's eco-conservation work.", hi: "ओम त्यागी के पर्यावरण संरक्षण कार्य को सम्मानित करने वाले आधिकारिक प्रशस्ति पत्र और पुरस्कार।", sa: "ओम त्यागी वर्यस्य पर्यावरण-संरक्षण-कार्याणां सम्मानाः प्रमाणपत्राणि च।" },
+  "awards.viewCertificate": { en: "View Certificate & Clippings", hi: "प्रमाणपत्र और समाचार पत्र देखें", sa: "प्रमाणपत्रं समाचारपत्राणि च पश्यत" },
+  "awards.keyAchievements": { en: "Key Achievements at Age 9:", hi: "9 वर्ष की आयु की प्रमुख उपलब्धियां:", sa: "९ वर्षस्य वयसि प्रमुखाः सिद्धयः:" },
 
-  "Childhood": { en: "Childhood", hi: "बचपन", sa: "बाल्यकालः" },
-  "Ongoing": { en: "Ongoing", hi: "जारी है", sa: "प्रचलति" },
-  "Present": { en: "Present", hi: "वर्तमान", sa: "वर्तमानकालः" },
-  "Joined Environmental Movement": { en: "Joined Environmental Movement", hi: "पर्यावरण आंदोलन में शामिल हुए", sa: "पर्यावरणांदोलने प्रविष्टः" },
-  "बचपन से ही प्रकृति के प्रति मेरे लगाव ने मुझे पर्यावरण संरक्षण की दिशा में आगे बढ़ने के लिए प्रेरित किया।": { en: "From childhood, my love for nature inspired me to move towards environmental conservation.", hi: "बचपन से ही प्रकृति के प्रति मेरे लगाव ने मुझे पर्यावरण संरक्षण की दिशा में आगे बढ़ने के लिए प्रेरित किया।", sa: "बाल्यकालादेव प्रकृत्याः प्रति मम अनुरागो मां पर्यावरणसंरक्षणार्थं प्रेरितवान्।" },
-  "Climate Education": { en: "Climate Education", hi: "जलवायु शिक्षा", sa: "जलवायुशिक्षा" },
-  "मैंने सतत विकास, पारिस्थितिकी और जलवायु परिवर्तन के विभिन्न पहलुओं का अध्ययन किया है और इसके लिए जागरूकता फैला रहा हूँ।": { en: "I have studied various aspects of sustainable development, ecology, and climate change and am spreading awareness about it.", hi: "मैंने सतत विकास, पारिस्थितिकी और जलवायु परिवर्तन के विभिन्न पहलुओं का अध्ययन किया है और इसके लिए जागरूकता फैला रहा हूँ।", sa: "मया सततविकासस्य, पारिस्थितिक्याः, जलवायुपरिवर्तनस्य च विविधपक्षाणाम् अध्ययनं कृतम्, तदर्थं जागरूकता च प्रसार्यते।" },
-  "Spreading Awareness": { en: "Spreading Awareness", hi: "जागरूकता फैलाना", sa: "जागरूकताप्रसारः" },
-  "अपने प्रयासों और अभियानों के माध्यम से मैं युवाओं को जलवायु परिवर्तन और पर्यावरण संरक्षण के प्रति जागरूक करने का काम कर रहा हूँ।": { en: "Through my efforts and campaigns, I am working to make the youth aware of climate change and environmental conservation.", hi: "अपने प्रयासों और अभियानों के माध्यम से मैं युवाओं को जलवायु परिवर्तन और पर्यावरण संरक्षण के प्रति जागरूक करने का काम कर रहा हूँ।", sa: "स्वप्रयासैः अभियानैश्च अहं यूवकान् जलवायुपरिवर्तनं पर्यावरणसंरक्षणं च प्रति जागरूकान् कर्तुं यते।" },
+  // Achievements Page
+  "achievements.eyebrow": { en: "Achievements & Certificates", hi: "उपलब्धियाँ और प्रमाणपत्र", sa: "सिद्धयः प्रमाणपत्राणि च" },
+  "achievements.title": { en: "Honors & Marks of Merit", hi: "सम्मान और योग्यता पत्र", sa: "सम्मानाः योग्यतापत्राणि च" },
 
-  // Navbar Extras
-  "nav.more": { en: "More ▾", hi: "और ▾", sa: "अधिकम् ▾" },
-  "nav.admin": { en: "Admin", hi: "व्यवस्थापक", sa: "प्रशासकः" },
+  // Contact Page
+  "contact.eyebrow": { en: "Contact", hi: "संपर्क करें", sa: "सम्पर्कः" },
+  "contact.title": { en: "Let's Connect", hi: "आइए जुड़ें", sa: "सम्पर्कं कुर्वन्तु" },
+  "contact.subtitle": { en: "Reach out for environmental plantation drives, youth talks, workshops, or collaborations.", hi: "वृक्षारोपण अभियानों, युवा सम्मेलनों, कार्यशालाओं या सहयोग के लिए संपर्क करें।", sa: "वृक्षारोपण-अभियानाय, युवा-भाषणाय, कार्यशालाभ्यः च सम्पर्कं कुर्वन्तु।" },
+  "contact.phone": { en: "Phone", hi: "फ़ोन", sa: "दूरवाणी" },
+  "contact.email": { en: "Email", hi: "ईमेल", sa: "ईमेल" },
+  "contact.address": { en: "Address", hi: "पता", sa: "सङ्केतः" },
+  "contact.sendMessage": { en: "Send Message", hi: "संदेश भेजें", sa: "सन्देशं प्रेषयन्तु" },
+  "contact.yourName": { en: "Your Name", hi: "आपका नाम", sa: "भवतः नाम" },
+  "contact.yourEmail": { en: "Your Email", hi: "आपका ईमेल", sa: "भवतः ईमेल" },
+  "contact.subject": { en: "Subject", hi: "विषय", sa: "विषयः" },
+  "contact.message": { en: "Message", hi: "संदेश", sa: "सन्देशः" },
 
-  // Footer Strings
+  // Social Work Page
+  "social.eyebrow": { en: "Social Work", hi: "समाज सेवा", sa: "समाजसेवा" },
+  "social.title": { en: "Seva Above Self", hi: "निःस्वार्थ सेवा", sa: "निःस्वार्थसेवा" },
+
+  // Education Page
+  "education.eyebrow": { en: "Education", hi: "शिक्षा", sa: "शिक्षा" },
+  "education.title": { en: "Environmental & Academic Studies", hi: "पर्यावरण और अकादमिक अध्ययन", sa: "पर्यावरण-शैक्षणिक-अध्ययनानि" },
+
+  // Gallery Page
+  "gallery.eyebrow": { en: "Gallery", hi: "गैलरी", sa: "चित्रशाला" },
+  "gallery.title": { en: "Moments of Grace", hi: "प्रेरक क्षण", sa: "प्रेरक-क्षणाः" },
+
+  // Media Page
+  "media.eyebrow": { en: "Media", hi: "मीडिया", sa: "प्रसारमाध्यमम्" },
+  "media.title": { en: "In the Spotlight", hi: "खबरों और वीडियो में", sa: "समाचारेषु चलचित्रेषु च" },
+
+  // Events Page
+  "events.eyebrow": { en: "Events", hi: "कार्यक्रम", sa: "कार्यक्रमाः" },
+  "events.title": { en: "On the Stage of Bharat", hi: "भारत के मंच पर", sa: "भारतस्य मञ्चे" },
+
+  // Camps Page
+  "camps.eyebrow": { en: "Camps", hi: "शिविर", sa: "शिविराणि" },
+  "camps.title": { en: "Shivirs of Sanskar", hi: "संस्कार शिविर", sa: "संस्कार-शिविराणि" },
+
+  // Publications Page
+  "publications.eyebrow": { en: "Publications", hi: "प्रकाशन", sa: "प्रकाशनम्" },
+  "publications.title": { en: "Words that Endure", hi: "प्रेरक शब्द और शोध", sa: "प्रेरक-वचनानि" },
+
+  // Footer
   "footer.pathTogether": { en: "Let's walk the path of Nature together", hi: "आइए एक साथ प्रकृति के मार्ग पर चलें", sa: "आगच्छ, वयं सहैव प्रकृत्याः मार्गे चलाम" },
   "footer.subscribeUpdates": { en: "Subscribe for updates on programs, camps and publications.", hi: "कार्यक्रमों, शिविरों और प्रकाशनों पर अपडेट के लिए सदस्यता लें।", sa: "कार्यक्रमाणां, शिबिराणां, प्रकाशनानां च अद्यतनाय सदस्यतां गृह्णन्तु।" },
   "footer.subscribe": { en: "Subscribe", hi: "सदस्यता लें", sa: "सदस्यतां गृह्णन्तु" },
@@ -127,10 +171,10 @@ export const dict: Dict = {
   "Terms": { en: "Terms", hi: "नियम", sa: "नियमाः" },
 };
 
-const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: keyof typeof dict) => string }>({
+const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: keyof typeof dict | string) => string }>({
   lang: "en",
   setLang: () => {},
-  t: (k) => dict[k]?.en ?? String(k),
+  t: (k) => dict[k as keyof typeof dict]?.en ?? String(k),
 });
 
 export function LangProvider({ children }: { children: ReactNode }) {
@@ -143,6 +187,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
     document.documentElement.classList.remove("lang-en", "lang-hi", "lang-sa");
     document.documentElement.classList.add(`lang-${initialLang}`);
   }, []);
+
   const setLang = (l: Lang) => {
     setLangState(l);
     if (typeof window !== "undefined") {
@@ -151,7 +196,19 @@ export function LangProvider({ children }: { children: ReactNode }) {
       document.documentElement.classList.add(`lang-${l}`);
     }
   };
-  const t = (k: keyof typeof dict | string) => dict[k as keyof typeof dict]?.[lang] ?? dict[k as keyof typeof dict]?.en ?? k;
+
+  const t = (k: keyof typeof dict | string) => {
+    if (!k) return "";
+    const entry = dict[k as keyof typeof dict];
+    if (entry && entry[lang]) {
+      return entry[lang];
+    }
+    if (entry && entry.en) {
+      return entry.en;
+    }
+    return String(k);
+  };
+
   return <Ctx.Provider value={{ lang, setLang, t }}>{children}</Ctx.Provider>;
 }
 

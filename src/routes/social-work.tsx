@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { stats } from "@/lib/site-data";
 import { getSocialWorks } from "@/lib/api";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/social-work")({
   loader: async () => {
@@ -17,11 +18,12 @@ export const Route = createFileRoute("/social-work")({
 });
 
 function SocialWork() {
+  const { t } = useLang();
   const dbSocialWorks = Route.useLoaderData() as any[];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Social Work" title="Seva Above Self" />
+      <PageHero eyebrow={t("social.eyebrow")} title={t("social.title")} />
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="flex flex-wrap justify-center gap-4">
           {stats.slice(0, 4).map((s) => (

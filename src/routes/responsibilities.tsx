@@ -16,7 +16,10 @@ export const Route = createFileRoute("/responsibilities")({
   component: Resp,
 });
 
+import { useLang } from "@/lib/i18n";
+
 function Resp() {
+  const { t } = useLang();
   const dbProjects = Route.useLoaderData() || [];
   const allResponsibilities = dbProjects.map((p: any) => ({
     position: p.name,
@@ -28,7 +31,7 @@ function Resp() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Responsibilities" title="Roles & Service" />
+      <PageHero eyebrow={t("nav.responsibilities")} title="Roles & Service" />
       <section className="mx-auto max-w-6xl px-6 pb-32">
         {allResponsibilities.length > 0 ? (
           <div className="overflow-hidden rounded-3xl gold-border">

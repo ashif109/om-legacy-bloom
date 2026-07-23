@@ -4,6 +4,8 @@ import { education } from "@/lib/site-data";
 import { GraduationCap } from "lucide-react";
 import { getEducations } from "@/lib/api";
 
+import { useLang } from "@/lib/i18n";
+
 export const Route = createFileRoute("/education")({
   loader: async () => {
     try {
@@ -18,11 +20,12 @@ export const Route = createFileRoute("/education")({
 });
 
 function Education() {
+  const { t } = useLang();
   const dbEducations = Route.useLoaderData() || [];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Education" title="Environmental & Academic Studies" />
+      <PageHero eyebrow={t("education.eyebrow")} title={t("education.title")} />
       <section className="mx-auto max-w-5xl px-6 pb-32">
         <div className="flex flex-wrap justify-center gap-6">
           {dbEducations.map((e, i) => (

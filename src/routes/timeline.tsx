@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { getSiteData } from "@/lib/api";
 import * as fallbackData from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
 import { Award, Calendar, Sparkles, ChevronRight, Newspaper, ZoomIn, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/timeline")({
 });
 
 function Timeline() {
+  const { t } = useLang();
   const loaderData = Route.useLoaderData();
   const journey = loaderData?.siteData?.journey?.some((j: any) => j.featured)
     ? loaderData.siteData.journey
@@ -37,9 +39,9 @@ function Timeline() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Timeline"
-        title="Chronology of Seva"
-        subtitle="A detailed year-by-year account of tree plantation drives, official recognitions, and community engagement."
+        eyebrow={t("timeline.eyebrow")}
+        title={t("timeline.title")}
+        subtitle={t("timeline.subtitle")}
       />
       <section className="mx-auto max-w-4xl px-6 pb-24">
         <div className="relative border-l border-gold/40 pl-8 md:pl-10 space-y-12">

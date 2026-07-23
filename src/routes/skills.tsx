@@ -24,15 +24,18 @@ export const Route = createFileRoute("/skills")({
   component: Skills,
 });
 
+import { useLang } from "@/lib/i18n";
+
 function Skills() {
+  const { t } = useLang();
   const dbSkills = Route.useLoaderData();
   const list = dbSkills && dbSkills.length > 0 ? dbSkills : fallbackSkills;
 
   return (
     <PageShell>
       <PageHero 
-        eyebrow="Skills & Capabilities" 
-        title="Craft, Leadership & Knowledge" 
+        eyebrow={t("nav.skills")} 
+        title={t("about.skillsTitle")} 
         subtitle="Dedicated to spreading climate action awareness, youth empowerment, and environmental preservation." 
       />
       <section className="mx-auto max-w-5xl px-6 pb-32">

@@ -4,6 +4,8 @@ import { camps } from "@/lib/site-data";
 import gathering from "@/assets/imageom/Screenshot 2026-07-19 190546.png";
 import { getCamps } from "@/lib/api";
 
+import { useLang } from "@/lib/i18n";
+
 export const Route = createFileRoute("/camps")({
   loader: async () => {
     try {
@@ -18,11 +20,12 @@ export const Route = createFileRoute("/camps")({
 });
 
 function Camps() {
+  const { t } = useLang();
   const dbCamps = Route.useLoaderData() || [];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Camps" title="Shivirs of Sanskar" />
+      <PageHero eyebrow={t("camps.eyebrow")} title={t("camps.title")} />
       <section className="mx-auto max-w-7xl px-6 pb-32 flex flex-wrap justify-center gap-6">
         {dbCamps.map((c, idx) => (
           <div key={c._id || c.title || idx} className="group overflow-hidden rounded-2xl gold-border flex-1 min-w-[250px] max-w-[300px]">

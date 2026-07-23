@@ -4,6 +4,8 @@ import { events } from "@/lib/site-data";
 import speech from "@/assets/imageom/Screenshot 2026-07-19 190532.png";
 import { getEvents } from "@/lib/api";
 
+import { useLang } from "@/lib/i18n";
+
 export const Route = createFileRoute("/events")({
   loader: async () => {
     try {
@@ -18,11 +20,12 @@ export const Route = createFileRoute("/events")({
 });
 
 function Events() {
+  const { t } = useLang();
   const dbEvents = Route.useLoaderData() || [];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Events" title="On the Stage of Bhārat" />
+      <PageHero eyebrow={t("events.eyebrow")} title={t("events.title")} />
       <section className="mx-auto max-w-6xl px-6 pb-32 space-y-6">
           {dbEvents.map((e, i) => (
           <div key={e._id || e.title || i} className={`grid gap-6 rounded-3xl gold-border overflow-hidden md:grid-cols-[1fr_1.4fr] ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>

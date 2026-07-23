@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
+import { useLang } from "@/lib/i18n";
 import img1 from "@/assets/imageom/Screenshot 2026-07-19 190607.png";
 import img2 from "@/assets/imageom/Screenshot 2026-07-19 190622.png";
 import img3 from "@/assets/imageom/Screenshot 2026-07-19 190640.png";
@@ -34,12 +35,13 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function Gallery() {
+  const { t } = useLang();
   const dbGallery = Route.useLoaderData() || [];
   const allImages = [...images, ...dbGallery.map((g: any) => g.imageUrl)];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Gallery" title="Moments of Grace" />
+      <PageHero eyebrow={t("gallery.eyebrow")} title={t("gallery.title")} />
       <section className="mx-auto max-w-7xl px-6 pb-32">
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
           {allImages.map((src, i) => (

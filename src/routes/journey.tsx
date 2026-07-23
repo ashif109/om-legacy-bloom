@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { getSiteData } from "@/lib/api";
 import * as fallbackData from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Calendar, MapPin, Sparkles, X, ZoomIn, Newspaper, CheckCircle2, TreePine, Eye, FileText } from "lucide-react";
 
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/journey")({
 });
 
 function JourneyPage() {
+  const { t } = useLang();
   const loaderData = Route.useLoaderData();
   const journey = loaderData?.siteData?.journey?.some((j: any) => j.featured)
     ? loaderData.siteData.journey
@@ -46,9 +48,9 @@ function JourneyPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Journey & Milestones"
-        title="A Path of Devotion & Climate Action"
-        subtitle="Tracing the milestones of tree plantation, youth climate awareness, and official recognitions from childhood to present."
+        eyebrow={t("journey.eyebrow")}
+        title={t("journey.title")}
+        subtitle={t("journey.subtitle")}
       />
 
       <div className="mx-auto max-w-7xl px-6 pb-24 space-y-20">

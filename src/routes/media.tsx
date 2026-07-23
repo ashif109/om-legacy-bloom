@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { media } from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
 import speechImg from "@/assets/imageom/Screenshot 2026-07-19 190246.png";
 import awardImg from "@/assets/imageom/Screenshot 2026-07-19 190259.png";
 import gatheringImg from "@/assets/imageom/Screenshot 2026-07-19 190314.png";
@@ -45,11 +46,12 @@ export const Route = createFileRoute("/media")({
 });
 
 function Media() {
+  const { t } = useLang();
   const dbMedia = Route.useLoaderData() || [];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Media" title="In the Spotlight" />
+      <PageHero eyebrow={t("media.eyebrow")} title={t("media.title")} />
       <section className="mx-auto max-w-7xl px-6 pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {dbMedia.map((m: any, i: number) => {

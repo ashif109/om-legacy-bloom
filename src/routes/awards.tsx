@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
 import { achievements } from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
 import { Award, Calendar, MapPin, Sparkles, X, ZoomIn, Newspaper, CheckCircle2, Share2, Eye, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/awards")({
 });
 
 function AwardsPage() {
+  const { t } = useLang();
   const [activeModalMedia, setActiveModalMedia] = useState<{ src: string; title: string; caption: string } | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -34,9 +36,9 @@ function AwardsPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Honors & Recognitions"
-        title="Awards & Official Certificates"
-        subtitle="Official commendations, certificates of appreciation, and environmental awards honoring Om Tyagi's eco-conservation work."
+        eyebrow={t("awards.eyebrow")}
+        title={t("awards.title")}
+        subtitle={t("awards.subtitle")}
       />
 
       <section className="mx-auto max-w-6xl px-6 pb-32 space-y-16">

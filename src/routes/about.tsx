@@ -4,6 +4,7 @@ import heroOm from "@/assets/imageom/ChatGPT Image Jul 19, 2026, 07_15_16 PM.png
 import meditation from "@/assets/imageom/Screenshot 2026-07-19 190607.png";
 import { getSiteData } from "@/lib/api";
 import * as fallbackData from "@/lib/site-data";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
   loader: async () => {
@@ -29,6 +30,7 @@ const details = [
 ];
 
 function About() {
+  const { t } = useLang();
   const siteData = Route.useLoaderData();
   const skills = siteData?.skills?.length > 0 ? siteData.skills : fallbackData.skills;
   const education = siteData?.education?.length > 0 ? siteData.education : fallbackData.education;
@@ -36,9 +38,9 @@ function About() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="About Me"
-        title="A Life Rooted in Nature"
-        subtitle="Student, Youtuber, and young environmentalist devoted to the revival of our ecosystems through education, conservation and selfless service."
+        eyebrow={t("about.eyebrow")}
+        title={t("about.title")}
+        subtitle={t("about.subtitle")}
       />
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr]">
@@ -46,7 +48,7 @@ function About() {
             <img src={heroOm} alt="Triyambkeshwar Nath Tyagi" className="h-full w-full object-cover object-[center_30%]" />
           </div>
           <div className="space-y-6">
-            <h2 className="font-display text-4xl text-gold-gradient">Introduction</h2>
+            <h2 className="font-display text-4xl text-gold-gradient">{t("about.introduction")}</h2>
             <p className="text-lg leading-relaxed text-foreground">
               I am Om — a young environmentalist and a Class 10 student, driven by a deep passion for protecting nature and creating a sustainable future. I believe that even the smallest actions can inspire meaningful environmental change.
             </p>

@@ -4,6 +4,8 @@ import { publications } from "@/lib/site-data";
 import { BookOpen } from "lucide-react";
 import { getPublications } from "@/lib/api";
 
+import { useLang } from "@/lib/i18n";
+
 export const Route = createFileRoute("/publications")({
   loader: async () => {
     try {
@@ -18,11 +20,12 @@ export const Route = createFileRoute("/publications")({
 });
 
 function Pub() {
+  const { t } = useLang();
   const dbPublications = Route.useLoaderData() || [];
 
   return (
     <PageShell>
-      <PageHero eyebrow="Publications" title="Words that Endure" />
+      <PageHero eyebrow={t("publications.eyebrow")} title={t("publications.title")} />
       <section className="mx-auto max-w-5xl px-6 pb-32 flex flex-wrap justify-center gap-5">
         {dbPublications.map((p, i) => (
           <div key={p._id || p.title || i} className="flex gap-5 rounded-2xl glass-card p-6 hover-lift hover:-translate-y-1 hover:border-gold/60 flex-1 min-w-[300px] max-w-[480px]">
