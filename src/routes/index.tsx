@@ -12,7 +12,8 @@ import awardImg from "@/assets/imageom/Screenshot 2026-07-19 190438.png";
 import previewImg1 from "@/assets/imageom/Screenshot 2026-07-19 190448.png";
 import previewImg2 from "@/assets/imageom/Screenshot 2026-07-19 190502.png";
 import mediaImg1 from "@/assets/imageom/Screenshot 2026-07-19 190518.png";
-import mediaImg2 from "@/assets/imageom/Screenshot 2026-07-19 190532.png";
+import sdmCeremonyImg from "@/assets/award/sdm-award/sdm-award-ceremony.png";
+import sdmCloseImg from "@/assets/award/sdm-award/sdm-award-close.png";
 import mediaImg3 from "@/assets/imageom/Screenshot 2026-07-19 190546.png";
 
 import { Navbar } from "@/components/luxury/Navbar";
@@ -262,29 +263,79 @@ function HomePage() {
       </section>
 
       {/* JOURNEY PREVIEW */}
-      <section className="relative mx-auto max-w-7xl px-6 py-24 bg-section-bg rounded-[40px] my-10">
+      <section className="relative mx-auto max-w-7xl px-6 py-24 bg-section-bg rounded-[40px] my-10 border border-gold/20 overflow-hidden">
         <div className="flex flex-col items-center justify-center text-center gap-4">
           <div>
             <SectionLabel>{t("home.journeyTitle")}</SectionLabel>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.journeyHighlights")}</h2>
             <Ornament className="mt-6" />
           </div>
-          <Link to="/journey" className="mt-2 text-sm uppercase tracking-widest text-gold hover:text-gold-hover transition-colors">
-            {t("home.fullJourney")}
+          <Link to="/journey" className="mt-2 text-sm uppercase tracking-widest text-gold hover:text-gold-hover transition-colors font-semibold flex items-center gap-2">
+            {t("home.fullJourney")} <ArrowRight size={16} />
           </Link>
         </div>
 
-        <div className="mt-12 rounded-[24px] gold-border overflow-hidden bg-card/50 backdrop-blur-md">
+        {/* 🌟 FEATURED SPOTLIGHT CARD FOR WORLD ENVIRONMENT DAY AWARD (AGE 9) */}
+        <div className="mt-10 rounded-[28px] border border-gold/40 bg-gradient-to-r from-card/90 via-background to-card/80 p-6 md:p-8 backdrop-blur-md shadow-[0_0_40px_rgba(196,169,98,0.1)]">
+          <div className="grid gap-6 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-4 relative group overflow-hidden rounded-2xl border border-gold/30 aspect-[4/3]">
+              <img
+                src={sdmCloseImg}
+                alt="SDM Sangeeta Raghav Awarding Om Tyagi at Age 9"
+                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-3 right-3">
+                <span className="rounded-full bg-gold/90 px-3 py-1 text-[10px] font-bold text-background uppercase tracking-widest">
+                  World Environment Day 2021
+                </span>
+                <p className="mt-1 text-xs font-semibold text-white">Age 9 Milestone Award</p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 space-y-3 text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold">
+                <Sparkles size={14} /> Featured Award at Age 9 · 10 Jun 2021
+              </div>
+
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+                World Environment Day Award <span className="text-gold-gradient">by SDM Sangeeta Raghav</span>
+              </h3>
+
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                Honoured by <strong>SDM Sangeeta Raghav</strong> (UPPCS Rank 2 / SDM Kheragarh, Agra) for planting <strong>21+ saplings in a single day</strong> on World Environment Day, setting a goal of 10,000 trees, and creating 46+ YouTube educational videos.
+              </p>
+
+              <div className="flex flex-wrap gap-4 text-xs font-medium pt-1">
+                <span className="bg-background/80 border border-gold/30 px-3 py-1.5 rounded-xl text-gold font-semibold">
+                  🏆 Green Selfie & Act of Kindness Award
+                </span>
+                <span className="bg-background/80 border border-gold/30 px-3 py-1.5 rounded-xl text-foreground">
+                  📰 Featured in Dainik Jagran & Hindustan Press
+                </span>
+              </div>
+
+              <div className="pt-2">
+                <Link to="/journey" className="inline-flex items-center gap-2 text-xs font-bold text-gold uppercase tracking-widest hover:underline">
+                  View Full Gallery & News Clippings <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* TIMELINE HORIZONTAL SCROLL */}
+        <div className="mt-8 rounded-[24px] gold-border overflow-hidden bg-card/50 backdrop-blur-md">
           <div className="relative overflow-x-auto p-8 custom-scrollbar">
             <div className="pointer-events-none absolute left-8 right-8 top-[60px] h-[1px] bg-gradient-to-r from-gold/10 via-gold/40 to-gold/10 z-0" />
             <div className="flex min-w-[900px] items-start justify-between gap-6 relative z-10">
               {journey.slice(0, 8).map((j: any, i: number) => (
-                <div key={j.year} className="relative flex flex-1 flex-col items-center text-center group">
+                <div key={j.year + i} className="relative flex flex-1 flex-col items-center text-center group">
                   <div className="inline-flex min-w-[7rem] px-6 h-14 items-center justify-center rounded-full border border-gold/40 bg-background font-display text-sm tracking-widest uppercase text-gold shadow-[0_0_20px_rgba(196,169,98,0.15)] transition-transform group-hover:scale-105">
-                    {t(j.year as any)}
+                    {j.year}
                   </div>
-                  <div className="mt-5 text-sm font-semibold uppercase tracking-wider text-foreground">{t(j.title as any)}</div>
-                  <div className="mt-2 max-w-[260px] text-xs leading-relaxed text-muted-foreground">{t(j.body as any)}</div>
+                  <div className="mt-5 text-sm font-semibold uppercase tracking-wider text-foreground">{j.title}</div>
+                  <div className="mt-2 max-w-[260px] text-xs leading-relaxed text-muted-foreground line-clamp-3">{j.body}</div>
                 </div>
               ))}
             </div>

@@ -13,14 +13,95 @@ export const missionCards = [
   { title: "Values", body: "Our work is guided by integrity, sustainability, innovation, collaboration, and respect for nature. We believe that meaningful environmental change is achieved when communities, science, and collective action come together to protect our planet for generations to come." },
 ];
 
+import sdmCeremonyImg from "@/assets/award/sdm-award/sdm-award-ceremony.png";
+import sdmCloseImg from "@/assets/award/sdm-award/sdm-award-close.png";
+import newsJagranImg from "@/assets/award/sdm-award/news-jagran.jpg";
+import newsKheragarhImg from "@/assets/award/sdm-award/news-kheragarh.jpg";
+import newsHindustanImg from "@/assets/award/sdm-award/news-hindustan.png";
+import sdmCertificateImg from "@/assets/award/Screenshot 2026-07-09 203255.png";
+
 export const journey = [
-  { year: "Childhood", title: "Joined Environmental Movement", body: "बचपन से ही प्रकृति के प्रति मेरे लगाव ने मुझे पर्यावरण संरक्षण की दिशा में आगे बढ़ने के लिए प्रेरित किया।" },
-  { year: "Ongoing", title: "Climate Education", body: "मैंने सतत विकास, पारिस्थितिकी और जलवायु परिवर्तन के विभिन्न पहलुओं का अध्ययन किया है और इसके लिए जागरूकता फैला रहा हूँ।" },
-  { year: "Future", title: "Spreading Awareness", body: "अपने प्रयासों और अभियानों के माध्यम से मैं युवाओं को जलवायु परिवर्तन और पर्यावरण संरक्षण के प्रति जागरूक करने का काम कर रहा हूँ।" },
+  {
+    year: "2017 - 2019",
+    age: "Age 5 - 7",
+    title: "Early Green Roots & First Sapling",
+    category: "Plantation Drives",
+    body: "Started environmental preservation journey at the young age of 5. Planted native tree species and developed a deep reverence for nature and ecological conservation in village Saiyan, Agra.",
+    highlights: ["First plantation drive at age 5", "Village awareness initiatives"],
+  },
+  {
+    year: "10 Jun 2021",
+    age: "Age 9",
+    title: "World Environment Day Honor by SDM Sangeeta Raghav",
+    category: "Awards & Honors",
+    featured: true,
+    tag: "World Environment Day Milestone",
+    body: "Honoured with an official Certificate of Appreciation and sapling by SDM Sangeeta Raghav (UPPCS Rank 2 / SDM Kheragarh, Agra) for extraordinary plantation drive of 21+ trees in a single day and creating 46+ awareness videos.",
+    fullDetails: "On World Environment Day drive (5-10 June 2021), 9-year-old Om Tyagi planted 21+ saplings across surrounding villages and pledged a target of 10,000 trees. Recognizing his extraordinary dedication, SDM Kheragarh Smt. Sangeeta Raghav invited Om to the Tehsil Auditorium, presented him with an official appreciation certificate, and applauded his YouTube initiative educating children on 10 benefits of tree planting.",
+    awarder: "Smt. Sangeeta Raghav (UPPCS 2018 Batch Rank 2, SDM Kheragarh)",
+    location: "Tehsil Auditorium, Kheragarh, Agra (UP)",
+    certificateTitle: "Green Selfie & Act of Kindness Award",
+    images: [
+      { src: sdmCloseImg, title: "Award Ceremony with SDM Sangeeta Raghav", caption: "Om Tyagi receiving official certificate & tree sapling from SDM Sangeeta Raghav at Age 9 on World Environment Day." },
+      { src: sdmCeremonyImg, title: "Full Ceremony View", caption: "Om Tyagi standing with SDM Sangeeta Raghav holding the tree sapling and official certificate." },
+      { src: sdmCertificateImg, title: "Official Appreciation Certificate", caption: "Issued by Office of SDM Kheragarh, Agra on 10th June 2021." },
+      { src: newsJagranImg, title: "Agra Dehat Jagran Press Coverage", caption: "Featured in Dainik Jagran: 'प्रकृति ने हमें बहुत दिया, हम भी अपना कर्तव्य निभाएं'." },
+      { src: newsHindustanImg, title: "Hindustan Press Coverage", caption: "Hindustan News: 'पौधरोपण पर एसडीएम ने बच्चों को किया सम्मानित'." },
+      { src: newsKheragarhImg, title: "Kheragarh Samvad News", caption: "Newspaper Clipping: 'वृक्षारोपण करने पर बच्चों को किया एसडीएम खेरागढ़ ने प्रोत्साहन'." }
+    ],
+    stats: [
+      { label: "Age at Award", value: "9 Years" },
+      { label: "Trees Planted (Day 1)", value: "21+ Saplings" },
+      { label: "Target Set", value: "10,000 Trees" },
+      { label: "Awareness Videos", value: "46+ Videos" },
+    ],
+    highlights: [
+      "Awarded by SDM Sangeeta Raghav (UPPCS Rank 2)",
+      "World Environment Day Special Recognition (10 June 2021)",
+      "Planted 21+ trees in a single day & pledged 10,000 target",
+      "Front-page coverage in Dainik Jagran & Hindustan news"
+    ],
+  },
+  {
+    year: "2022 - 2023",
+    age: "Age 10 - 11",
+    title: "Mass Village Plantation & Youth Campaigns",
+    category: "Plantation Drives",
+    body: "Expanded tree-planting drives across multiple villages in Agra district. Organized door-to-door awareness campaigns encouraging students and villagers to plant native trees like Neem, Banyan, Peepal, and Jamun.",
+    highlights: ["Door-to-door sapling distribution", "Village eco-clubs formation"],
+  },
+  {
+    year: "Jan 2024",
+    age: "Age 12",
+    title: "Shiv Nadar University Winter School & Seminars",
+    category: "Media & Press",
+    body: "Participated in the Winter School Program hosted by Young Thinkers Forum at Shiv Nadar University. Spoke on environmental action and youth leadership in regional forums.",
+    highlights: ["Shiv Nadar University Certificate", "Youth Thinkers Forum Representation"],
+  },
+  {
+    year: "2025 - Present",
+    age: "Age 14",
+    title: "10th CBSE Student & Digital Eco-Champion",
+    category: "Media & Press",
+    body: "Balancing academic excellence in 10th CBSE with nationwide digital awareness through YouTube channel 'Omjiworld'. Inspiring thousands of young minds to take active responsibility for climate protection.",
+    highlights: ["10th CBSE Student at LBS School, Kota", "Active YouTube Climate Channel 'Omjiworld'"],
+  },
 ];
 
 export const achievements = [
-  { title: "Tree Plantation Award", year: 2024, org: "Awarded by IAS Officer Sangeeta Raghav" },
+  {
+    title: "World Environment Day Award at Age 9",
+    year: "10 Jun 2021",
+    org: "Presented by SDM Sangeeta Raghav (UPPCS Rank 2)",
+    badge: "Official Honor",
+    image: sdmCeremonyImg,
+  },
+  {
+    title: "Shiv Nadar University Winter School",
+    year: 2024,
+    org: "Young Thinkers Forum, SNU",
+    badge: "Participation",
+  },
 ];
 
 export const skills = [

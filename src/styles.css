@@ -284,12 +284,6 @@
 }
 
 /* Global input & text overrides for Light Parchment theme */
-.bg-black\/50, .bg-black\/40, .bg-black\/30, .bg-black\/20 {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  color: #2C332B !important;
-  border-color: rgba(74, 101, 78, 0.3) !important;
-}
-
 .text-cream {
   color: #2C332B !important;
 }
