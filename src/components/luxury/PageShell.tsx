@@ -8,9 +8,6 @@ import { Mandala } from "./Mandala";
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen">
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <GoldParticles count={22} />
-      </div>
       <Navbar />
       <main>{children}</main>
       <Footer />

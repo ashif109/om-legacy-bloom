@@ -100,24 +100,27 @@ function HomePage() {
           {/* Copy */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15 }}>
             <SectionLabel>{t("hero.role")}</SectionLabel>
-            <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
-              <span className="text-gold-gradient"
-  style={{
-  fontFamily: "cursive",
-  fontWeight: 900,
-
-color: "#f3cb50ff",
-WebkitTextStroke: "2.2px #6E4B00",
-textShadow: `
-0 1px 0 #FFFFFF,
-0 2px 0 #FFE7A3,
-0 4px 0 #C08A00,
-0 8px 18px rgba(0,0,0,.35)
-`
-}}
->
-  {t("home.name")}
-</span>
+            <h1 className="mt-6 font-display text-5xl leading-tight tracking-tight md:text-7xl">
+              <span
+                className="inline-block"
+                style={{
+                  fontFamily: "cursive",
+                  fontWeight: 900,
+                  padding: "0.2em 0.3em",
+                  margin: "-0.2em -0.3em",
+                  backgroundImage: "linear-gradient(90deg, #FFF8CD 0%, #FFC800 35%, #E69800 70%, #9B6000 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  color: "transparent",
+                  WebkitBoxDecorationBreak: "clone",
+                  boxDecorationBreak: "clone",
+                  WebkitTextStroke: "1px #4A2E00",
+                  filter: "drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4))",
+                }}
+              >
+                {t("home.name")}
+              </span>
             </h1>
             <div className="mt-4 font-serif-lux text-xl italic text-muted-foreground">{t("hero.role")}</div>
             <div className="mt-2 text-foreground/90 font-sans">{t("hero.tag")}</div>

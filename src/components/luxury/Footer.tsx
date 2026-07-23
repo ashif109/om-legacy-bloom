@@ -20,9 +20,9 @@ export function Footer() {
           </div>
           <h3 className="mt-6 font-display text-3xl md:text-4xl text-gold-gradient">{t("footer.pathTogether")}</h3>
           <p className="mt-3 text-muted-foreground">{t("footer.subscribeUpdates")}</p>
-          <form className="mx-auto mt-6 flex max-w-md items-center gap-2 rounded-full border border-gold/30 bg-card/90 backdrop-blur-sm p-1.5">
-            <input type="email" placeholder="you@example.com" className="flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-muted-foreground text-foreground" />
-            <button type="button" className="rounded-[999px] btn-gold px-5 py-2 text-xs font-semibold uppercase tracking-widest">{t("footer.subscribe")}</button>
+          <form className="mx-auto mt-6 flex max-w-md items-center gap-1.5 sm:gap-2 rounded-full border border-gold/30 bg-card/90 backdrop-blur-sm p-1.5 shadow-sm">
+            <input type="email" placeholder="you@example.com" className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 text-sm outline-none placeholder:text-muted-foreground text-foreground" />
+            <button type="button" className="shrink-0 rounded-[999px] btn-gold px-4 sm:px-5 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest whitespace-nowrap">{t("footer.subscribe")}</button>
           </form>
         </div>
 

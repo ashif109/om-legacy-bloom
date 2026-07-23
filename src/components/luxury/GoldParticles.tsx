@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 
-export function GoldParticles({ count = 30 }: { count?: number }) {
+export function GoldParticles({ count = 20 }: { count?: number }) {
   const [parts, setParts] = useState<any[]>([]);
 
   useEffect(() => {
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const finalCount = isMobile ? Math.min(count, 10) : count;
+
     setParts(
-      Array.from({ length: count }).map((_, i) => ({
+      Array.from({ length: finalCount }).map((_, i) => ({
         left: Math.random() * 100,
-        delay: Math.random() * 12,
-        duration: 10 + Math.random() * 14,
-        size: 1 + Math.random() * 3,
-        opacity: 0.3 + Math.random() * 0.6,
+        delay: Math.random() * 10,
+        duration: 12 + Math.random() * 12,
+        size: 1.5 + Math.random() * 2.5,
+        opacity: 0.25 + Math.random() * 0.4,
         key: i,
       }))
     );
@@ -19,20 +22,22 @@ export function GoldParticles({ count = 30 }: { count?: number }) {
   if (parts.length === 0) return null;
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+    <div className="pointer-events-none fixed inset-0 overflow-hidden -z-10" aria-hidden>
       {parts.map((p) => (
         <span
           key={p.key}
-          className="absolute rounded-full"
+          className="absolute rounded-full pointer-events-none"
           style={{
             left: `${p.left}%`,
             bottom: "-10px",
-            width: p.size,
-            height: p.size,
-            background: "radial-gradient(circle, #173823ff, transparent 70%)",
-            boxShadow: "0 0 10px #254932ff",
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            background: "#254932",
+            boxShadow: "0 0 6px #254932",
             opacity: p.opacity,
             animation: `ember ${p.duration}s linear ${p.delay}s infinite`,
+            willChange: "transform, opacity",
+            transform: "translateZ(0)",
           }}
         />
       ))}

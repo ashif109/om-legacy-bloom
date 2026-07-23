@@ -60,7 +60,7 @@ export function Navbar() {
       </div>
 
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/85 backdrop-blur-xl border-b border-gold/30" : "bg-transparent border-b border-transparent"
+        className={`sticky top-0 z-50 transition-all duration-300 transform-gpu ${scrolled ? "bg-background/85 backdrop-blur-md border-b border-gold/30" : "bg-transparent border-b border-transparent"
           }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 py-3">
