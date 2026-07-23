@@ -38,7 +38,6 @@ function About() {
       <PageHero
         eyebrow="About Me"
         title="A Life Rooted in Nature"
-        sanskrit="विद्या ददाति विनयं विनयाद् याति पात्रताम्"
         subtitle="Student, Youtuber, and young environmentalist devoted to the revival of our ecosystems through education, conservation and selfless service."
       />
       <section className="mx-auto max-w-7xl px-6 pb-24">

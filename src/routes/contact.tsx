@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <PageShell>
-      <PageHero eyebrow="Contact" title="Let's Connect" sanskrit="वसुधैव कुटुम्बकम्" />
+      <PageHero eyebrow="Contact" title="Let's Connect" />
       <section className="mx-auto max-w-7xl px-6 pb-32 grid gap-8 lg:grid-cols-2">
         <div className="space-y-4">
           {[

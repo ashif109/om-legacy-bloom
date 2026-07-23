@@ -22,7 +22,7 @@ function Education() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Education" title="Environmental & Academic Studies" sanskrit="सा विद्या या विमुक्तये" />
+      <PageHero eyebrow="Education" title="Environmental & Academic Studies" />
       <section className="mx-auto max-w-5xl px-6 pb-32">
         <div className="flex flex-wrap justify-center gap-6">
           {dbEducations.map((e, i) => (

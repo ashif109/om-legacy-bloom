@@ -21,7 +21,7 @@ function SocialWork() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Social Work" title="Seva Above Self" sanskrit="परोपकाराय पुण्याय" />
+      <PageHero eyebrow="Social Work" title="Seva Above Self" />
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="flex flex-wrap justify-center gap-4">
           {stats.slice(0, 4).map((s) => (

@@ -39,7 +39,6 @@ function Timeline() {
       <PageHero
         eyebrow="Timeline"
         title="Chronology of Seva"
-        sanskrit="कर्मण्येवाधिकारस्ते मा फलेषु कदाचन"
         subtitle="A detailed year-by-year account of tree plantation drives, official recognitions, and community engagement."
       />
       <section className="mx-auto max-w-4xl px-6 pb-24">

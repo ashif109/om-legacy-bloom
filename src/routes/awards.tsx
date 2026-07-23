@@ -21,7 +21,7 @@ function Awards() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Awards" title="Recognitions" sanskrit="प्रकृत्याः रक्षणेन भविष्यस्य रक्षणम्" />
+      <PageHero eyebrow="Awards" title="Recognitions" />
       <section className="mx-auto max-w-6xl px-6 pb-32 space-y-10">
         {dbAwards.map((a, i) => (
           <div key={a._id || a.title || i} className={`grid gap-6 rounded-3xl gold-border overflow-hidden md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>

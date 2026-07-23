@@ -327,7 +327,7 @@ function Achievements() {
 
   return (
     <PageShell>
-      <PageHero eyebrow="Achievements & Certificates" title="Honors & Marks of Merit" sanskrit="कर्मण्येवाधिकारस्ते मा फलेषु कदाचन" />
+      <PageHero eyebrow="Achievements & Certificates" title="Honors & Marks of Merit" />
       
       <section className="mx-auto max-w-7xl px-6 pb-32">
         {/* Awards & Honors Section */}

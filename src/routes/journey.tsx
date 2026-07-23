@@ -48,7 +48,6 @@ function JourneyPage() {
       <PageHero
         eyebrow="Journey & Milestones"
         title="A Path of Devotion & Climate Action"
-        sanskrit="वृक्षो रक्षति रक्षितः"
         subtitle="Tracing the milestones of tree plantation, youth climate awareness, and official recognitions from childhood to present."
       />
 
