@@ -12,6 +12,7 @@ import awardImg from "@/assets/imageom/Screenshot 2026-07-19 190438.png";
 import previewImg1 from "@/assets/imageom/Screenshot 2026-07-19 190448.png";
 import previewImg2 from "@/assets/imageom/Screenshot 2026-07-19 190502.png";
 import mediaImg1 from "@/assets/imageom/Screenshot 2026-07-19 190518.png";
+import sdmCertificateImg from "@/assets/award/Screenshot 2026-07-09 203255.png";
 import sdmCeremonyImg from "@/assets/award/sdm-award/sdm-award-ceremony.png";
 import sdmCloseImg from "@/assets/award/sdm-award/sdm-award-close.png";
 import mediaImg3 from "@/assets/imageom/Screenshot 2026-07-19 190546.png";
@@ -349,22 +350,52 @@ function HomePage() {
           <SectionLabel>{t("home.achievementsTitle")}</SectionLabel>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">{t("home.featuredHonors")}</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            {achievements.slice(0, 6).map((a: any, i: number) => (
-              <motion.div
-                key={a.title}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group relative flex-1 min-w-[140px] max-w-[200px] overflow-hidden glass-card p-5 text-center"
-              >
-                <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-gold/40 text-gold bg-background/50">
-                  <Award size={20} />
-                </div>
-                <div className="mt-3 text-[11px] uppercase tracking-wider text-gold">{t(String(a.year) as any)}</div>
-                <div className="mt-1 font-display text-sm text-foreground leading-snug">{t(a.title as any)}</div>
-              </motion.div>
-            ))}
+            {achievements.slice(0, 6).map((a: any, i: number) => {
+              const cardImage = a.image || (i === 0 ? sdmCertificateImg : null);
+
+              return (
+                <motion.div
+                  key={a.title + i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="group relative flex-1 min-w-[220px] max-w-[280px] overflow-hidden rounded-2xl border border-gold/30 bg-card/80 backdrop-blur-md p-4 text-center hover-lift hover:border-gold hover:shadow-[0_0_20px_rgba(196,169,98,0.2)] transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    {cardImage ? (
+                      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-gold/30 bg-slate-950 mb-3 shadow-md">
+                        <img
+                          src={cardImage}
+                          alt={a.title}
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                        <div className="absolute bottom-2 left-2 right-2 text-left">
+                          <span className="rounded bg-gold/90 px-1.5 py-0.5 text-[9px] font-bold text-background uppercase tracking-wider">
+                            Certificate
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-gold/40 text-gold bg-background/50 mb-3">
+                        <Award size={20} />
+                      </div>
+                    )}
+
+                    <div className="text-[11px] uppercase font-bold tracking-wider text-gold">{a.year}</div>
+                    <div className="mt-1 font-display text-sm font-bold text-foreground leading-snug">{a.title}</div>
+                    <div className="mt-1 text-[11px] text-muted-foreground line-clamp-2">{a.org || a.presenter || ""}</div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-gold/20 flex justify-center gap-2">
+                    <Link to="/awards" className="inline-flex items-center gap-1 rounded-full btn-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
+                      View Award
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
         <div className="relative">

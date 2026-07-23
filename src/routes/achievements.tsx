@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/luxury/PageShell";
-import { certificates } from "@/lib/site-data";
-import { Award, Download, Share2, FileText } from "lucide-react";
+import { certificates, achievements } from "@/lib/site-data";
+import { Award, Download, Share2, FileText, ZoomIn, Eye, Newspaper, Sparkles, X, Calendar } from "lucide-react";
 import { getAwards, getCertificates } from "@/lib/api";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Load all images from campus and competition directories
 const campImages = import.meta.glob("@/assets/campus/*.{png,jpg,jpeg}", { eager: true, import: "default" });
@@ -264,19 +266,19 @@ function DbCertificateCard({ cert }: { cert: any }) {
     <div className="group relative overflow-hidden flex flex-col justify-between rounded-2xl gold-border bg-[color:var(--card)]/50 p-3 hover-lift hover:-translate-y-2 transition-all duration-300">
       {cert.url ? (
         <a href={cert.url} target="_blank" rel="noopener noreferrer" className="block aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
-          <img 
-            src={cert.imageUrl} 
-            alt={cert.title} 
-            className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+          <img
+            src={cert.imageUrl}
+            alt={cert.title}
+            className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
         </a>
       ) : (
         <div className="aspect-[4/3] overflow-hidden rounded-xl border border-[color:var(--gold)]/10 bg-black/50">
-          <img 
-            src={cert.imageUrl} 
-            alt={cert.title} 
-            className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" 
+          <img
+            src={cert.imageUrl}
+            alt={cert.title}
+            className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
         </div>
@@ -284,9 +286,9 @@ function DbCertificateCard({ cert }: { cert: any }) {
       <div className="p-4 text-center flex flex-col flex-grow justify-center">
         <div className="text-[10px] uppercase tracking-widest text-[color:var(--gold)] mb-2">{cert.category} Achievement</div>
         {cert.url ? (
-           <a href={cert.url} target="_blank" rel="noopener noreferrer" className="font-display text-xl text-cream leading-tight hover:text-[color:var(--gold)] transition-colors">{cert.title}</a>
+          <a href={cert.url} target="_blank" rel="noopener noreferrer" className="font-display text-xl text-cream leading-tight hover:text-[color:var(--gold)] transition-colors">{cert.title}</a>
         ) : (
-           <div className="font-display text-xl text-cream leading-tight">{cert.title}</div>
+          <div className="font-display text-xl text-cream leading-tight">{cert.title}</div>
         )}
         {cert.organization && <div className="mt-3 text-xs uppercase tracking-wider text-[color:var(--muted-foreground)]">{cert.organization}</div>}
         {cert.date && <div className="mt-1 text-xs text-[color:var(--muted-foreground)]/70">{cert.date}</div>}
@@ -328,10 +330,10 @@ function Achievements() {
   return (
     <PageShell>
       <PageHero eyebrow="Achievements & Certificates" title="Honors & Marks of Merit" />
-      
+
       <section className="mx-auto max-w-7xl px-6 pb-32">
         {/* Awards & Honors Section */}
-     
+
 
         {/* Site Data Certificates List */}
         {certificates.length > 0 && (
@@ -442,7 +444,7 @@ function Achievements() {
             </div>
           </div>
         )}
-           {dbAwards.length > 0 && (
+        {dbAwards.length > 0 && (
           <div className="mb-20 mt-16">
             <h2 className="mb-10 text-center font-display text-4xl text-gold-gradient">Honors & Awards</h2>
             <div className="flex flex-wrap justify-center gap-6">
@@ -461,8 +463,8 @@ function Achievements() {
                     <div className="mt-1 font-display text-lg text-foreground">{a.title}</div>
                     <div className="text-xs text-muted-foreground">{a.org || a.description || ""}</div>
                     <div className="mt-5 flex justify-center gap-2 text-xs">
-                      <button className="inline-flex items-center gap-1 rounded-full border border-gold/40 px-3 py-1 text-gold hover:bg-gold/10 transition-colors"><Download size={12}/> View</button>
-                      <button className="inline-flex items-center gap-1 rounded-full border border-gold/40 px-3 py-1 text-gold hover:bg-gold/10 transition-colors"><Share2 size={12}/> Share</button>
+                      <button className="inline-flex items-center gap-1 rounded-full border border-gold/40 px-3 py-1 text-gold hover:bg-gold/10 transition-colors"><Download size={12} /> View</button>
+                      <button className="inline-flex items-center gap-1 rounded-full border border-gold/40 px-3 py-1 text-gold hover:bg-gold/10 transition-colors"><Share2 size={12} /> Share</button>
                     </div>
                   </div>
                 </div>

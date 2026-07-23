@@ -90,13 +90,36 @@ export const journey = [
 
 export const achievements = [
   {
-    title: "World Environment Day Award at Age 9",
+    id: "sdm-environment-award-2021",
+    title: "Green Selfie & Act of Kindness Award",
+    hindiTitle: "पर्यावरण संरक्षण व जागरूकता प्रशस्ति पत्र",
     year: "10 Jun 2021",
-    org: "Presented by SDM Sangeeta Raghav (UPPCS Rank 2)",
+    event: "World Environment Day",
+    age: "Age 9 Milestone",
+    org: "Awarded by Smt. Sangeeta Raghav (UPPCS Rank 2 / SDM Kheragarh)",
+    presenter: "Smt. Sangeeta Raghav (SDM Kheragarh, Agra)",
+    location: "Kheragarh Tehsil Auditorium, Agra",
     badge: "Official Honor",
-    image: sdmCeremonyImg,
+    featured: true,
+    image: sdmCertificateImg,
+    ceremonyImage: sdmCloseImg,
+    images: [
+      { src: sdmCertificateImg, title: "Official Appreciation Certificate", caption: "Issued by Office of SDM Kheragarh, Agra on 10th June 2021." },
+      { src: sdmCloseImg, title: "Award Ceremony Photo with SDM Sangeeta Raghav", caption: "Om Tyagi receiving official certificate & tree sapling from SDM Sangeeta Raghav at Age 9." },
+      { src: sdmCeremonyImg, title: "Full Award Ceremony Moment", caption: "Standing with SDM Sangeeta Raghav holding tree sapling and official certificate." },
+      { src: newsJagranImg, title: "Agra Dehat Jagran Press Coverage", caption: "Headline: 'प्रकृति ने हमें बहुत दिया, हम भी अपना कर्तव्य निभाएं'." },
+      { src: newsHindustanImg, title: "Hindustan Samvad Press Coverage", caption: "Headline: 'पौधरोपण पर एसडीएम ने बच्चों को किया सम्मानित'." },
+      { src: newsKheragarhImg, title: "Kheragarh Press Clipping", caption: "Headline: 'वृक्षारोपण करने पर बच्चों को किया एसडीएम खेरागढ़ ने प्रोत्साहन'." }
+    ],
+    achievementsAtAge9: [
+      "🌿 Ek hi din mein 21+ paudhe lagakar gaon ke bacho ko prerit kiya.",
+      "🎯 10,000 paudhe lagane ka lakshya nirdharit kiya.",
+      "🎥 YouTube par 46+ environmental awareness videos banaye."
+    ],
+    description: "Honoured on World Environment Day for extraordinary tree plantation drive of 21+ trees in a single day, setting a 10,000 tree goal, and creating 46+ educational YouTube videos."
   },
   {
+    id: "snu-winter-school-2024",
     title: "Shiv Nadar University Winter School",
     year: 2024,
     org: "Young Thinkers Forum, SNU",
